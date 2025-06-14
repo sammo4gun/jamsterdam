@@ -3,16 +3,21 @@ extends CharacterBody2D
 @onready var animator: AnimatedSprite2D = $AnimatedSprite2D
 @onready var timer: Timer = $Timer
 
-@export var gravity = 9.8
-@export var speed = 1
+@export var gravity = 300
+@export var speed = 80
 var direction = 1
 var is_sad = false
+
+func _ready() -> void:
+	ponder_sadly()
 
 func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
-	elif not is_sad:
+	if not is_sad:
 		velocity.x = speed * direction
+		if not is_on_floor():
+			velocity.x/=2
 	move_and_slide()
 
 func _unhandled_input(event: InputEvent) -> void:

@@ -67,7 +67,6 @@ size = Vector2(59, 91.6875)
 
 [node name="Guy" type="CharacterBody2D"]
 script = ExtResource("1_tj2cq")
-speed = 200
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0.499999, 6.5)
