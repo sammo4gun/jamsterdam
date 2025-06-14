@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://btddiq1srh6u2"]
+
+[ext_resource type="Script" uid="uid://vp4ly8u07miy" path="res://Scripts/world.gd" id="1_5a7ea"]
+[ext_resource type="PackedScene" uid="uid://dpfjytluhwwx7" path="res://Scenes/moveable.tscn" id="1_f3sb7"]
+[ext_resource type="PackedScene" uid="uid://6pic503w7xpl" path="res://Scenes/ghost.tscn" id="2_go701"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_5a7ea")
+
+[node name="Moveable" parent="." instance=ExtResource("1_f3sb7")]
+position = Vector2(303, 531)
+
+[node name="Moveable2" parent="." instance=ExtResource("1_f3sb7")]
+position = Vector2(969, 363)
+
+[node name="Ghost" parent="." instance=ExtResource("2_go701")]
+position = Vector2(535, 269)

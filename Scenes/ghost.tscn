@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://6pic503w7xpl"]
+
+[ext_resource type="Texture2D" uid="uid://bfs6tjpci1vjl" path="res://Assets/ghost.png" id="1_3mxmt"]
+[ext_resource type="Script" uid="uid://bjkfewgrp47cm" path="res://Scripts/ghost.gd" id="1_e3r4w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3mxmt"]
+radius = 24.0208
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e3r4w"]
+
+[node name="Ghost" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_e3r4w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_3mxmt")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(-5, 1)
+scale = Vector2(0.398, 0.378)
+texture = ExtResource("1_3mxmt")
+
+[node name="Possession_zone" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Possession_zone"]
+shape = SubResource("CircleShape2D_e3r4w")
+
+[connection signal="body_entered" from="Possession_zone" to="." method="_on_possession_zone_body_entered"]

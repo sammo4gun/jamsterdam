@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cctthl1q1bekw"]
+
+[ext_resource type="Texture2D" uid="uid://dsi1uv8d5lug0" path="res://Assets/icon.svg" id="1_8h3iv"]
+[ext_resource type="Script" uid="uid://byxufi14rff50" path="res://Scripts/guy.gd" id="1_tj2cq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ihqf1"]
+size = Vector2(39, 121)
+
+[node name="Guy" type="CharacterBody2D"]
+script = ExtResource("1_tj2cq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ihqf1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.359998, 1)
+texture = ExtResource("1_8h3iv")

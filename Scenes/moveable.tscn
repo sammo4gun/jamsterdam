@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpfjytluhwwx7"]
+
+[ext_resource type="Script" uid="uid://2cg00vl8kyi8" path="res://Scenes/moveable.gd" id="1_h70h1"]
+[ext_resource type="Texture2D" uid="uid://dsi1uv8d5lug0" path="res://Assets/icon.svg" id="1_ikdxc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0w77i"]
+size = Vector2(621.5, 177)
+
+[node name="Moveable" type="CharacterBody2D"]
+collision_layer = 5
+collision_mask = 5
+input_pickable = true
+script = ExtResource("1_h70h1")
+
+[node name="Shape" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_0w77i")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(1, -1)
+scale = Vector2(4.86719, 1.39062)
+texture = ExtResource("1_ikdxc")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
