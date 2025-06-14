@@ -3,8 +3,10 @@ extends CharacterBody2D
 @export var FLY_SPEED = 10000;
 @export var ACCELERATION = 500;
 @export var SPEED = 100;
+
 @onready var sprite = $"GhostGirl"
 @onready var possessionzone = $"Possession_zone"
+@onready var aura = $"Whitecircle"
 var guy
 
 var target_pos: Vector2
@@ -12,10 +14,12 @@ var target_possess: Moveable = null;
 var going_to_scare = false;
 var possessing: Moveable = null
 var present = true
+var aura_level = 3.5
 
 func _ready() -> void:
 	target_pos = global_position
 	guy = get_parent().get_guy()
+	#aura.material.shader.Intensity
 	
 func _physics_process(delta: float) -> void:
 	if guy == null: guy = get_parent().get_guy()
@@ -37,6 +41,9 @@ func _physics_process(delta: float) -> void:
 			else:
 				sprite.position.x = 8
 				sprite.flip_h = 0
+		
+		var dist_from_guy = global_position.distance_to(guy.global_position)
+		modulate[3] = min(1, dist_from_guy/280)
 		move_and_slide()
 	else:
 		global_position = possessing.global_position

@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=4 uid="uid://xr273hyfg6kr"]
+[gd_scene load_steps=18 format=4 uid="uid://xr273hyfg6kr"]
 
 [ext_resource type="Script" uid="uid://vp4ly8u07miy" path="res://Scripts/world.gd" id="1_y4dr7"]
 [ext_resource type="PackedScene" uid="uid://cnfrxpljq8b8q" path="res://Scenes/nonmoveable.tscn" id="2_didp7"]
 [ext_resource type="Texture2D" uid="uid://povxtku8nxul" path="res://Assets/backgroundpotential.png" id="2_ir7pk"]
 [ext_resource type="PackedScene" uid="uid://dpfjytluhwwx7" path="res://Scenes/moveable.tscn" id="3_2a60c"]
+[ext_resource type="Texture2D" uid="uid://bo5u4ycq1ett" path="res://Assets/pillar.png" id="4_4f2fw"]
 [ext_resource type="PackedScene" uid="uid://6pic503w7xpl" path="res://Scenes/ghost.tscn" id="4_4iphx"]
 [ext_resource type="PackedScene" uid="uid://buqy7w73rwv13" path="res://Scenes/buildings_tile_map_layer.tscn" id="4_i36j2"]
 [ext_resource type="PackedScene" uid="uid://cctthl1q1bekw" path="res://Scenes/guy.tscn" id="5_jgkgd"]
@@ -211,13 +212,23 @@ position = Vector2(19.5137, 20.6852)
 scale = Vector2(2.29468, 1.46367)
 shape = SubResource("RectangleShape2D_5a7ea")
 
-[node name="Moveable" parent="." instance=ExtResource("3_2a60c")]
+[node name="Pillar1" parent="." instance=ExtResource("3_2a60c")]
 position = Vector2(728, 466)
 scale = Vector2(0.279999, 0.240001)
 
-[node name="Moveable2" parent="." instance=ExtResource("3_2a60c")]
-position = Vector2(1077, 676)
+[node name="Sprite" parent="Pillar1" index="2"]
+rotation = 1.5708
+scale = Vector2(2.01004, 2.22395)
+texture = ExtResource("4_4f2fw")
+
+[node name="Pillar2" parent="." instance=ExtResource("3_2a60c")]
+position = Vector2(1103, 674)
 scale = Vector2(0.199996, 0.280001)
+
+[node name="Sprite" parent="Pillar2" index="2"]
+rotation = -1.5708
+scale = Vector2(1.81117, 2.13949)
+texture = ExtResource("4_4f2fw")
 
 [node name="Leftbuilding" type="Node2D" parent="."]
 
@@ -296,3 +307,6 @@ stream = ExtResource("11_ilsv2")
 autoplay = true
 
 [connection signal="input_event" from="CanvasLayer/Background" to="." method="_on_background_input_event"]
+
+[editable path="Pillar1"]
+[editable path="Pillar2"]
