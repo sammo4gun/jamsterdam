@@ -16,8 +16,10 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 	if not is_sad:
 		velocity.x = speed * direction
-		if not is_on_floor():
-			velocity.x/=2
+	if is_sad and is_on_floor(): 
+		velocity.x = 0
+	if is_sad and not is_on_floor():
+		velocity.x = speed * direction / 3
 	move_and_slide()
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -28,12 +30,9 @@ func _on_side_collision_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Walls"):
 		ponder_sadly()
 		direction = -direction
-		print("Collided with wall!")
-		
 
 func ponder_sadly():
 	is_sad = true
-	velocity.x = 0
 	animator.play("Idle")
 	timer.start()
 

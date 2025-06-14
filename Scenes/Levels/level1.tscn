@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=3 uid="uid://xr273hyfg6kr"]
+
+[ext_resource type="Script" uid="uid://vp4ly8u07miy" path="res://Scripts/world.gd" id="1_y4dr7"]
+[ext_resource type="PackedScene" uid="uid://cnfrxpljq8b8q" path="res://Scenes/nonmoveable.tscn" id="2_didp7"]
+[ext_resource type="PackedScene" uid="uid://dpfjytluhwwx7" path="res://Scenes/moveable.tscn" id="3_2a60c"]
+[ext_resource type="PackedScene" uid="uid://6pic503w7xpl" path="res://Scenes/ghost.tscn" id="4_4iphx"]
+[ext_resource type="PackedScene" uid="uid://cctthl1q1bekw" path="res://Scenes/guy.tscn" id="5_jgkgd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5a7ea"]
+size = Vector2(20.9922, 30.5048)
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_y4dr7")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Background" type="Area2D" parent="CanvasLayer"]
+scale = Vector2(29.4962, 16.9264)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Background"]
+position = Vector2(19.5137, 20.6852)
+scale = Vector2(2.29468, 1.46367)
+shape = SubResource("RectangleShape2D_5a7ea")
+
+[node name="Building4" parent="." instance=ExtResource("2_didp7")]
+position = Vector2(-83, 254)
+scale = Vector2(1.44003, 3.2122)
+
+[node name="Building5" parent="." instance=ExtResource("2_didp7")]
+position = Vector2(1506, 274)
+scale = Vector2(1.43736, 3.20624)
+
+[node name="Building3" parent="." instance=ExtResource("2_didp7")]
+position = Vector2(1330, 860)
+scale = Vector2(1.5411, 1.86736)
+
+[node name="Building6" parent="." instance=ExtResource("2_didp7")]
+position = Vector2(1508, 701)
+scale = Vector2(1.5411, 1.86736)
+
+[node name="Building7" parent="." instance=ExtResource("2_didp7")]
+position = Vector2(1324, 575)
+scale = Vector2(1.5411, 0.667355)
+
+[node name="Building2" parent="." instance=ExtResource("2_didp7")]
+position = Vector2(776, 711)
+scale = Vector2(0.810038, 2.64006)
+
+[node name="Building1" parent="." instance=ExtResource("2_didp7")]
+position = Vector2(233, 718)
+scale = Vector2(1.43736, 3.20624)
+
+[node name="Moveable" parent="." instance=ExtResource("3_2a60c")]
+position = Vector2(740, 449)
+scale = Vector2(0.400001, 0.240001)
+
+[node name="Moveable2" parent="." instance=ExtResource("3_2a60c")]
+position = Vector2(1112, 662)
+scale = Vector2(0.240001, 0.240001)
+
+[node name="Ghost" parent="." instance=ExtResource("4_4iphx")]
+position = Vector2(610, 126)
+
+[node name="Guy" parent="." instance=ExtResource("5_jgkgd")]
+position = Vector2(231, 369)
+
+[connection signal="input_event" from="CanvasLayer/Background" to="." method="_on_background_input_event"]

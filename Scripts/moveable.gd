@@ -3,7 +3,7 @@ class_name Moveable extends CharacterBody2D
 @onready var world = get_parent()
 @onready var shape = $"Shape"
 
-@export var speed = 3000
+@export var speed = 2000
 @export var baseweight = 8
 @export var changeweight = 7
 

@@ -63,7 +63,7 @@ animations = [{
 size = Vector2(39, 112.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y8ag8"]
-size = Vector2(59, 91.6875)
+size = Vector2(59, 84.8438)
 
 [node name="Guy" type="CharacterBody2D"]
 script = ExtResource("1_tj2cq")
@@ -82,7 +82,7 @@ shape = SubResource("RectangleShape2D_ihqf1")
 [node name="SideCollision" type="Area2D" parent="."]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="SideCollision"]
-position = Vector2(0.5, -16.8438)
+position = Vector2(0, -13.5781)
 shape = SubResource("RectangleShape2D_y8ag8")
 
 [node name="Timer" type="Timer" parent="."]
