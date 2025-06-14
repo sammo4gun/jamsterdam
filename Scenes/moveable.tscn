@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dpfjytluhwwx7"]
+[gd_scene load_steps=10 format=3 uid="uid://dpfjytluhwwx7"]
 
 [ext_resource type="Script" uid="uid://2cg00vl8kyi8" path="res://Scripts/moveable.gd" id="1_h70h1"]
 [ext_resource type="Texture2D" uid="uid://dsi1uv8d5lug0" path="res://Assets/icon.svg" id="1_ikdxc"]
@@ -8,8 +8,19 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0w77i"]
 size = Vector2(621.5, 177)
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_byerq"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_byerq"]
+width = 1000
+height = 1000
+seamless = true
+noise = SubResource("FastNoiseLite_byerq")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4mhc5"]
 shader = ExtResource("2_byerq")
+shader_parameter/n = SubResource("NoiseTexture2D_byerq")
+shader_parameter/intensity = 1.9
+shader_parameter/speed = 0.2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_byerq"]
 size = Vector2(650, 214)
@@ -25,11 +36,11 @@ position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_0w77i")
 
 [node name="Whitecircle" type="Sprite2D" parent="."]
-visible = false
+modulate = Color(0.454902, 0.184314, 0.576471, 1)
 material = SubResource("ShaderMaterial_4mhc5")
-position = Vector2(-2, 4)
+position = Vector2(-4.87192, -1.74372)
 rotation = 3.14159
-scale = Vector2(2.99201, 1.35202)
+scale = Vector2(4, 1.735)
 texture = ExtResource("3_4mhc5")
 
 [node name="Sprite" type="Sprite2D" parent="."]
