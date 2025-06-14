@@ -12,10 +12,12 @@ extends CharacterBody2D
 
 var direction = 1
 var is_sad = false
+var first_ponder = true
 var scared_time = 1
 
 func _ready() -> void:
 	ponder_sadly()
+	animator.flip_h = false
 
 func _physics_process(delta):
 	if position.y > out_of_bounds_y:
@@ -44,6 +46,10 @@ func _on_timer_timeout() -> void:
 	is_sad = false
 	velocity.x = speed
 	animator.play("Walking")
+	if  first_ponder:
+		first_ponder = false
+		return
+	animator.flip_h = !animator.flip_h
 
 func die_and_reset():
 	# Prevent re-entering if already dying

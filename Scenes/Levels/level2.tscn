@@ -292,7 +292,7 @@ scale = Vector2(1.92427, 2.14126)
 texture = ExtResource("6_pyd1a")
 
 [node name="Jug1" parent="." instance=ExtResource("3_d15yg")]
-position = Vector2(290, 150)
+position = Vector2(345, 150)
 scale = Vector2(0.135354, 0.413178)
 
 [node name="Jug2" parent="." instance=ExtResource("3_d15yg")]

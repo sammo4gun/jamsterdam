@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Practice_new"
-run/main_scene="uid://0l48xhgwan8c"
+run/main_scene="uid://stre87ywwjqa"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://Assets/icon.svg"
 
