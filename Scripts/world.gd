@@ -1,6 +1,9 @@
 extends Node2D
 
 @onready var Ghost = $"Ghost"
+@onready var pause_menu = $PauseMenu
+
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	## Mouse in viewport coordinates.
