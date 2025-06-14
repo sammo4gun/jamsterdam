@@ -1,11 +1,13 @@
-[gd_scene load_steps=15 format=4 uid="uid://stre87ywwjqa"]
+[gd_scene load_steps=17 format=4 uid="uid://stre87ywwjqa"]
 
 [ext_resource type="Script" uid="uid://vp4ly8u07miy" path="res://Scripts/world.gd" id="1_5j5u1"]
+[ext_resource type="Texture2D" uid="uid://povxtku8nxul" path="res://Assets/backgroundpotential.png" id="2_bxvyr"]
 [ext_resource type="PackedScene" uid="uid://cnfrxpljq8b8q" path="res://Scenes/nonmoveable.tscn" id="2_tnuy3"]
 [ext_resource type="PackedScene" uid="uid://dpfjytluhwwx7" path="res://Scenes/moveable.tscn" id="3_d15yg"]
 [ext_resource type="Texture2D" uid="uid://du8yvhhd3cgnu" path="res://Assets/Tilesets/tiles.png" id="3_hrj3c"]
 [ext_resource type="PackedScene" uid="uid://6pic503w7xpl" path="res://Scenes/ghost.tscn" id="4_hrj3c"]
 [ext_resource type="PackedScene" uid="uid://cctthl1q1bekw" path="res://Scenes/guy.tscn" id="5_16px4"]
+[ext_resource type="Texture2D" uid="uid://bo5u4ycq1ett" path="res://Assets/pillar.png" id="6_pyd1a"]
 [ext_resource type="PackedScene" uid="uid://di2p66442rfuh" path="res://Scenes/pause_menu.tscn" id="6_tnuy3"]
 [ext_resource type="AudioStream" uid="uid://2dx48cp2rbag" path="res://Assets/SFX/background.wav" id="7_d15yg"]
 [ext_resource type="PackedScene" uid="uid://k2kwvg3avs8t" path="res://Scenes/rose.tscn" id="8_hrj3c"]
@@ -194,6 +196,12 @@ sources/0 = SubResource("TileSetAtlasSource_16px4")
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_5j5u1")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(620, 369)
+scale = Vector2(1.06827, 0.785489)
+texture = ExtResource("2_bxvyr")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Background" type="Area2D" parent="CanvasLayer"]
@@ -261,6 +269,7 @@ tile_map_data = PackedByteArray("AAAFAAUAAAAHAAMAAAAAAAUAAAAHAAMAABAEAAUAAAAGAAM
 tile_set = SubResource("TileSet_bxvyr")
 
 [node name="Fartower" type="Node2D" parent="."]
+position = Vector2(25, 0)
 
 [node name="Building7" parent="Fartower" instance=ExtResource("2_tnuy3")]
 position = Vector2(1026, 922)
@@ -274,8 +283,13 @@ tile_map_data = PackedByteArray("AAD8/wYAAAAHAAkAABD9/wYAAAADAAkAAAD8/wAAAAAHAAM
 tile_set = SubResource("TileSet_hrj3c")
 
 [node name="Pillar1" parent="." instance=ExtResource("3_d15yg")]
-position = Vector2(1039, 246)
-scale = Vector2(0.279218, 0.240001)
+position = Vector2(1045, 252)
+scale = Vector2(0.319218, 0.240001)
+
+[node name="Sprite" parent="Pillar1" index="2"]
+rotation = 1.56358
+scale = Vector2(1.92427, 2.14126)
+texture = ExtResource("6_pyd1a")
 
 [node name="Jug1" parent="." instance=ExtResource("3_d15yg")]
 position = Vector2(345, 150)
@@ -288,6 +302,11 @@ scale = Vector2(0.116345, 0.435152)
 [node name="Pillar2" parent="." instance=ExtResource("3_d15yg")]
 position = Vector2(337, 425)
 scale = Vector2(0.240001, 0.240001)
+
+[node name="Sprite" parent="Pillar2" index="2"]
+rotation = -1.5708
+scale = Vector2(1.7005, 2.22395)
+texture = ExtResource("6_pyd1a")
 
 [node name="Ghost" parent="." instance=ExtResource("4_hrj3c")]
 position = Vector2(400, 63)
@@ -306,3 +325,6 @@ stream = ExtResource("7_d15yg")
 autoplay = true
 
 [connection signal="input_event" from="CanvasLayer/Background" to="." method="_on_background_input_event"]
+
+[editable path="Pillar1"]
+[editable path="Pillar2"]
