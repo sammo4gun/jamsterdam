@@ -24,7 +24,6 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 	else:
 		global_position = possessing.global_position
-	#print(possessing)
 
 func set_target_pos(pos: Vector2):
 	print('yu')
@@ -32,7 +31,7 @@ func set_target_pos(pos: Vector2):
 		unpossess()
 	target_pos = pos
 
-func set_target_possess(body: CharacterBody2D):
+func set_target_possess(body: Moveable):
 	if possessing != null and body != possessing:
 		unpossess()
 		target_possess = body
@@ -41,7 +40,7 @@ func set_target_possess(body: CharacterBody2D):
 		target_possess = body
 		target_pos = body.global_position
 
-func possess(body: CharacterBody2D):
+func possess(body: Moveable):
 	possessing = body
 	target_possess = null
 	fade_away()
