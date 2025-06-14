@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0w77i"]
 size = Vector2(621.5, 177)
 
-[node name="Moveable" type="CharacterBody2D"]
+[node name="Moveable" type="CharacterBody2D" groups=["Walls"]]
 collision_layer = 5
 collision_mask = 5
 input_pickable = true

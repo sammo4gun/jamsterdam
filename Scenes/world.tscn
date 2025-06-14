@@ -1,21 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://gluhmegqovu6"]
+[gd_scene load_steps=5 format=3 uid="uid://btddiq1srh6u2"]
 
+[ext_resource type="Script" uid="uid://vp4ly8u07miy" path="res://Scripts/world.gd" id="1_5a7ea"]
 [ext_resource type="PackedScene" uid="uid://dpfjytluhwwx7" path="res://Scenes/moveable.tscn" id="1_f3sb7"]
 [ext_resource type="PackedScene" uid="uid://cctthl1q1bekw" path="res://Scenes/guy.tscn" id="2_fj7yv"]
+[ext_resource type="PackedScene" uid="uid://6pic503w7xpl" path="res://Scenes/ghost.tscn" id="2_go701"]
 
 [node name="World" type="Node2D"]
+script = ExtResource("1_5a7ea")
 
 [node name="Floor" parent="." instance=ExtResource("1_f3sb7")]
-position = Vector2(262, 395)
+position = Vector2(508, 551)
 
 [node name="Guy" parent="." instance=ExtResource("2_fj7yv")]
 position = Vector2(485, 169)
 gravity = 500.0
 
 [node name="Moveable" parent="." instance=ExtResource("1_f3sb7")]
-position = Vector2(256, -319)
+position = Vector2(175, 285)
 rotation = 1.57175
 
 [node name="Moveable2" parent="." instance=ExtResource("1_f3sb7")]
-position = Vector2(947, -318)
+position = Vector2(889, 313)
 rotation = 1.57175
+
+[node name="Ghost" parent="." instance=ExtResource("2_go701")]
+position = Vector2(610, 126)
