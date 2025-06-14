@@ -145,7 +145,7 @@ layout_mode = 2
 theme_override_constants/separation = 30
 
 [node name="Title" type="Label" parent="SettingsMenu/VBoxContainer"]
-custom_minimum_size = Vector2(0, 100)
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_ce3w2")
 theme_override_font_sizes/font_size = 60
@@ -162,10 +162,11 @@ theme_override_constants/separation = 30
 [node name="Label" type="Label" parent="SettingsMenu/VBoxContainer/MasterVolumeContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_ce3w2")
+theme_override_font_sizes/font_size = 24
 text = "Master Volume"
 
 [node name="HSlider" type="HSlider" parent="SettingsMenu/VBoxContainer/MasterVolumeContainer"]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(200, 24)
 layout_mode = 2
 max_value = 1.0
 step = 0.001
@@ -182,10 +183,11 @@ theme_override_constants/separation = 30
 [node name="Label" type="Label" parent="SettingsMenu/VBoxContainer/SFXVolumeContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_ce3w2")
+theme_override_font_sizes/font_size = 24
 text = "SFX Volume"
 
 [node name="HSlider" type="HSlider" parent="SettingsMenu/VBoxContainer/SFXVolumeContainer"]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(200, 24)
 layout_mode = 2
 max_value = 1.0
 step = 0.001
@@ -202,10 +204,11 @@ theme_override_constants/separation = 30
 [node name="Label" type="Label" parent="SettingsMenu/VBoxContainer/MusicVolumeContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_ce3w2")
+theme_override_font_sizes/font_size = 24
 text = "Music Volume"
 
 [node name="HSlider" type="HSlider" parent="SettingsMenu/VBoxContainer/MusicVolumeContainer"]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(200, 24)
 layout_mode = 2
 max_value = 1.0
 step = 0.001
