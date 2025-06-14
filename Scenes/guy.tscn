@@ -1,8 +1,16 @@
-[gd_scene load_steps=12 format=3 uid="uid://cctthl1q1bekw"]
+[gd_scene load_steps=14 format=3 uid="uid://cctthl1q1bekw"]
 
 [ext_resource type="Script" uid="uid://byxufi14rff50" path="res://Scripts/guy.gd" id="1_tj2cq"]
 [ext_resource type="Texture2D" uid="uid://b72atp81ca7vm" path="res://Assets/Spritesheets/lilorph-1.png" id="3_y2mbu"]
 [ext_resource type="AudioStream" uid="uid://c7xem236jtcc" path="res://Assets/SFX/death.mp3" id="4_y2mbu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5xhn"]
+atlas = ExtResource("3_y2mbu")
+region = Rect2(100, 0, 50, 101)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2mbu"]
+atlas = ExtResource("3_y2mbu")
+region = Rect2(100, 101, 50, 101)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bh7l2"]
 atlas = ExtResource("3_y2mbu")
@@ -22,7 +30,13 @@ region = Rect2(100, 101, 50, 101)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5adle"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s5xhn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y2mbu")
+}],
 "loop": true,
 "name": &"Idle",
 "speed": 5.0
