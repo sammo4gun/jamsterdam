@@ -20,6 +20,7 @@ shape = SubResource("CircleShape2D_3mxmt")
 position = Vector2(-5, 1)
 scale = Vector2(0.398, 0.378)
 texture = ExtResource("1_3mxmt")
+flip_h = true
 
 [node name="Possession_zone" type="Area2D" parent="."]
 collision_layer = 4
