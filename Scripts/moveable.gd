@@ -3,6 +3,7 @@ class_name Moveable extends CharacterBody2D
 @onready var world = get_parent()
 @onready var shape = $"Shape"
 @onready var guy = null
+@onready var guyfinder = $"GuyFinder"
 
 @export var speed = 2000
 @export var baseweight = 8
@@ -22,20 +23,18 @@ func get_input(delta):
 		target_velocity = target_velocity / 4
 	velocity = velocity.move_toward(target_velocity, 1000 * delta)
 	if connected_guy and velocity.y < 0:
-			guy.velocity.y = velocity.y/2
-
+		guy.get_parent().velocity.y = velocity.y
+	
 
 func _physics_process(delta):
 	if possessed:
-		print(connected_guy)
-		if get_slide_collision_count() == 0:
+		if len(guyfinder.get_overlapping_areas()) == 0:
 			connected_guy = false
 			guy = null
-		for i in get_slide_collision_count():
-			var collision = get_slide_collision(i).get_collider()
-			if collision.is_in_group('Guy'):
+		for b in guyfinder.get_overlapping_areas():
+			if b.is_in_group("Guy"):
 				connected_guy = true
-				guy = collision
+				guy = b
 				break
 			connected_guy = false
 			guy = null

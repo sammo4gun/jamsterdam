@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cctthl1q1bekw"]
+[gd_scene load_steps=15 format=3 uid="uid://cctthl1q1bekw"]
 
 [ext_resource type="Script" uid="uid://byxufi14rff50" path="res://Scripts/guy.gd" id="1_tj2cq"]
 [ext_resource type="Texture2D" uid="uid://dvt2l7wffmsdl" path="res://Assets/Spritesheets/stickman idle spritesheet.png" id="2_s5xhn"]
@@ -66,6 +66,9 @@ size = Vector2(39, 112.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y8ag8"]
 size = Vector2(59, 84.8438)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y2mbu"]
+size = Vector2(6.92721, 2.05647)
+
 [node name="Guy" type="CharacterBody2D" groups=["Guy"]]
 script = ExtResource("1_tj2cq")
 
@@ -102,6 +105,14 @@ one_shot = true
 [node name="DeathSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_y2mbu")
 volume_db = -5.0
+
+[node name="Feet" type="Area2D" parent="." groups=["Guy"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Feet"]
+position = Vector2(-7.7486e-07, 51.7449)
+rotation = 3.14159
+scale = Vector2(5.48561, -1.22068)
+shape = SubResource("RectangleShape2D_y2mbu")
 
 [connection signal="body_entered" from="RightSideCollision" to="." method="_on_right_side_collision_body_entered"]
 [connection signal="body_entered" from="LeftSideCollision" to="." method="_on_left_side_collision_body_entered"]
