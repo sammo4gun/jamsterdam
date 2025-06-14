@@ -2,11 +2,15 @@ extends CharacterBody2D
 
 @export var FLY_SPEED = 1000;
 @onready var sprite = $"Sprite"
+@onready var possessionzone = $"Possession_zone"
 
 var target_pos: Vector2
 var target_possess: Moveable = null;
 var possessing: Moveable = null
 var present = true
+
+func _ready() -> void:
+	target_pos = global_position
 
 func _physics_process(delta: float) -> void:
 	if present:
@@ -15,7 +19,6 @@ func _physics_process(delta: float) -> void:
 			velocity = Vector2.ZERO
 		else:
 			var dir = global_position.direction_to(target_pos).normalized()
-			
 			velocity = dir * FLY_SPEED
 			if velocity.x > 0:
 				sprite.flip_h = 0
@@ -26,7 +29,6 @@ func _physics_process(delta: float) -> void:
 		global_position = possessing.global_position
 
 func set_target_pos(pos: Vector2):
-	print('yu')
 	if possessing != null:
 		unpossess()
 	target_pos = pos
@@ -39,6 +41,10 @@ func set_target_possess(body: Moveable):
 	elif possessing == null:
 		target_possess = body
 		target_pos = body.global_position
+	
+	for b in possessionzone.get_overlapping_bodies():
+		if target_possess == b:
+			possess(b)
 
 func possess(body: Moveable):
 	possessing = body

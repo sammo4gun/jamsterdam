@@ -8,7 +8,7 @@ func _ready():
 	resume_button.pressed.connect(_on_resume_pressed)
 
 func _input(event):
-	if event.is_action_pressed("esc"):
+	if event.is_action_pressed("ui_cancel"):
 		toggle_pause_menu()
 
 func toggle_pause_menu():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://d34q2w52210gr"]
+[gd_scene load_steps=6 format=3 uid="uid://di2p66442rfuh"]
 
 [ext_resource type="Script" uid="uid://4n6ha25b4b2d" path="res://Scripts/pause_menu.gd" id="1_emv3i"]
 [ext_resource type="FontFile" uid="uid://datde377oev7l" path="res://Assets/Fonts/Peaberry/PeaberryBase.ttf" id="2_k0w1u"]

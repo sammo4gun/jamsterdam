@@ -1,7 +1,16 @@
-[gd_scene load_steps=10 format=3 uid="uid://cctthl1q1bekw"]
+[gd_scene load_steps=13 format=3 uid="uid://cctthl1q1bekw"]
 
 [ext_resource type="Script" uid="uid://byxufi14rff50" path="res://Scripts/guy.gd" id="1_tj2cq"]
+[ext_resource type="Texture2D" uid="uid://dvt2l7wffmsdl" path="res://Assets/Spritesheets/stickman idle spritesheet.png" id="2_s5xhn"]
 [ext_resource type="Texture2D" uid="uid://68b34rkx5tmh" path="res://Assets/Spritesheets/stickman spritesheet.png" id="2_y8ag8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5adle"]
+atlas = ExtResource("2_s5xhn")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y13ms"]
+atlas = ExtResource("2_s5xhn")
+region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s5xhn"]
 atlas = ExtResource("2_y8ag8")
@@ -23,6 +32,17 @@ region = Rect2(16, 16, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_5adle")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y13ms")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_s5xhn")
 }, {
 "duration": 1.0,
@@ -35,15 +55,15 @@ animations = [{
 "texture": SubResource("AtlasTexture_7b8b7")
 }],
 "loop": true,
-"name": &"default",
+"name": &"Walking",
 "speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ihqf1"]
-size = Vector2(39, 121)
+size = Vector2(39, 112.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y8ag8"]
-size = Vector2(59, 91.6875)
+size = Vector2(59, 84.8438)
 
 [node name="Guy" type="CharacterBody2D"]
 script = ExtResource("1_tj2cq")
@@ -52,16 +72,21 @@ script = ExtResource("1_tj2cq")
 position = Vector2(0.499999, 6.5)
 scale = Vector2(2.8125, 9.3125)
 sprite_frames = SubResource("SpriteFrames_5adle")
-autoplay = "default"
-frame_progress = 0.0505056
+animation = &"Walking"
+autoplay = "Walking"
 
 [node name="BodyCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4.25)
 shape = SubResource("RectangleShape2D_ihqf1")
 
 [node name="SideCollision" type="Area2D" parent="."]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="SideCollision"]
-position = Vector2(0.5, -16.8438)
+position = Vector2(0, -13.5781)
 shape = SubResource("RectangleShape2D_y8ag8")
 
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="body_entered" from="SideCollision" to="." method="_on_side_collision_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
