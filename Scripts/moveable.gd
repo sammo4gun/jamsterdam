@@ -18,14 +18,16 @@ func _ready() -> void:
 func get_input(delta):
 	var input_direction = Input.get_vector("left", "right", "up", "down")
 	var target_velocity = input_direction * speed / weight
-	velocity = velocity.move_toward(target_velocity, 1000 * delta)
 	if connected_guy:
-		velocity = velocity / 4
-		if velocity.y < 0:
+		target_velocity = target_velocity / 4
+	velocity = velocity.move_toward(target_velocity, 1000 * delta)
+	if connected_guy and velocity.y < 0:
 			guy.velocity.y = velocity.y/2
+
 
 func _physics_process(delta):
 	if possessed:
+		print(connected_guy)
 		if get_slide_collision_count() == 0:
 			connected_guy = false
 			guy = null

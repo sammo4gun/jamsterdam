@@ -1,13 +1,13 @@
-[gd_scene load_steps=15 format=4 uid="uid://xr273hyfg6kr"]
+[gd_scene load_steps=16 format=4 uid="uid://xr273hyfg6kr"]
 
 [ext_resource type="Script" uid="uid://vp4ly8u07miy" path="res://Scripts/world.gd" id="1_y4dr7"]
 [ext_resource type="PackedScene" uid="uid://cnfrxpljq8b8q" path="res://Scenes/nonmoveable.tscn" id="2_didp7"]
 [ext_resource type="Texture2D" uid="uid://bxal7o0n5sc1l" path="res://Assets/Images/backgroundec1.png" id="2_hkfpk"]
 [ext_resource type="PackedScene" uid="uid://dpfjytluhwwx7" path="res://Scenes/moveable.tscn" id="3_2a60c"]
 [ext_resource type="PackedScene" uid="uid://6pic503w7xpl" path="res://Scenes/ghost.tscn" id="4_4iphx"]
-[ext_resource type="PackedScene" path="res://Scenes/rose.tscn" id="4_i36j2"]
 [ext_resource type="PackedScene" uid="uid://buqy7w73rwv13" path="res://Scenes/buildings_tile_map_layer.tscn" id="4_i36j2"]
 [ext_resource type="PackedScene" uid="uid://cctthl1q1bekw" path="res://Scenes/guy.tscn" id="5_jgkgd"]
+[ext_resource type="PackedScene" uid="uid://k2kwvg3avs8t" path="res://Scenes/rose.tscn" id="6_ir7pk"]
 [ext_resource type="Texture2D" uid="uid://du8yvhhd3cgnu" path="res://Assets/Tilesets/tiles.png" id="6_m0h5h"]
 [ext_resource type="PackedScene" uid="uid://di2p66442rfuh" path="res://Scenes/pause_menu.tscn" id="7_20uw2"]
 
@@ -271,16 +271,16 @@ position = Vector2(-24.9677, -1.59359)
 scale = Vector2(0.994728, 0.995996)
 tile_map_data = PackedByteArray("AAARAAkAAAAHAAMAABARAAoAAAAHAAgAABARAAsAAAAHAAgAABARAAwAAAAHAAgAABAQAAcAAAAHAAMAABARAAcAAAAGAAMAAAASAAcAAAAGAAMAAAATAAcAAAAEAAMAAAASAAkAAAAGAAMAAAATAAgAAAAGAAMAAFATAAkAAAAGAAMAAFASAAoAAAAEAAEAAAATAAoAAAAEAAEAAAAUAAoAAAAEAAEAAAATAAYAAAAHAAgAABATAAUAAAAHAAgAABATAAQAAAAHAAgAABATAAMAAAAHAAgAABATAAIAAAAHAAgAABATAAEAAAAHAAgAABATAAAAAAAHAAgAABASAAsAAAAEAAEAAAASAAwAAAAEAAEAAAATAAwAAAAEAAEAAAAUAAwAAAAEAAEAAAAVAAwAAAAEAAEAAAAWAAwAAAAEAAEAAAAWAAsAAAAEAAEAAAAVAAsAAAAEAAEAAAAUAAsAAAAEAAEAAAATAAsAAAAEAAEAAAAVAAoAAAAEAAEAAAAWAAoAAAAEAAEAAAAXAAoAAAAEAAEAAAAYAAoAAAAEAAEAAAAYAAkAAAAEAAEAAAAXAAkAAAAEAAEAAAAXAAgAAAAEAAEAAAAXAAcAAAAEAAEAAAAYAAcAAAAEAAEAAAAYAAgAAAAEAAEAAAAWAAgAAAAEAAEAAAAWAAkAAAAEAAEAAAAVAAkAAAAEAAEAAAAUAAkAAAAEAAEAAAAUAAgAAAAEAAEAAAAUAAcAAAAEAAEAAAAVAAcAAAAEAAEAAAAWAAcAAAAEAAEAAAAVAAgAAAAEAAEAAAAUAAYAAAAEAAEAAAAVAAYAAAAEAAEAAAAWAAYAAAAEAAEAAAAXAAYAAAAEAAEAAAAYAAYAAAAEAAEAAAAYAAUAAAAEAAEAAAAXAAUAAAAEAAEAAAAXAAQAAAAEAAEAAAAXAAMAAAAEAAEAAAAXAAIAAAAEAAEAAAAXAAEAAAAEAAEAAAAXAAAAAAAEAAEAAAAWAAAAAAAEAAEAAAAVAAAAAAAEAAEAAAAUAAAAAAAEAAEAAAAUAAEAAAAEAAEAAAAUAAIAAAAEAAEAAAAUAAMAAAAEAAEAAAAUAAQAAAAEAAEAAAAUAAUAAAAEAAEAAAAVAAUAAAAEAAEAAAAWAAUAAAAEAAEAAAAWAAQAAAAEAAEAAAAWAAMAAAAEAAEAAAAWAAIAAAAEAAEAAAAVAAIAAAAEAAEAAAAVAAEAAAAEAAEAAAAVAAMAAAAEAAEAAAAVAAQAAAAEAAEAAAAWAAEAAAAEAAEAAAAYAAAAAAAEAAEAAAAYAAEAAAAEAAEAAAAYAAIAAAAEAAEAAAAYAAMAAAAEAAEAAAAYAAQAAAAEAAEAAAAbAAUAAAAEAAEAAAAbAAQAAAAEAAEAAAAaAAQAAAAEAAEAAAAZAAQAAAAEAAEAAAAZAAMAAAAEAAEAAAA=")
 
-[node name="Rose" parent="." instance=ExtResource("4_i36j2")]
-position = Vector2(1246, 484)
+[node name="Rose2" parent="." instance=ExtResource("6_ir7pk")]
+position = Vector2(1231, 511)
 
 [node name="Moveable" parent="." instance=ExtResource("3_2a60c")]
-position = Vector2(740, 449)
-scale = Vector2(0.400001, 0.240001)
+position = Vector2(728, 466)
+scale = Vector2(0.279999, 0.240001)
 
 [node name="Moveable2" parent="." instance=ExtResource("3_2a60c")]
-position = Vector2(1146, 667)
-scale = Vector2(0.360001, 0.280001)
+position = Vector2(1077, 676)
+scale = Vector2(0.199996, 0.280001)
 
 [node name="Ghost" parent="." instance=ExtResource("4_4iphx")]
 position = Vector2(610, 126)
