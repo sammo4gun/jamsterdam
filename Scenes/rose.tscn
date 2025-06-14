@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://k2kwvg3avs8t"]
 
-[ext_resource type="Script" path="res://Scripts/rose.gd" id="1_o2c0a"]
+[ext_resource type="Script" uid="uid://8jikytf8eyjt" path="res://Scripts/rose.gd" id="1_o2c0a"]
 [ext_resource type="Texture2D" uid="uid://csr56pl0qlxrp" path="res://Assets/Images/rose.png" id="2_v1vrc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v1vrc"]
