@@ -15,15 +15,16 @@ var connected_guy = false
 func _ready() -> void:
 	weight = baseweight + (scale.x * scale.y) * changeweight
 
-func get_input():
+func get_input(delta):
 	var input_direction = Input.get_vector("left", "right", "up", "down")
-	velocity = input_direction * speed / weight
+	var target_velocity = input_direction * speed / weight
+	velocity = velocity.move_toward(target_velocity, 1000 * delta)
 	if connected_guy:
 		velocity = velocity / 4
 		if velocity.y < 0:
 			guy.velocity.y = velocity.y/2
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	if possessed:
 		if get_slide_collision_count() == 0:
 			connected_guy = false
@@ -36,7 +37,7 @@ func _physics_process(_delta):
 				break
 			connected_guy = false
 			guy = null
-		get_input()
+		get_input(delta)
 		move_and_slide()
 
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
@@ -44,7 +45,8 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 	if event is InputEventMouseButton and event.pressed:
 		world.attempt_possession(self)
 
-func become_possessed():
+func become_possessed(vel: Vector2):
+	velocity = vel
 	possessed = true
 
 func become_unpossessed():

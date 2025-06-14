@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dpfjytluhwwx7" path="res://Scenes/moveable.tscn" id="3_d15yg"]
 [ext_resource type="PackedScene" uid="uid://6pic503w7xpl" path="res://Scenes/ghost.tscn" id="4_hrj3c"]
 [ext_resource type="PackedScene" uid="uid://cctthl1q1bekw" path="res://Scenes/guy.tscn" id="5_16px4"]
-[ext_resource type="PackedScene" path="res://Scenes/pause_menu.tscn" id="6_tnuy3"]
+[ext_resource type="PackedScene" uid="uid://di2p66442rfuh" path="res://Scenes/pause_menu.tscn" id="6_tnuy3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5a7ea"]
 size = Vector2(20.9922, 30.5048)
@@ -23,33 +23,46 @@ position = Vector2(19.5137, 20.6852)
 scale = Vector2(2.29468, 1.46367)
 shape = SubResource("RectangleShape2D_5a7ea")
 
-[node name="Building4" parent="." instance=ExtResource("2_tnuy3")]
+[node name="Behindbuilding" type="Node2D" parent="."]
+
+[node name="Building4" parent="Behindbuilding" instance=ExtResource("2_tnuy3")]
 position = Vector2(-185, 254)
 scale = Vector2(1.44003, 3.2122)
 
-[node name="Building7" parent="." instance=ExtResource("2_tnuy3")]
-position = Vector2(1046, 922)
-scale = Vector2(0.588921, 7.2548)
+[node name="Middlebuilding" type="Node2D" parent="."]
 
-[node name="Building2" parent="." instance=ExtResource("2_tnuy3")]
+[node name="Building2" parent="Middlebuilding" instance=ExtResource("2_tnuy3")]
 position = Vector2(658, 848)
 scale = Vector2(0.810038, 2.64006)
 
-[node name="Building8" parent="." instance=ExtResource("2_tnuy3")]
+[node name="Building8" parent="Middlebuilding" instance=ExtResource("2_tnuy3")]
 position = Vector2(658, 305)
 scale = Vector2(0.810038, 1.28006)
 
-[node name="Building1" parent="." instance=ExtResource("2_tnuy3")]
+[node name="Building9" parent="Middlebuilding" instance=ExtResource("2_tnuy3")]
+position = Vector2(557, 644)
+scale = Vector2(0.170038, 1.72006)
+
+[node name="Firstbuilding" type="Node2D" parent="."]
+position = Vector2(1.90735e-06, 0)
+
+[node name="Building1" parent="Firstbuilding" instance=ExtResource("2_tnuy3")]
 position = Vector2(113, 293)
 scale = Vector2(1.49662, 1.15081)
 
-[node name="Building5" parent="." instance=ExtResource("2_tnuy3")]
+[node name="Building5" parent="Firstbuilding" instance=ExtResource("2_tnuy3")]
 position = Vector2(22, 422)
 scale = Vector2(1.49662, 1.15081)
 
-[node name="Building3" parent="." instance=ExtResource("2_tnuy3")]
+[node name="Building3" parent="Firstbuilding" instance=ExtResource("2_tnuy3")]
 position = Vector2(113, 642)
 scale = Vector2(1.49662, 2.0708)
+
+[node name="Fartower" type="Node2D" parent="."]
+
+[node name="Building7" parent="Fartower" instance=ExtResource("2_tnuy3")]
+position = Vector2(1046, 922)
+scale = Vector2(0.588921, 7.2548)
 
 [node name="Moveable" parent="." instance=ExtResource("3_d15yg")]
 position = Vector2(1039, 246)
