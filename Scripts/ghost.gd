@@ -19,10 +19,11 @@ var aura_level = 3.5
 func _ready() -> void:
 	target_pos = global_position
 	guy = get_parent().get_guy()
-	#aura.material.shader.Intensity
+	aura.material.shader
 	
 func _physics_process(delta: float) -> void:
-	if guy == null: guy = get_parent().get_guy()
+	if guy == null:
+		guy = get_parent().get_guy()
 	if present:
 		if going_to_scare:
 			target_pos = guy.global_position
@@ -41,7 +42,6 @@ func _physics_process(delta: float) -> void:
 			else:
 				sprite.position.x = 8
 				sprite.flip_h = 0
-		
 		var dist_from_guy = global_position.distance_to(guy.global_position)
 		modulate[3] = min(1, dist_from_guy/280)
 		move_and_slide()
