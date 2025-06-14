@@ -91,7 +91,6 @@ one_shot = true
 [node name="DeathSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_y2mbu")
 volume_db = -5.0
-bus = &"SFX"
 
 [node name="Feet" type="Area2D" parent="." groups=["Guy"]]
 

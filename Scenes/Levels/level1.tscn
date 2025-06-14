@@ -294,6 +294,5 @@ visible = false
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_ilsv2")
 autoplay = true
-bus = &"Music"
 
 [connection signal="input_event" from="CanvasLayer/Background" to="." method="_on_background_input_event"]

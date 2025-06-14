@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://6pic503w7xpl"]
+[gd_scene load_steps=16 format=3 uid="uid://6pic503w7xpl"]
 
 [ext_resource type="Texture2D" uid="uid://bfs6tjpci1vjl" path="res://Assets/ghost.png" id="1_3mxmt"]
 [ext_resource type="Script" uid="uid://bjkfewgrp47cm" path="res://Scripts/ghost.gd" id="1_e3r4w"]
 [ext_resource type="Shader" uid="uid://e5m7qxxajq88" path="res://Scenes/moveable.gdshader" id="3_3btnm"]
 [ext_resource type="Texture2D" uid="uid://bxnrpcs0m7syi" path="res://Assets/Shaders/whitecircle.png" id="4_taxxh"]
+[ext_resource type="Texture2D" uid="uid://bod1toiwijy0x" path="res://Assets/Spritesheets/ghostgirl-idle.png" id="4_thbej"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3mxmt"]
 radius = 24.0208
@@ -19,12 +20,50 @@ noise = SubResource("FastNoiseLite_thbej")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uta0k"]
 shader = ExtResource("3_3btnm")
 shader_parameter/n = SubResource("NoiseTexture2D_byerq")
-shader_parameter/intensity = 1.9
+shader_parameter/intensity = 3.5
 shader_parameter/speed = 0.2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uta0k"]
+atlas = ExtResource("4_thbej")
+region = Rect2(0, 0, 125, 125)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st3at"]
+atlas = ExtResource("4_thbej")
+region = Rect2(0, 125, 125, 125)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7hbae"]
+atlas = ExtResource("4_thbej")
+region = Rect2(125, 125, 125, 125)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xoekh"]
+atlas = ExtResource("4_thbej")
+region = Rect2(125, 0, 125, 125)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vdkt2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uta0k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_st3at")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7hbae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xoekh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e3r4w"]
 
 [node name="Ghost" type="CharacterBody2D"]
+modulate = Color(1, 1, 1, 0.827451)
+scale = Vector2(1.21049, 1.21049)
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_e3r4w")
@@ -33,14 +72,21 @@ script = ExtResource("1_e3r4w")
 shape = SubResource("CircleShape2D_3mxmt")
 
 [node name="Whitecircle" type="Sprite2D" parent="."]
-modulate = Color(0.454902, 0.184314, 0.576471, 1)
+modulate = Color(0.509804, 0.803922, 0.882353, 1)
 material = SubResource("ShaderMaterial_uta0k")
-position = Vector2(-4.87192, -1.74372)
+position = Vector2(-5, -26)
 rotation = 3.14159
-scale = Vector2(0.751581, 0.727624)
+scale = Vector2(0.431583, 0.327625)
 texture = ExtResource("4_taxxh")
 
+[node name="GhostGirl" type="AnimatedSprite2D" parent="."]
+position = Vector2(8, -11)
+scale = Vector2(0.78352, 0.78352)
+sprite_frames = SubResource("SpriteFrames_vdkt2")
+autoplay = "default"
+
 [node name="Sprite" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-5, 1)
 scale = Vector2(0.398, 0.378)
 texture = ExtResource("1_3mxmt")

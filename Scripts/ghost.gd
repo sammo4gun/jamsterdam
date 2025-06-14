@@ -2,7 +2,8 @@ extends CharacterBody2D
 
 @export var FLY_SPEED = 10000;
 @export var ACCELERATION = 500;
-@onready var sprite = $"Sprite"
+@export var SPEED = 100;
+@onready var sprite = $"GhostGirl"
 @onready var possessionzone = $"Possession_zone"
 var guy
 
@@ -15,7 +16,7 @@ var present = true
 func _ready() -> void:
 	target_pos = global_position
 	guy = get_parent().get_guy()
-
+	
 func _physics_process(delta: float) -> void:
 	if guy == null: guy = get_parent().get_guy()
 	if present:
@@ -31,9 +32,11 @@ func _physics_process(delta: float) -> void:
 			var dir = global_position.direction_to(target_pos).normalized()
 			velocity = velocity.move_toward(dir * FLY_SPEED, ACCELERATION * delta)
 			if velocity.x > 0:
-				sprite.flip_h = 0
-			else:
+				sprite.position.x = -18
 				sprite.flip_h = 1
+			else:
+				sprite.position.x = 8
+				sprite.flip_h = 0
 		move_and_slide()
 	else:
 		global_position = possessing.global_position
