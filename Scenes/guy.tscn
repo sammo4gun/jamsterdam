@@ -1,17 +1,67 @@
-[gd_scene load_steps=4 format=3 uid="uid://cctthl1q1bekw"]
+[gd_scene load_steps=10 format=3 uid="uid://cctthl1q1bekw"]
 
-[ext_resource type="Texture2D" uid="uid://dsi1uv8d5lug0" path="res://Assets/icon.svg" id="1_8h3iv"]
 [ext_resource type="Script" uid="uid://byxufi14rff50" path="res://Scripts/guy.gd" id="1_tj2cq"]
+[ext_resource type="Texture2D" uid="uid://68b34rkx5tmh" path="res://Assets/Spritesheets/stickman spritesheet.png" id="2_y8ag8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5xhn"]
+atlas = ExtResource("2_y8ag8")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2mbu"]
+atlas = ExtResource("2_y8ag8")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bh7l2"]
+atlas = ExtResource("2_y8ag8")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7b8b7"]
+atlas = ExtResource("2_y8ag8")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5adle"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s5xhn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y2mbu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bh7l2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7b8b7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ihqf1"]
 size = Vector2(39, 121)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y8ag8"]
+size = Vector2(59, 91.6875)
+
 [node name="Guy" type="CharacterBody2D"]
 script = ExtResource("1_tj2cq")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.499999, 6.5)
+scale = Vector2(2.8125, 9.3125)
+sprite_frames = SubResource("SpriteFrames_5adle")
+autoplay = "default"
+frame_progress = 0.0505056
+
+[node name="BodyCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ihqf1")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.359998, 1)
-texture = ExtResource("1_8h3iv")
+[node name="SideCollision" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="SideCollision"]
+position = Vector2(0.5, -16.8438)
+shape = SubResource("RectangleShape2D_y8ag8")
+
+[connection signal="body_entered" from="SideCollision" to="." method="_on_side_collision_body_entered"]
