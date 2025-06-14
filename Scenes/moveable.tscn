@@ -1,16 +1,16 @@
 [gd_scene load_steps=3 format=3 uid="uid://dpfjytluhwwx7"]
 
-[ext_resource type="Texture2D" uid="uid://dsi1uv8d5lug0" path="res://icon.svg" id="1_ikdxc"]
+[ext_resource type="Texture2D" uid="uid://dsi1uv8d5lug0" path="res://Assets/icon.svg" id="1_ikdxc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0w77i"]
-size = Vector2(225.5, 46)
+size = Vector2(225.5, 50.5512)
 
-[node name="Moveable" type="StaticBody2D"]
+[node name="Moveable" type="StaticBody2D" groups=["Walls"]]
 position = Vector2(-266, -55)
 scale = Vector2(3.63056, 2.98707)
 
 [node name="Shape" type="CollisionShape2D" parent="."]
-position = Vector2(78.25, 17)
+position = Vector2(78.25, 17.9105)
 shape = SubResource("RectangleShape2D_0w77i")
 
 [node name="Sprite" type="Sprite2D" parent="."]

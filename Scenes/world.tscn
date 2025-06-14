@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://gluhmegqovu6"]
+
+[ext_resource type="PackedScene" uid="uid://dpfjytluhwwx7" path="res://Scenes/moveable.tscn" id="1_f3sb7"]
+[ext_resource type="PackedScene" uid="uid://cctthl1q1bekw" path="res://Scenes/guy.tscn" id="2_fj7yv"]
+
+[node name="World" type="Node2D"]
+
+[node name="Floor" parent="." instance=ExtResource("1_f3sb7")]
+position = Vector2(262, 395)
+
+[node name="Guy" parent="." instance=ExtResource("2_fj7yv")]
+position = Vector2(485, 169)
+gravity = 500.0
+
+[node name="Moveable" parent="." instance=ExtResource("1_f3sb7")]
+position = Vector2(256, -319)
+rotation = 1.57175
+
+[node name="Moveable2" parent="." instance=ExtResource("1_f3sb7")]
+position = Vector2(947, -318)
+rotation = 1.57175
