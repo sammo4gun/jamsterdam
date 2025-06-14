@@ -1,9 +1,11 @@
-[gd_scene load_steps=13 format=4 uid="uid://xr273hyfg6kr"]
+[gd_scene load_steps=15 format=4 uid="uid://xr273hyfg6kr"]
 
 [ext_resource type="Script" uid="uid://vp4ly8u07miy" path="res://Scripts/world.gd" id="1_y4dr7"]
 [ext_resource type="PackedScene" uid="uid://cnfrxpljq8b8q" path="res://Scenes/nonmoveable.tscn" id="2_didp7"]
+[ext_resource type="Texture2D" uid="uid://bxal7o0n5sc1l" path="res://Assets/Images/backgroundec1.png" id="2_hkfpk"]
 [ext_resource type="PackedScene" uid="uid://dpfjytluhwwx7" path="res://Scenes/moveable.tscn" id="3_2a60c"]
 [ext_resource type="PackedScene" uid="uid://6pic503w7xpl" path="res://Scenes/ghost.tscn" id="4_4iphx"]
+[ext_resource type="PackedScene" uid="uid://buqy7w73rwv13" path="res://Scenes/buildings_tile_map_layer.tscn" id="4_i36j2"]
 [ext_resource type="PackedScene" uid="uid://cctthl1q1bekw" path="res://Scenes/guy.tscn" id="5_jgkgd"]
 [ext_resource type="Texture2D" uid="uid://du8yvhhd3cgnu" path="res://Assets/Tilesets/tiles.png" id="6_m0h5h"]
 [ext_resource type="PackedScene" path="res://Scenes/pause_menu.tscn" id="7_20uw2"]
@@ -192,6 +194,12 @@ sources/0 = SubResource("TileSetAtlasSource_20uw2")
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_y4dr7")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(584.5, 337.375)
+scale = Vector2(11.4453, 6.00977)
+texture = ExtResource("2_hkfpk")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Background" type="Area2D" parent="CanvasLayer"]
@@ -247,25 +255,28 @@ scale = Vector2(0.142978, 0.31934)
 
 [node name="Building3" parent="RightBuilding" instance=ExtResource("2_didp7")]
 position = Vector2(132.299, 85.6556)
-scale = Vector2(0.153298, 0.185988)
+scale = Vector2(0.141361, 0.17802)
 
 [node name="Building6" parent="RightBuilding" instance=ExtResource("2_didp7")]
 position = Vector2(150.005, 69.8193)
 scale = Vector2(0.153298, 0.185988)
 
 [node name="Building7" parent="RightBuilding" instance=ExtResource("2_didp7")]
-position = Vector2(131.702, 57.2697)
-scale = Vector2(0.153298, 0.0664683)
+position = Vector2(127.027, 58.3654)
+scale = Vector2(0.153298, 0.0545163)
 
-[node name="layer0" type="TileMapLayer" parent="RightBuilding"]
+[node name="TileMapLayer" parent="RightBuilding" instance=ExtResource("4_i36j2")]
+position = Vector2(-24.9677, -1.59359)
+scale = Vector2(0.994728, 0.995996)
+tile_map_data = PackedByteArray("AAARAAkAAAAHAAMAABARAAoAAAAHAAgAABARAAsAAAAHAAgAABARAAwAAAAHAAgAABAQAAcAAAAHAAMAABARAAcAAAAGAAMAAAASAAcAAAAGAAMAAAATAAcAAAAEAAMAAAASAAkAAAAGAAMAAAATAAgAAAAGAAMAAFATAAkAAAAGAAMAAFASAAoAAAAEAAEAAAATAAoAAAAEAAEAAAAUAAoAAAAEAAEAAAATAAYAAAAHAAgAABATAAUAAAAHAAgAABATAAQAAAAHAAgAABATAAMAAAAHAAgAABATAAIAAAAHAAgAABATAAEAAAAHAAgAABATAAAAAAAHAAgAABASAAsAAAAEAAEAAAASAAwAAAAEAAEAAAATAAwAAAAEAAEAAAAUAAwAAAAEAAEAAAAVAAwAAAAEAAEAAAAWAAwAAAAEAAEAAAAWAAsAAAAEAAEAAAAVAAsAAAAEAAEAAAAUAAsAAAAEAAEAAAATAAsAAAAEAAEAAAAVAAoAAAAEAAEAAAAWAAoAAAAEAAEAAAAXAAoAAAAEAAEAAAAYAAoAAAAEAAEAAAAYAAkAAAAEAAEAAAAXAAkAAAAEAAEAAAAXAAgAAAAEAAEAAAAXAAcAAAAEAAEAAAAYAAcAAAAEAAEAAAAYAAgAAAAEAAEAAAAWAAgAAAAEAAEAAAAWAAkAAAAEAAEAAAAVAAkAAAAEAAEAAAAUAAkAAAAEAAEAAAAUAAgAAAAEAAEAAAAUAAcAAAAEAAEAAAAVAAcAAAAEAAEAAAAWAAcAAAAEAAEAAAAVAAgAAAAEAAEAAAAUAAYAAAAEAAEAAAAVAAYAAAAEAAEAAAAWAAYAAAAEAAEAAAAXAAYAAAAEAAEAAAAYAAYAAAAEAAEAAAAYAAUAAAAEAAEAAAAXAAUAAAAEAAEAAAAXAAQAAAAEAAEAAAAXAAMAAAAEAAEAAAAXAAIAAAAEAAEAAAAXAAEAAAAEAAEAAAAXAAAAAAAEAAEAAAAWAAAAAAAEAAEAAAAVAAAAAAAEAAEAAAAUAAAAAAAEAAEAAAAUAAEAAAAEAAEAAAAUAAIAAAAEAAEAAAAUAAMAAAAEAAEAAAAUAAQAAAAEAAEAAAAUAAUAAAAEAAEAAAAVAAUAAAAEAAEAAAAWAAUAAAAEAAEAAAAWAAQAAAAEAAEAAAAWAAMAAAAEAAEAAAAWAAIAAAAEAAEAAAAVAAIAAAAEAAEAAAAVAAEAAAAEAAEAAAAVAAMAAAAEAAEAAAAVAAQAAAAEAAEAAAAWAAEAAAAEAAEAAAAYAAAAAAAEAAEAAAAYAAEAAAAEAAEAAAAYAAIAAAAEAAEAAAAYAAMAAAAEAAEAAAAYAAQAAAAEAAEAAAAbAAUAAAAEAAEAAAAbAAQAAAAEAAEAAAAaAAQAAAAEAAEAAAAZAAQAAAAEAAEAAAAZAAMAAAAEAAEAAAA=")
 
 [node name="Moveable" parent="." instance=ExtResource("3_2a60c")]
 position = Vector2(740, 449)
 scale = Vector2(0.400001, 0.240001)
 
 [node name="Moveable2" parent="." instance=ExtResource("3_2a60c")]
-position = Vector2(1112, 662)
-scale = Vector2(0.240001, 0.240001)
+position = Vector2(1146, 667)
+scale = Vector2(0.360001, 0.280001)
 
 [node name="Ghost" parent="." instance=ExtResource("4_4iphx")]
 position = Vector2(610, 126)
