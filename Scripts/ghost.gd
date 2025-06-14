@@ -4,8 +4,8 @@ extends CharacterBody2D
 @onready var sprite = $"Sprite"
 
 var target_pos: Vector2
-var target_possess = null;
-var possessing = null
+var target_possess: Moveable = null;
+var possessing: Moveable = null
 var present = true
 
 func _physics_process(delta: float) -> void:

@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name Moveable extends CharacterBody2D
 
 @onready var world = get_parent()
 
