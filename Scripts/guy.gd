@@ -33,11 +33,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_pressed("jump") and is_on_floor() and not is_sad:
 		velocity.y = -250
 
-func _on_side_collision_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Walls"):
-		ponder_sadly()
-		direction = -direction
-
 func ponder_sadly():
 	is_sad = true
 	animator.play("Idle")
@@ -64,3 +59,16 @@ func die_and_reset():
 	
 	# Reset Scene
 	get_tree().reload_current_scene()
+
+func _on_left_side_collision_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Walls"):
+		if direction > 0:
+			ponder_sadly()
+			direction = -direction
+
+
+func _on_right_side_collision_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Walls"):
+		if direction < 0:
+			ponder_sadly()
+			direction = -direction

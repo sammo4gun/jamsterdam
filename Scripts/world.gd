@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var Ghost = $"Ghost"
 @onready var pause_menu = $PauseMenu
+@onready var Guy = $"Guy"
 
 func attempt_possession(body: Moveable):
 	Ghost.set_target_possess(body)
