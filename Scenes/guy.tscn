@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://cctthl1q1bekw"]
+[gd_scene load_steps=14 format=3 uid="uid://cctthl1q1bekw"]
 
 [ext_resource type="Script" uid="uid://byxufi14rff50" path="res://Scripts/guy.gd" id="1_tj2cq"]
 [ext_resource type="Texture2D" uid="uid://dvt2l7wffmsdl" path="res://Assets/Spritesheets/stickman idle spritesheet.png" id="2_s5xhn"]
 [ext_resource type="Texture2D" uid="uid://68b34rkx5tmh" path="res://Assets/Spritesheets/stickman spritesheet.png" id="2_y8ag8"]
+[ext_resource type="AudioStream" uid="uid://c7xem236jtcc" path="res://Assets/SFX/death.mp3" id="4_y2mbu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5adle"]
 atlas = ExtResource("2_s5xhn")
@@ -87,6 +88,10 @@ shape = SubResource("RectangleShape2D_y8ag8")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_y2mbu")
+volume_db = -5.0
 
 [connection signal="body_entered" from="SideCollision" to="." method="_on_side_collision_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
