@@ -1,6 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://cwei6j5majw03"]
+[gd_scene load_steps=9 format=3 uid="uid://0l48xhgwan8c"]
 
-[ext_resource type="Script" uid="uid://cp4yl285vvv8t" path="res://Scripts/main_menu.gd" id="1_1ehe0"]
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_1ehe0"]
 [ext_resource type="FontFile" uid="uid://datde377oev7l" path="res://Assets/Fonts/Peaberry/PeaberryBase.ttf" id="2_ce3w2"]
 [ext_resource type="Texture2D" uid="uid://p6crjkk88ihw" path="res://Assets/Images/menu_background.jpeg" id="3_n45e2"]
 

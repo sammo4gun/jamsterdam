@@ -22,6 +22,7 @@ position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_0w77i")
 
 [node name="Whitecircle" type="Sprite2D" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_4mhc5")
 position = Vector2(-2, 4)
 rotation = 3.14159
