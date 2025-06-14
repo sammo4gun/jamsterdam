@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dpfjytluhwwx7" path="res://Scenes/moveable.tscn" id="3_d15yg"]
 [ext_resource type="PackedScene" uid="uid://6pic503w7xpl" path="res://Scenes/ghost.tscn" id="4_hrj3c"]
 [ext_resource type="PackedScene" uid="uid://cctthl1q1bekw" path="res://Scenes/guy.tscn" id="5_16px4"]
-[ext_resource type="PackedScene" uid="uid://di2p66442rfuh" path="res://Scenes/pause_menu.tscn" id="6_tnuy3"]
+[ext_resource type="PackedScene" path="res://Scenes/pause_menu.tscn" id="6_tnuy3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5a7ea"]
 size = Vector2(20.9922, 30.5048)
@@ -24,46 +24,54 @@ scale = Vector2(2.29468, 1.46367)
 shape = SubResource("RectangleShape2D_5a7ea")
 
 [node name="Building4" parent="." instance=ExtResource("2_tnuy3")]
-position = Vector2(-83, 254)
+position = Vector2(-185, 254)
 scale = Vector2(1.44003, 3.2122)
 
-[node name="Building5" parent="." instance=ExtResource("2_tnuy3")]
-position = Vector2(1506, 274)
-scale = Vector2(1.43736, 3.20624)
-
-[node name="Building3" parent="." instance=ExtResource("2_tnuy3")]
-position = Vector2(1330, 860)
-scale = Vector2(1.5411, 1.86736)
-
-[node name="Building6" parent="." instance=ExtResource("2_tnuy3")]
-position = Vector2(1508, 701)
-scale = Vector2(1.5411, 1.86736)
-
 [node name="Building7" parent="." instance=ExtResource("2_tnuy3")]
-position = Vector2(1324, 575)
-scale = Vector2(1.5411, 0.667355)
+position = Vector2(1046, 922)
+scale = Vector2(0.588921, 7.2548)
 
 [node name="Building2" parent="." instance=ExtResource("2_tnuy3")]
-position = Vector2(776, 711)
+position = Vector2(658, 848)
 scale = Vector2(0.810038, 2.64006)
 
+[node name="Building8" parent="." instance=ExtResource("2_tnuy3")]
+position = Vector2(658, 305)
+scale = Vector2(0.810038, 1.28006)
+
 [node name="Building1" parent="." instance=ExtResource("2_tnuy3")]
-position = Vector2(233, 718)
-scale = Vector2(1.43736, 3.20624)
+position = Vector2(113, 293)
+scale = Vector2(1.49662, 1.15081)
+
+[node name="Building5" parent="." instance=ExtResource("2_tnuy3")]
+position = Vector2(22, 422)
+scale = Vector2(1.49662, 1.15081)
+
+[node name="Building3" parent="." instance=ExtResource("2_tnuy3")]
+position = Vector2(113, 642)
+scale = Vector2(1.49662, 2.0708)
 
 [node name="Moveable" parent="." instance=ExtResource("3_d15yg")]
-position = Vector2(740, 449)
-scale = Vector2(0.400001, 0.240001)
+position = Vector2(1039, 246)
+scale = Vector2(0.279218, 0.240001)
+
+[node name="Moveable3" parent="." instance=ExtResource("3_d15yg")]
+position = Vector2(290, 150)
+scale = Vector2(0.135354, 0.413178)
+
+[node name="Moveable4" parent="." instance=ExtResource("3_d15yg")]
+position = Vector2(753, 145)
+scale = Vector2(0.116345, 0.435152)
 
 [node name="Moveable2" parent="." instance=ExtResource("3_d15yg")]
-position = Vector2(1112, 662)
+position = Vector2(337, 425)
 scale = Vector2(0.240001, 0.240001)
 
 [node name="Ghost" parent="." instance=ExtResource("4_hrj3c")]
-position = Vector2(610, 126)
+position = Vector2(400, 63)
 
 [node name="Guy" parent="." instance=ExtResource("5_16px4")]
-position = Vector2(231, 369)
+position = Vector2(186, 130)
 
 [node name="PauseMenu" parent="." instance=ExtResource("6_tnuy3")]
 visible = false

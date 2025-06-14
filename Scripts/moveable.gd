@@ -2,6 +2,7 @@ class_name Moveable extends CharacterBody2D
 
 @onready var world = get_parent()
 @onready var shape = $"Shape"
+@onready var guy = null
 
 @export var speed = 2000
 @export var baseweight = 8
@@ -9,6 +10,7 @@ class_name Moveable extends CharacterBody2D
 
 var possessed = false
 var weight = 0
+var connected_guy = false
 
 func _ready() -> void:
 	weight = baseweight + (scale.x * scale.y) * changeweight
@@ -16,9 +18,24 @@ func _ready() -> void:
 func get_input():
 	var input_direction = Input.get_vector("left", "right", "up", "down")
 	velocity = input_direction * speed / weight
+	if connected_guy:
+		velocity = velocity / 4
+		if velocity.y < 0:
+			guy.velocity.y = velocity.y/2
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if possessed:
+		if get_slide_collision_count() == 0:
+			connected_guy = false
+			guy = null
+		for i in get_slide_collision_count():
+			var collision = get_slide_collision(i).get_collider()
+			if collision.is_in_group('Guy'):
+				connected_guy = true
+				guy = collision
+				break
+			connected_guy = false
+			guy = null
 		get_input()
 		move_and_slide()
 

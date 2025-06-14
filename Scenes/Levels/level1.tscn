@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dpfjytluhwwx7" path="res://Scenes/moveable.tscn" id="3_2a60c"]
 [ext_resource type="PackedScene" uid="uid://6pic503w7xpl" path="res://Scenes/ghost.tscn" id="4_4iphx"]
 [ext_resource type="PackedScene" uid="uid://cctthl1q1bekw" path="res://Scenes/guy.tscn" id="5_jgkgd"]
-[ext_resource type="PackedScene" uid="uid://di2p66442rfuh" path="res://Scenes/pause_menu.tscn" id="6_m0h5h"]
+[ext_resource type="PackedScene" path="res://Scenes/pause_menu.tscn" id="6_m0h5h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5a7ea"]
 size = Vector2(20.9922, 30.5048)

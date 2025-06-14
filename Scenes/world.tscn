@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://vp4ly8u07miy" path="res://Scripts/world.gd" id="1_5a7ea"]
 [ext_resource type="PackedScene" uid="uid://dpfjytluhwwx7" path="res://Scenes/moveable.tscn" id="1_f3sb7"]
 [ext_resource type="PackedScene" uid="uid://cctthl1q1bekw" path="res://Scenes/guy.tscn" id="2_fj7yv"]
-[ext_resource type="PackedScene" uid="uid://di2p66442rfuh" path="res://Scenes/pause_menu.tscn" id="2_fo5ed"]
+[ext_resource type="PackedScene" path="res://Scenes/pause_menu.tscn" id="2_fo5ed"]
 [ext_resource type="PackedScene" uid="uid://6pic503w7xpl" path="res://Scenes/ghost.tscn" id="2_go701"]
-[ext_resource type="PackedScene" path="res://Scenes/nonmoveable.tscn" id="4_8j60k"]
+[ext_resource type="PackedScene" uid="uid://cnfrxpljq8b8q" path="res://Scenes/nonmoveable.tscn" id="4_8j60k"]
 [ext_resource type="PackedScene" path="res://Scenes/tile_map.tscn" id="6_5ukr8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5a7ea"]
@@ -15,6 +15,7 @@ size = Vector2(20.9922, 30.5048)
 script = ExtResource("1_5a7ea")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Background" type="Area2D" parent="CanvasLayer"]
 scale = Vector2(29.4962, 16.9264)

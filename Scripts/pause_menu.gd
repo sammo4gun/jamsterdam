@@ -1,9 +1,8 @@
 extends Control
 
 @onready var resume_button: Button = $MarginContainer/VBoxContainer/ResumeButton
-@onready var shader_material := $ColorRect.material as ShaderMaterial
+@onready var shader_material: ShaderMaterial = $ColorRect.material as ShaderMaterial
 
-# Menu Functionality
 func _ready():
 	resume_button.pressed.connect(_on_resume_pressed)
 
@@ -14,31 +13,55 @@ func _input(event):
 func toggle_pause_menu():
 	var is_paused = get_tree().paused
 	get_tree().paused = !is_paused
-	visible = !is_paused
-	if (visible):
+
+	if !is_paused:
+		# Show and fade in
+		visible = true
+		modulate.a = 0.0
 		fade_in_shader()
+		fade_in_menu()
 	else:
+		# Fade out and then hide
 		fade_out_shader()
+		fade_out_menu()
 
 func _on_resume_pressed():
 	toggle_pause_menu()
 
-# Shader animation
+# === SHADER ANIMATION ===
+
 func fade_in_shader():
-	shader_material.set_shader_parameter("mix_percentage", 0.0)  # Set initial value
+	var start_value: float = shader_material.get_shader_parameter("mix_percentage")
+	var end_value: float = 0.2
 	var tween = create_tween()
-	tween.tween_property(
-		shader_material,
-		"shader_param/mix_percentage",
-		0.5,  # target value
-		0.4   # duration in seconds
+	tween.tween_method(
+		func(value): shader_material.set_shader_parameter("mix_percentage", value),
+		start_value,
+		end_value,
+		0.3
 	)
 
 func fade_out_shader():
+	var start_value: float = shader_material.get_shader_parameter("mix_percentage")
+	var end_value: float = 0.0
 	var tween = create_tween()
-	tween.tween_property(
-		shader_material,
-		"shader_param/mix_percentage",
-		0.0,
-		0.4
+	tween.tween_method(
+		func(value): shader_material.set_shader_parameter("mix_percentage", value),
+		start_value,
+		end_value,
+		0.3
 	)
+
+# === UI FADE ANIMATION ===
+
+func fade_in_menu():
+	var tween = create_tween()
+	tween.tween_property(self, "modulate:a", 1.0, 0.3)
+
+func fade_out_menu():
+	var tween = create_tween()
+	tween.tween_property(self, "modulate:a", 0.0, 0.3)
+	tween.tween_callback(Callable(self, "_on_fade_out_complete"))
+
+func _on_fade_out_complete():
+	visible = false

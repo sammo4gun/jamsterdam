@@ -16,10 +16,10 @@ func _physics_process(delta: float) -> void:
 	if present:
 		var dist = global_position.distance_to(target_pos)
 		if dist < 20:
-			velocity = Vector2.ZERO
+			velocity = velocity.move_toward(Vector2.ZERO, 10000*delta)
 		else:
 			var dir = global_position.direction_to(target_pos).normalized()
-			velocity = dir * FLY_SPEED
+			velocity += dir * FLY_SPEED * delta
 			if velocity.x > 0:
 				sprite.flip_h = 0
 			else:
@@ -29,11 +29,13 @@ func _physics_process(delta: float) -> void:
 		global_position = possessing.global_position
 
 func set_target_pos(pos: Vector2):
+	velocity = Vector2.ZERO
 	if possessing != null:
 		unpossess()
 	target_pos = pos
 
 func set_target_possess(body: Moveable):
+	velocity = Vector2.ZERO
 	if possessing != null and body != possessing:
 		unpossess()
 		target_possess = body
