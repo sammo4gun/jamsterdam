@@ -1,10 +1,16 @@
 extends Control
 
-@onready var resume_button: Button = $MarginContainer/VBoxContainer/ResumeButton
+@onready var resume_button: Button = $Main/VBoxContainer/ResumeButton
+@onready var settings_button: Button = $Main/VBoxContainer/SettingsButton
+@onready var main_panel: MarginContainer = $Main
+@onready var settings_panel: MarginContainer = $Settings
+@onready var settings_panel_back: Button = $Settings/VBoxContainer/BackButton
 @onready var shader_material: ShaderMaterial = $ColorRect.material as ShaderMaterial
 
 func _ready():
 	resume_button.pressed.connect(_on_resume_pressed)
+	settings_button.pressed.connect(_on_settings_pressed)
+	settings_panel_back.pressed.connect(_on_settings_back_pressed)
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
@@ -17,6 +23,8 @@ func toggle_pause_menu():
 	if !is_paused:
 		# Show and fade in
 		visible = true
+		main_panel.visible = true
+		settings_panel.visible = false
 		modulate.a = 0.0
 		fade_in_shader()
 		fade_in_menu()
@@ -27,6 +35,14 @@ func toggle_pause_menu():
 
 func _on_resume_pressed():
 	toggle_pause_menu()
+
+func _on_settings_pressed():
+	main_panel.visible = false
+	settings_panel.visible = true
+
+func _on_settings_back_pressed():
+	main_panel.visible = true
+	settings_panel.visible = false
 
 # === SHADER ANIMATION ===
 
