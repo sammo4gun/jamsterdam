@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://di2p66442rfuh"]
+[gd_scene load_steps=9 format=3 uid="uid://di2p66442rfuh"]
 
 [ext_resource type="Script" uid="uid://4n6ha25b4b2d" path="res://Scripts/pause_menu.gd" id="1_emv3i"]
 [ext_resource type="FontFile" uid="uid://datde377oev7l" path="res://Assets/Fonts/Peaberry/PeaberryBase.ttf" id="2_k0w1u"]
@@ -7,6 +7,26 @@
 [sub_resource type="LabelSettings" id="LabelSettings_1och7"]
 font = ExtResource("2_k0w1u")
 font_size = 60
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1och7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1och7"]
+bg_color = Color(0.823529, 0.823529, 0.823529, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 3
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bpi0q"]
+bg_color = Color(0.635294, 0.635294, 0.635294, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 3
+shadow_offset = Vector2(0, 3.41)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k0w1u"]
 bg_color = Color(1, 1, 1, 1)
@@ -51,20 +71,32 @@ layout_mode = 2
 theme_override_constants/separation = 30
 
 [node name="ResumeButton" type="Button" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(250, 0)
+custom_minimum_size = Vector2(250, 60)
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1och7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1och7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bpi0q")
 theme_override_styles/normal = SubResource("StyleBoxFlat_k0w1u")
 text = "Resume"
 
 [node name="SettingsButton" type="Button" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(250, 0)
+custom_minimum_size = Vector2(250, 60)
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1och7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1och7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bpi0q")
 theme_override_styles/normal = SubResource("StyleBoxFlat_k0w1u")
 text = "Settings
 "
