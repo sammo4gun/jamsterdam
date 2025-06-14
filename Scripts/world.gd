@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var Ghost = $"Ghost"
+@onready var Guy = $"Guy"
 
 func attempt_possession(body: CharacterBody2D):
 	Ghost.set_target_possess(body)

@@ -65,7 +65,7 @@ size = Vector2(39, 112.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y8ag8"]
 size = Vector2(59, 84.8438)
 
-[node name="Guy" type="CharacterBody2D"]
+[node name="Guy" type="CharacterBody2D" groups=["Guy"]]
 script = ExtResource("1_tj2cq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -79,14 +79,25 @@ autoplay = "Walking"
 position = Vector2(0, -4.25)
 shape = SubResource("RectangleShape2D_ihqf1")
 
-[node name="SideCollision" type="Area2D" parent="."]
+[node name="RightSideCollision" type="Area2D" parent="."]
+position = Vector2(-10, 12)
+scale = Vector2(0.44, 1.24)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="SideCollision"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="RightSideCollision"]
+position = Vector2(0, -13.5781)
+shape = SubResource("RectangleShape2D_y8ag8")
+
+[node name="LeftSideCollision" type="Area2D" parent="."]
+position = Vector2(10, 12)
+scale = Vector2(0.44, 1.24)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="LeftSideCollision"]
 position = Vector2(0, -13.5781)
 shape = SubResource("RectangleShape2D_y8ag8")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
-[connection signal="body_entered" from="SideCollision" to="." method="_on_side_collision_body_entered"]
+[connection signal="body_entered" from="RightSideCollision" to="." method="_on_right_side_collision_body_entered"]
+[connection signal="body_entered" from="LeftSideCollision" to="." method="_on_left_side_collision_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
