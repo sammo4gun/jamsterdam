@@ -17,10 +17,13 @@ func _ready() -> void:
 	guy = get_parent().get_guy()
 
 func _physics_process(delta: float) -> void:
+	if guy == null: guy = get_parent().get_guy()
 	if present:
-		if guy == null: guy = get_parent().get_guy()
 		if going_to_scare:
 			target_pos = guy.global_position
+			for b in possessionzone.get_overlapping_bodies():
+				if b == guy:
+					scare(guy)
 		var dist = global_position.distance_to(target_pos)
 		if dist < 20:
 			velocity = velocity.move_toward(Vector2.ZERO, 10000*delta)
@@ -37,6 +40,9 @@ func _physics_process(delta: float) -> void:
 
 func set_target_pos(pos: Vector2):
 	velocity = velocity.slide(global_position.direction_to(pos).normalized().rotated(-PI/2))
+	if velocity*global_position.direction_to(pos) < Vector2.ZERO:
+		velocity = Vector2.ZERO
+	
 	if possessing != null:
 		unpossess()
 	going_to_scare = false
@@ -68,6 +74,7 @@ func set_target_scare(body):
 func scare(body):
 	if body.frighten():
 		going_to_scare = false
+	target_pos = global_position
 	velocity = Vector2.ZERO
 
 func possess(body: Moveable):

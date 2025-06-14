@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://stre87ywwjqa"]
+[gd_scene load_steps=14 format=4 uid="uid://stre87ywwjqa"]
 
 [ext_resource type="Script" uid="uid://vp4ly8u07miy" path="res://Scripts/world.gd" id="1_5j5u1"]
 [ext_resource type="PackedScene" uid="uid://cnfrxpljq8b8q" path="res://Scenes/nonmoveable.tscn" id="2_tnuy3"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://6pic503w7xpl" path="res://Scenes/ghost.tscn" id="4_hrj3c"]
 [ext_resource type="PackedScene" uid="uid://cctthl1q1bekw" path="res://Scenes/guy.tscn" id="5_16px4"]
 [ext_resource type="PackedScene" uid="uid://di2p66442rfuh" path="res://Scenes/pause_menu.tscn" id="6_tnuy3"]
+[ext_resource type="PackedScene" uid="uid://k2kwvg3avs8t" path="res://Scenes/rose.tscn" id="8_hrj3c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5a7ea"]
 size = Vector2(20.9922, 30.5048)
@@ -271,19 +272,19 @@ scale = Vector2(10.053, 10.0402)
 tile_map_data = PackedByteArray("AAD8/wYAAAAHAAkAABD9/wYAAAADAAkAAAD8/wAAAAAHAAMAABD9/wAAAAAGAAMAAAD8/wUAAAAHAAgAABD8/wQAAAAHAAgAABD9/wQAAAAEAAEAAAD9/wMAAAAEAAEAAAD8/wMAAAAHAAgAABD8/wIAAAAHAAgAABD8/wEAAAAHAAgAABD9/wUAAAAEAAEAAAD9/wIAAAAEAAEAAAD9/wEAAAAEAAEAAAA=")
 tile_set = SubResource("TileSet_hrj3c")
 
-[node name="Moveable" parent="." instance=ExtResource("3_d15yg")]
+[node name="Pillar1" parent="." instance=ExtResource("3_d15yg")]
 position = Vector2(1039, 246)
 scale = Vector2(0.279218, 0.240001)
 
-[node name="Moveable3" parent="." instance=ExtResource("3_d15yg")]
+[node name="Jug1" parent="." instance=ExtResource("3_d15yg")]
 position = Vector2(290, 150)
 scale = Vector2(0.135354, 0.413178)
 
-[node name="Moveable4" parent="." instance=ExtResource("3_d15yg")]
+[node name="Jug2" parent="." instance=ExtResource("3_d15yg")]
 position = Vector2(753, 145)
 scale = Vector2(0.116345, 0.435152)
 
-[node name="Moveable2" parent="." instance=ExtResource("3_d15yg")]
+[node name="Pillar2" parent="." instance=ExtResource("3_d15yg")]
 position = Vector2(337, 425)
 scale = Vector2(0.240001, 0.240001)
 
@@ -292,6 +293,9 @@ position = Vector2(400, 63)
 
 [node name="Guy" parent="." instance=ExtResource("5_16px4")]
 position = Vector2(186, 130)
+
+[node name="Rose2" parent="." instance=ExtResource("8_hrj3c")]
+position = Vector2(657, 630)
 
 [node name="PauseMenu" parent="." instance=ExtResource("6_tnuy3")]
 visible = false

@@ -8,7 +8,7 @@ extends CharacterBody2D
 @export var gravity = 300
 @export var speed = 80
 @export var out_of_bounds_y = 800
-@export var jump_strength = 200
+@export var jump_strength = 250
 
 var direction = 1
 var is_sad = false
