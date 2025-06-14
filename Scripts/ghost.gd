@@ -29,20 +29,21 @@ func _physics_process(delta: float) -> void:
 		global_position = possessing.global_position
 
 func set_target_pos(pos: Vector2):
-	velocity = Vector2.ZERO
+	velocity = velocity.slide(global_position.direction_to(pos).normalized().rotated(-PI/2))
 	if possessing != null:
 		unpossess()
 	target_pos = pos
 
 func set_target_possess(body: Moveable):
-	velocity = Vector2.ZERO
 	if possessing != null and body != possessing:
 		unpossess()
 		target_possess = body
 		target_pos = body.global_position
+		velocity = velocity.slide(global_position.direction_to(target_pos).normalized().rotated(-PI/2))
 	elif possessing == null:
 		target_possess = body
 		target_pos = body.global_position
+		velocity = velocity.slide(global_position.direction_to(target_pos).normalized().rotated(-PI/2))
 	
 	for b in possessionzone.get_overlapping_bodies():
 		if target_possess == b:
@@ -52,7 +53,8 @@ func possess(body: Moveable):
 	possessing = body
 	target_possess = null
 	fade_away()
-	possessing.become_possessed()
+	possessing.become_possessed(velocity/3)
+	velocity = Vector2.ZERO
 
 func unpossess():
 	possessing.become_unpossessed()
