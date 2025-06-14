@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dpfjytluhwwx7" path="res://Scenes/moveable.tscn" id="1_f3sb7"]
 [ext_resource type="PackedScene" uid="uid://cctthl1q1bekw" path="res://Scenes/guy.tscn" id="2_fj7yv"]
 [ext_resource type="PackedScene" uid="uid://6pic503w7xpl" path="res://Scenes/ghost.tscn" id="2_go701"]
-[ext_resource type="PackedScene" path="res://Scenes/nonmoveable.tscn" id="4_8j60k"]
+[ext_resource type="PackedScene" uid="uid://cnfrxpljq8b8q" path="res://Scenes/nonmoveable.tscn" id="4_8j60k"]
 [ext_resource type="PackedScene" uid="uid://d21yyaxneio5t" path="res://Scenes/tile_map.tscn" id="6_5ukr8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5a7ea"]
@@ -26,10 +26,12 @@ shape = SubResource("RectangleShape2D_5a7ea")
 [node name="nonmoveable2" parent="." instance=ExtResource("4_8j60k")]
 position = Vector2(1076, 789)
 scale = Vector2(1.17004, 2.64006)
+collision_mask = 1
 
 [node name="nonmoveable" parent="." instance=ExtResource("4_8j60k")]
 position = Vector2(297, 698)
 scale = Vector2(1.43736, 3.20624)
+collision_mask = 1
 
 [node name="Smallerbox" parent="." instance=ExtResource("1_f3sb7")]
 position = Vector2(528, 355)

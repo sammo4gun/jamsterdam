@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://xr273hyfg6kr"]
+[gd_scene load_steps=9 format=3 uid="uid://xr273hyfg6kr"]
 
 [ext_resource type="Script" uid="uid://vp4ly8u07miy" path="res://Scripts/world.gd" id="1_y4dr7"]
 [ext_resource type="PackedScene" uid="uid://cnfrxpljq8b8q" path="res://Scenes/nonmoveable.tscn" id="2_didp7"]
 [ext_resource type="PackedScene" uid="uid://dpfjytluhwwx7" path="res://Scenes/moveable.tscn" id="3_2a60c"]
 [ext_resource type="PackedScene" uid="uid://6pic503w7xpl" path="res://Scenes/ghost.tscn" id="4_4iphx"]
 [ext_resource type="PackedScene" uid="uid://cctthl1q1bekw" path="res://Scenes/guy.tscn" id="5_jgkgd"]
+[ext_resource type="PackedScene" uid="uid://cx8dhoq4lx5cj" path="res://Scenes/buildings_tileset.tscn" id="6_m0h5h"]
+[ext_resource type="PackedScene" uid="uid://btefrk4td7ro8" path="res://Scenes/sky_tileset_day.tscn" id="7_20uw2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5a7ea"]
 size = Vector2(20.9922, 30.5048)
@@ -23,32 +25,45 @@ scale = Vector2(2.29468, 1.46367)
 shape = SubResource("RectangleShape2D_5a7ea")
 
 [node name="Building4" parent="." instance=ExtResource("2_didp7")]
-position = Vector2(-83, 254)
-scale = Vector2(1.44003, 3.2122)
+position = Vector2(-47, 300)
+scale = Vector2(1.32003, 3.2122)
+collision_mask = 1
 
 [node name="Building5" parent="." instance=ExtResource("2_didp7")]
 position = Vector2(1506, 274)
 scale = Vector2(1.43736, 3.20624)
+collision_mask = 1
 
 [node name="Building3" parent="." instance=ExtResource("2_didp7")]
 position = Vector2(1330, 860)
 scale = Vector2(1.5411, 1.86736)
+collision_mask = 1
 
 [node name="Building6" parent="." instance=ExtResource("2_didp7")]
 position = Vector2(1508, 701)
 scale = Vector2(1.5411, 1.86736)
+collision_mask = 1
 
 [node name="Building7" parent="." instance=ExtResource("2_didp7")]
 position = Vector2(1324, 575)
 scale = Vector2(1.5411, 0.667355)
+collision_mask = 1
 
 [node name="Building2" parent="." instance=ExtResource("2_didp7")]
 position = Vector2(776, 711)
 scale = Vector2(0.810038, 2.64006)
+collision_mask = 1
 
 [node name="Building1" parent="." instance=ExtResource("2_didp7")]
-position = Vector2(233, 718)
-scale = Vector2(1.43736, 3.20624)
+position = Vector2(251, 776)
+scale = Vector2(1.55736, 3.20624)
+collision_mask = 1
+
+[node name="sky tileset day" parent="." instance=ExtResource("7_20uw2")]
+
+[node name="Buildings tileset" parent="." instance=ExtResource("6_m0h5h")]
+scale = Vector2(10.2792, 10.0691)
+layer_0/tile_data = PackedInt32Array(393221, 458752, 4, 393216, 262144, 1, 393220, 393216, 4, 393219, 393216, 4, 393218, 393216, 4, 393217, 262144, 1, 458757, 458752, 8, 524293, 458752, 8, 589829, 458752, 8, 655365, 458752, 8, 720901, 458752, 8, 458752, 458752, 268435464, 524288, 458752, 268435464, 589824, 458752, 268435464, 655360, 458752, 268435464, 720896, 458752, 268435464, 786437, 458752, 9, 786432, 458752, 268435465, 786433, 196608, 9, 786434, 196608, 9, 786435, 196608, 9, 786436, 196608, 9, 458753, 262144, 1, 458754, 262144, 1, 458755, 262144, 1, 524291, 262144, 1, 524292, 262144, 1, 589828, 262144, 1, 655364, 262144, 1, 720900, 262144, 1, 720899, 262144, 1, 720898, 262144, 1, 655362, 262144, 1, 655361, 262144, 1, 589825, 262144, 1, 524289, 262144, 1, 720897, 262144, 1, 655363, 262144, 1, 589827, 262144, 1, 589826, 262144, 1, 524290, 262144, 1, 458756, 262144, 1, 327681, 458752, 8, 262145, 458752, 8, 196609, 458752, 8, 131073, 458752, 8, 65537, 458752, 8, 1, 458752, 4, 0, 393216, 4, 65535, 393216, 4, 65534, 393216, 4, 65533, 458752, 268435460, 131069, 458752, 268435464, 196605, 458752, 268435464, 262141, 458752, 268435464, 327677, 458752, 268435464, 393213, 458752, 268435464, 458749, 458752, 268435465, 458750, 196608, 9, 458751, 196608, 9, 327680, 262144, 1, 262144, 262144, 1, 196608, 262144, 1, 131072, 262144, 1, 65536, 262144, 1, 131071, 262144, 1, 196607, 262144, 1, 262143, 262144, 1, 393215, 262144, 1, 327679, 262144, 1, 327678, 262144, 1, 393214, 262144, 1, 262142, 262144, 1, 196606, 262144, 1, 131070, 262144, 1)
 
 [node name="Moveable" parent="." instance=ExtResource("3_2a60c")]
 position = Vector2(740, 449)
