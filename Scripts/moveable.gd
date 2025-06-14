@@ -23,7 +23,7 @@ func get_input():
 		if velocity.y < 0:
 			guy.velocity.y = velocity.y/2
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if possessed:
 		if get_slide_collision_count() == 0:
 			connected_guy = false

@@ -26,10 +26,10 @@ func _physics_process(delta):
 	if is_sad and is_on_floor(): 
 		velocity.x = 0
 	if is_sad and not is_on_floor():
-		velocity.x = speed * direction / 3
+		velocity.x = speed * direction / 3.0
 	move_and_slide()
 
-func _unhandled_input(event: InputEvent) -> void:
+func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_pressed("jump") and is_on_floor() and not is_sad:
 		velocity.y = -250
 
@@ -49,8 +49,7 @@ func die_and_reset():
 	
 	# Stop movement
 	velocity = Vector2.ZERO
-	animator.play("Death")
-	
+
 	# Play death sound
 	death_sound.play()
 	

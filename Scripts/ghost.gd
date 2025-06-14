@@ -12,7 +12,7 @@ var present = true
 func _ready() -> void:
 	target_pos = global_position
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if present:
 		var dist = global_position.distance_to(target_pos)
 		if dist < 20:
