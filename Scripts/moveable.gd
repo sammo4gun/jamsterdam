@@ -32,7 +32,6 @@ func get_input(delta):
 
 func _physics_process(delta):
 	if possessed:
-		print(aura.scale)
 		if aura.scale.x < corr_aura_scale.x/2:
 			aura.scale = corr_aura_scale/2
 		if aura.scale.x < corr_aura_scale.x:

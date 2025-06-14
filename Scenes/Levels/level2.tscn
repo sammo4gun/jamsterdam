@@ -1,14 +1,193 @@
-[gd_scene load_steps=8 format=3 uid="uid://stre87ywwjqa"]
+[gd_scene load_steps=13 format=4 uid="uid://stre87ywwjqa"]
 
 [ext_resource type="Script" uid="uid://vp4ly8u07miy" path="res://Scripts/world.gd" id="1_5j5u1"]
 [ext_resource type="PackedScene" uid="uid://cnfrxpljq8b8q" path="res://Scenes/nonmoveable.tscn" id="2_tnuy3"]
 [ext_resource type="PackedScene" uid="uid://dpfjytluhwwx7" path="res://Scenes/moveable.tscn" id="3_d15yg"]
+[ext_resource type="Texture2D" uid="uid://du8yvhhd3cgnu" path="res://Assets/Tilesets/tiles.png" id="3_hrj3c"]
 [ext_resource type="PackedScene" uid="uid://6pic503w7xpl" path="res://Scenes/ghost.tscn" id="4_hrj3c"]
 [ext_resource type="PackedScene" uid="uid://cctthl1q1bekw" path="res://Scenes/guy.tscn" id="5_16px4"]
 [ext_resource type="PackedScene" uid="uid://di2p66442rfuh" path="res://Scenes/pause_menu.tscn" id="6_tnuy3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5a7ea"]
 size = Vector2(20.9922, 30.5048)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d15yg"]
+texture = ExtResource("3_hrj3c")
+texture_region_size = Vector2i(8, 8)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+7:1/0 = 0
+7:2/0 = 0
+7:3/0 = 0
+7:4/0 = 0
+6:4/0 = 0
+5:4/0 = 0
+4:4/0 = 0
+4:3/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+6:2/0 = 0
+6:1/0 = 0
+5:1/0 = 0
+4:1/0 = 0
+7:5/0 = 0
+7:6/0 = 0
+7:7/0 = 0
+7:8/0 = 0
+7:9/0 = 0
+6:9/0 = 0
+5:9/0 = 0
+4:9/0 = 0
+3:9/0 = 0
+2:9/0 = 0
+1:9/0 = 0
+0:9/0 = 0
+0:10/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+1:7/0 = 0
+1:6/0 = 0
+1:5/0 = 0
+0:5/0 = 0
+0:6/0 = 0
+0:7/0 = 0
+2:6/0 = 0
+2:5/0 = 0
+2:7/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+6:7/0 = 0
+6:6/0 = 0
+6:5/0 = 0
+5:5/0 = 0
+5:6/0 = 0
+5:7/0 = 0
+4:7/0 = 0
+4:6/0 = 0
+4:5/0 = 0
+3:5/0 = 0
+3:6/0 = 0
+3:7/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_hrj3c"]
+tile_size = Vector2i(8, 8)
+sources/0 = SubResource("TileSetAtlasSource_d15yg")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_16px4"]
+texture = ExtResource("3_hrj3c")
+texture_region_size = Vector2i(8, 8)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+7:1/0 = 0
+7:2/0 = 0
+7:3/0 = 0
+7:4/0 = 0
+6:4/0 = 0
+5:4/0 = 0
+4:4/0 = 0
+4:3/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+6:2/0 = 0
+6:1/0 = 0
+5:1/0 = 0
+4:1/0 = 0
+7:5/0 = 0
+7:6/0 = 0
+7:7/0 = 0
+7:8/0 = 0
+7:9/0 = 0
+6:9/0 = 0
+5:9/0 = 0
+4:9/0 = 0
+3:9/0 = 0
+2:9/0 = 0
+1:9/0 = 0
+0:9/0 = 0
+0:10/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+1:7/0 = 0
+1:6/0 = 0
+1:5/0 = 0
+0:5/0 = 0
+0:6/0 = 0
+0:7/0 = 0
+2:6/0 = 0
+2:5/0 = 0
+2:7/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+6:7/0 = 0
+6:6/0 = 0
+6:5/0 = 0
+5:5/0 = 0
+5:6/0 = 0
+5:7/0 = 0
+4:7/0 = 0
+4:6/0 = 0
+4:5/0 = 0
+3:5/0 = 0
+3:6/0 = 0
+3:7/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_bxvyr"]
+tile_size = Vector2i(8, 8)
+sources/0 = SubResource("TileSetAtlasSource_16px4")
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_5j5u1")
@@ -29,10 +208,17 @@ shape = SubResource("RectangleShape2D_5a7ea")
 position = Vector2(-185, 254)
 scale = Vector2(1.44003, 3.2122)
 
+[node name="Layer0" type="TileMapLayer" parent="Behindbuilding"]
+use_parent_material = true
+position = Vector2(-123, -32)
+scale = Vector2(10.053, 10.0402)
+tile_map_data = PackedByteArray("AAABAAYAAAAHAAkAAAD8/wYAAAAHAAkAABD9/wYAAAADAAkAAAD+/wYAAAADAAkAAAD//wYAAAADAAkAAAAAAAYAAAADAAkAAAABAAUAAAAHAAgAAAABAAQAAAAHAAgAAAABAAMAAAAHAAgAAAABAAIAAAAHAAgAAAABAAEAAAAHAAgAAAABAAAAAAAHAAMAAAD8/wAAAAAHAAMAABD9/wAAAAAGAAMAAAD+/wAAAAAGAAMAAAD//wAAAAAGAAMAAAAAAAAAAAAGAAMAAAD8/wUAAAAHAAgAABD8/wQAAAAHAAgAABD9/wQAAAAEAAEAAAD9/wMAAAAEAAEAAAD8/wMAAAAHAAgAABD8/wIAAAAHAAgAABD8/wEAAAAHAAgAABD9/wUAAAAEAAEAAAD+/wUAAAAAAAMAAAD//wUAAAAAAAIAAAAAAAUAAAAEAAEAAAAAAAQAAAAFAAYAAAD//wQAAAABAAEAAAD+/wQAAAAAAAIAAAD+/wMAAAAFAAYAADD9/wIAAAAEAAEAAAD9/wEAAAAEAAEAAAD+/wEAAAAEAAEAAAD//wEAAAAFAAYAADAAAAEAAAADAAcAAAAAAAIAAAAGAAYAADAAAAMAAAABAAEAAAD//wMAAAACAAIAAAD//wIAAAACAAEAAAD+/wIAAAAEAAEAAAA=")
+tile_set = SubResource("TileSet_hrj3c")
+
 [node name="Middlebuilding" type="Node2D" parent="."]
 
 [node name="Building2" parent="Middlebuilding" instance=ExtResource("2_tnuy3")]
-position = Vector2(658, 848)
+position = Vector2(658, 888)
 scale = Vector2(0.810038, 2.64006)
 
 [node name="Building8" parent="Middlebuilding" instance=ExtResource("2_tnuy3")]
@@ -40,8 +226,15 @@ position = Vector2(658, 305)
 scale = Vector2(0.810038, 1.28006)
 
 [node name="Building9" parent="Middlebuilding" instance=ExtResource("2_tnuy3")]
-position = Vector2(557, 644)
-scale = Vector2(0.170038, 1.72006)
+position = Vector2(575, 644)
+scale = Vector2(0.250038, 1.72006)
+
+[node name="Layer1" type="TileMapLayer" parent="Middlebuilding"]
+use_parent_material = true
+position = Vector2(539, -225)
+scale = Vector2(10.053, 10.0402)
+tile_map_data = PackedByteArray("AAAAAAUAAAAHAAMAABAAAAsAAAAHAAkAABAAAAoAAAAHAAgAABAAAAkAAAAHAAgAABAAAAcAAAAHAAgAABAAAAYAAAAHAAgAABABAAYAAAAEAAEAAAACAAYAAAABAAMAAAACAAUAAAAGAAMAAAABAAUAAAAGAAMAAAACAAsAAAADAAkAAAABAAsAAAADAAkAAAACAAcAAAABAAMAAAABAAcAAAABAAMAAAA=")
+tile_set = SubResource("TileSet_bxvyr")
 
 [node name="Firstbuilding" type="Node2D" parent="."]
 position = Vector2(1.90735e-06, 0)
@@ -58,11 +251,25 @@ scale = Vector2(1.49662, 1.15081)
 position = Vector2(113, 642)
 scale = Vector2(1.49662, 2.0708)
 
+[node name="Layer1" type="TileMapLayer" parent="Firstbuilding"]
+use_parent_material = true
+position = Vector2(-136, -214)
+scale = Vector2(10.053, 10.0402)
+tile_map_data = PackedByteArray("AAAFAAUAAAAHAAMAAAAAAAUAAAAHAAMAABAEAAUAAAAGAAMAAAADAAUAAAAGAAMAAAACAAUAAAAGAAMAAAABAAUAAAAGAAMAAAAFAAYAAAAHAAgAAAAFAAcAAAAHAAYAAAAFAAgAAAABAAYAADAFAAkAAAABAAcAAAAFAAoAAAAHAAgAAAAFAAsAAAAHAAkAAAAAAAsAAAAHAAkAABABAAsAAAADAAkAAAACAAsAAAADAAkAAAADAAsAAAADAAkAAAAEAAsAAAADAAkAAAAAAAoAAAAHAAgAABAAAAkAAAAHAAgAABAAAAgAAAAHAAgAABAAAAcAAAAHAAgAABAAAAYAAAAHAAgAABABAAYAAAAEAAEAAAABAAcAAAABAAMAAAACAAcAAAABAAMAAAACAAgAAAADAAYAAAACAAkAAAABAAUAAAADAAkAAAABAAUAAAAEAAkAAAABAAUAAAAEAAoAAAAEAAEAAAAEAAgAAAABAAUAAAAEAAcAAAADAAYAAAADAAcAAAABAAMAAAADAAYAAAAEAAEAAAACAAYAAAABAAMAAAAEAAYAAAAEAAEAAAADAAgAAAABAAQAAAACAAoAAAAEAAEAAAADAAoAAAAEAAEAAAABAAoAAAAEAAEAAAABAAkAAAAEAAEAAAABAAgAAAAEAAEAAAA=")
+tile_set = SubResource("TileSet_bxvyr")
+
 [node name="Fartower" type="Node2D" parent="."]
 
 [node name="Building7" parent="Fartower" instance=ExtResource("2_tnuy3")]
-position = Vector2(1046, 922)
-scale = Vector2(0.588921, 7.2548)
+position = Vector2(1026, 922)
+scale = Vector2(0.548919, 7.2548)
+
+[node name="Layer0" type="TileMapLayer" parent="Fartower"]
+use_parent_material = true
+position = Vector2(1269, 274)
+scale = Vector2(10.053, 10.0402)
+tile_map_data = PackedByteArray("AAD8/wYAAAAHAAkAABD9/wYAAAADAAkAAAD8/wAAAAAHAAMAABD9/wAAAAAGAAMAAAD8/wUAAAAHAAgAABD8/wQAAAAHAAgAABD9/wQAAAAEAAEAAAD9/wMAAAAEAAEAAAD8/wMAAAAHAAgAABD8/wIAAAAHAAgAABD8/wEAAAAHAAgAABD9/wUAAAAEAAEAAAD9/wIAAAAEAAEAAAD9/wEAAAAEAAEAAAA=")
+tile_set = SubResource("TileSet_hrj3c")
 
 [node name="Moveable" parent="." instance=ExtResource("3_d15yg")]
 position = Vector2(1039, 246)
