@@ -1,25 +1,32 @@
 extends CharacterBody2D
 
-@export var FLY_SPEED = 1000;
+@export var FLY_SPEED = 10000;
+@export var ACCELERATION = 500;
 @onready var sprite = $"Sprite"
 @onready var possessionzone = $"Possession_zone"
+var guy
 
 var target_pos: Vector2
 var target_possess: Moveable = null;
+var going_to_scare = false;
 var possessing: Moveable = null
 var present = true
 
 func _ready() -> void:
 	target_pos = global_position
+	guy = get_parent().get_guy()
 
 func _physics_process(delta: float) -> void:
 	if present:
+		if guy == null: guy = get_parent().get_guy()
+		if going_to_scare:
+			target_pos = guy.global_position
 		var dist = global_position.distance_to(target_pos)
 		if dist < 20:
 			velocity = velocity.move_toward(Vector2.ZERO, 10000*delta)
 		else:
 			var dir = global_position.direction_to(target_pos).normalized()
-			velocity += dir * FLY_SPEED * delta
+			velocity = velocity.move_toward(dir * FLY_SPEED, ACCELERATION * delta)
 			if velocity.x > 0:
 				sprite.flip_h = 0
 			else:
@@ -32,15 +39,18 @@ func set_target_pos(pos: Vector2):
 	velocity = velocity.slide(global_position.direction_to(pos).normalized().rotated(-PI/2))
 	if possessing != null:
 		unpossess()
+	going_to_scare = false
 	target_pos = pos
 
 func set_target_possess(body: Moveable):
 	if possessing != null and body != possessing:
 		unpossess()
+		going_to_scare = false
 		target_possess = body
 		target_pos = body.global_position
 		velocity = velocity.slide(global_position.direction_to(target_pos).normalized().rotated(-PI/2))
 	elif possessing == null:
+		going_to_scare = false
 		target_possess = body
 		target_pos = body.global_position
 		velocity = velocity.slide(global_position.direction_to(target_pos).normalized().rotated(-PI/2))
@@ -48,6 +58,17 @@ func set_target_possess(body: Moveable):
 	for b in possessionzone.get_overlapping_bodies():
 		if target_possess == b:
 			possess(b)
+
+func set_target_scare(body):
+	if possessing != null:
+		unpossess()
+	target_pos = body.global_position
+	going_to_scare = true
+
+func scare(body):
+	if body.frighten():
+		going_to_scare = false
+	velocity = Vector2.ZERO
 
 func possess(body: Moveable):
 	possessing = body
@@ -72,3 +93,5 @@ func unfade():
 func _on_possession_zone_body_entered(body: Node2D) -> void:
 	if body == target_possess:
 		possess(body)
+	if going_to_scare and body == guy:
+		scare(guy)
