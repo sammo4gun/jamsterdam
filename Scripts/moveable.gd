@@ -52,8 +52,8 @@ func _physics_process(delta):
 		if aura.scale.x > 0.01:
 			aura.scale *= 0.97
 
-func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
-	get_viewport().set_input_as_handled()
+func _on_input_event(viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+	viewport.set_input_as_handled()
 	if event is InputEventMouseButton and event.pressed:
 		world.attempt_possession(self)
 

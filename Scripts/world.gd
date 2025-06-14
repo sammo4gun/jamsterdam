@@ -7,6 +7,12 @@ extends Node2D
 func attempt_possession(body: Moveable):
 	Ghost.set_target_possess(body)
 
+func go_scare(body):
+	Ghost.set_target_scare(body)
+
 func _on_background_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		Ghost.set_target_pos(event.global_position)
+
+func get_guy():
+	return Guy

@@ -1,7 +1,6 @@
 extends Area2D
 
 func _ready():
-	print(get_tree().current_scene.name)
 	self.body_entered.connect(_on_body_entered)
 
 func next_level():
@@ -22,5 +21,4 @@ func next_level():
 
 func _on_body_entered(body):
 	if body.is_in_group("Guy"):
-		print("Player picked up the rose!")
 		next_level()
