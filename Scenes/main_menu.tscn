@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cp4yl285vvv8t" path="res://Scripts/main_menu.gd" id="1_1ehe0"]
 [ext_resource type="FontFile" uid="uid://datde377oev7l" path="res://Assets/Fonts/Peaberry/PeaberryBase.ttf" id="2_ce3w2"]
-[ext_resource type="Texture2D" uid="uid://p6crjkk88ihw" path="res://Assets/Images/menu_background.jpeg" id="3_n45e2"]
+[ext_resource type="Texture2D" uid="uid://povxtku8nxul" path="res://Assets/backgroundpotential.png" id="2_trj04"]
 [ext_resource type="Script" uid="uid://cij83h43g32m3" path="res://Scripts/volume_slider.gd" id="4_cp0ys"]
 [ext_resource type="Script" uid="uid://d2xhx3j7ujbsu" path="res://Scripts/settings_menu.gd" id="4_yhxw7"]
 [ext_resource type="StyleBox" uid="uid://udx8w8gj8jd4" path="res://Assets/Styles/menu_button_hover.tres" id="5_yhxw7"]
@@ -62,24 +62,37 @@ z_index = -1
 layout_mode = 0
 offset_right = 1280.0
 offset_bottom = 720.0
-texture = ExtResource("3_n45e2")
+texture = ExtResource("2_trj04")
+expand_mode = 3
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
-offset_right = 500.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -250.0
+offset_right = 250.0
 offset_bottom = 200.0
+grow_horizontal = 2
 theme_override_font_sizes/font_size = 64
-text = "Jamsterdam"
+text = "Your Spectre"
 label_settings = SubResource("LabelSettings_opfnp")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_left = 640.0
-offset_top = 100.0
-offset_right = 1280.0
-offset_bottom = 580.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -160.0
+offset_right = 320.0
+offset_bottom = 320.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/margin_top = 32
 theme_override_constants/margin_bottom = 32
 
