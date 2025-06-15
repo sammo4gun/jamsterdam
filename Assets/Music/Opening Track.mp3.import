@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cwcu2gsi2r3co"
+path="res://.godot/imported/Opening Track.mp3-9919210b669f241dc4a72ccf1a21574a.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/Opening Track.mp3"
+dest_files=["res://.godot/imported/Opening Track.mp3-9919210b669f241dc4a72ccf1a21574a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var timer: Timer = $Timer
 @onready var death_sound: AudioStreamPlayer = $DeathSound
 @onready var world = get_parent()
+@onready var feet = $"Feet"
 
 @export var gravity = 300
 @export var speed = 80
@@ -17,6 +18,7 @@ var has_hope = false
 
 var scared_time = 0;
 var airtime = 0.0;
+var on_floor = true;
 
 func _ready() -> void:
 	ponder_sadly()
@@ -33,7 +35,13 @@ func _physics_process(delta):
 			die_and_reset()
 			return
 		
-		if is_on_floor():
+		for b in feet.get_overlapping_bodies():
+			if b.is_in_group("Walls"):
+				on_floor = true
+				break
+			on_floor = false
+		
+		if is_on_floor() or on_floor:
 			if is_sad:
 				velocity.x = 0
 			else:
@@ -42,20 +50,22 @@ func _physics_process(delta):
 					animator.play("Walking")
 				airtime = 0.0
 		else:
-			airtime += delta
 			velocity.y += gravity * delta
 			if not is_sad:
 				velocity.x = speed * direction / 2.0
 			if scared_time > 0.0:
+				airtime += delta / 2
 				velocity.x *= 1.8
-			elif airtime > 0.6 and airtime <= 1.0:
+			else: airtime += delta
+			
+			if airtime > 0.6 and airtime <= 1.0:
 				animator.play('Startfall')
 			elif airtime > 1.0:
 				animator.play("Fall")
 			
 		if scared_time > 0.0:
 			scared_time -= delta
-			if scared_time <= 0.0:
+			if scared_time <= 0.0 and airtime <= 0.6:
 				animator.play("Walking")
 	move_and_slide()
 
@@ -76,22 +86,23 @@ func _on_timer_timeout() -> void:
 func die_and_reset():
 	# Prevent re-entering if already dying
 	set_physics_process(false)
+	world.guy_died()
 	
 	# Stop movement
-	velocity = Vector2.ZERO
-
-	# Play death sound
-	death_sound.play()
-	
-	# Wait a bit (e.g. 1 second), then reset the scene
-	await get_tree().create_timer(1.0).timeout
-	
-	# Reset Scene
-	get_tree().reload_current_scene()
+	#velocity = Vector2.ZERO
+#
+	## Play death sound
+	#death_sound.play()
+	#
+	## Wait a bit (e.g. 1 second), then reset the scene
+	#await get_tree().create_timer(1.0).timeout
+	#
+	## Reset Scene
+	#get_tree().reload_current_scene()
 
 func frighten():
 	if is_on_floor() and not has_hope:
-		scared_time = 1.5
+		scared_time = 1.4
 		animator.play("Frighten")
 		velocity.y = -jump_strength
 		return true
@@ -123,3 +134,8 @@ func _on_input_event(viewport: Node, event: InputEvent, _shape_idx: int) -> void
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if has_hope:
 		get_parent().next_level()
+
+func _on_feet_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Walls"):
+		if not on_floor:
+			on_floor = true

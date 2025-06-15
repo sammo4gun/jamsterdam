@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://j803gngp4m7a"
+path="res://.godot/imported/You saved them.mp3-d5848488ff64d9e4c4b16b757feffd2b.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/You saved them.mp3"
+dest_files=["res://.godot/imported/You saved them.mp3-d5848488ff64d9e4c4b16b757feffd2b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

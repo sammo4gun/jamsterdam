@@ -1,8 +1,8 @@
-[gd_scene load_steps=20 format=4 uid="uid://xr273hyfg6kr"]
+[gd_scene load_steps=22 format=4 uid="uid://xr273hyfg6kr"]
 
 [ext_resource type="Script" uid="uid://vp4ly8u07miy" path="res://Scripts/world.gd" id="1_y4dr7"]
 [ext_resource type="PackedScene" uid="uid://cnfrxpljq8b8q" path="res://Scenes/nonmoveable.tscn" id="2_didp7"]
-[ext_resource type="Texture2D" uid="uid://povxtku8nxul" path="res://Assets/backgroundpotential.png" id="2_ir7pk"]
+[ext_resource type="Texture2D" uid="uid://t6nggttwbrl5" path="res://Assets/backgroundoption.png" id="2_nqasx"]
 [ext_resource type="PackedScene" uid="uid://dpfjytluhwwx7" path="res://Scenes/moveable.tscn" id="3_2a60c"]
 [ext_resource type="Texture2D" uid="uid://bo5u4ycq1ett" path="res://Assets/pillar.png" id="4_4f2fw"]
 [ext_resource type="PackedScene" uid="uid://6pic503w7xpl" path="res://Scenes/ghost.tscn" id="4_4iphx"]
@@ -11,7 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://k2kwvg3avs8t" path="res://Scenes/rose.tscn" id="6_ir7pk"]
 [ext_resource type="Texture2D" uid="uid://du8yvhhd3cgnu" path="res://Assets/Tilesets/tiles.png" id="6_m0h5h"]
 [ext_resource type="PackedScene" uid="uid://di2p66442rfuh" path="res://Scenes/pause_menu.tscn" id="7_20uw2"]
-[ext_resource type="AudioStream" uid="uid://2dx48cp2rbag" path="res://Assets/SFX/background.wav" id="11_ilsv2"]
+[ext_resource type="AudioStream" uid="uid://ddu0w3lrpnmpa" path="res://Assets/Music/Main Game Theme.mp3" id="12_4f2fw"]
+[ext_resource type="AudioStream" uid="uid://d1agwc2061v6m" path="res://Assets/Music/Rose Got 2.mp3" id="12_8r8ce"]
+[ext_resource type="AudioStream" uid="uid://dla7bd1xbf77j" path="res://Assets/Music/Death Sound=You Failed.mp3" id="13_nqasx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5a7ea"]
 size = Vector2(20.9922, 30.5048)
@@ -203,12 +205,13 @@ sources/0 = SubResource("TileSetAtlasSource_20uw2")
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_y4dr7")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="BackgroundImage" type="Sprite2D" parent="CanvasLayer"]
 position = Vector2(620, 369)
 scale = Vector2(1.06827, 0.785489)
-texture = ExtResource("2_ir7pk")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+texture = ExtResource("2_nqasx")
 
 [node name="Background" type="Area2D" parent="CanvasLayer"]
 scale = Vector2(29.4962, 16.9264)
@@ -226,6 +229,18 @@ offset_right = 284.0
 offset_bottom = 49.0
 scale = Vector2(1.71487, 1.71487)
 text = "RESTARTING..."
+
+[node name="YouShouldRestartLabel" type="Label" parent="CanvasLayer"]
+visible = false
+offset_left = 588.0
+offset_top = 174.0
+offset_right = 735.0
+offset_bottom = 209.0
+scale = Vector2(1.71487, 1.71487)
+text = "Press R to restart..."
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.537255, 0.678431, 0.666667, 1)
 
 [node name="Pillar1" parent="." instance=ExtResource("3_2a60c")]
 position = Vector2(741, 469)
@@ -343,9 +358,18 @@ position = Vector2(203, 350)
 [node name="PauseMenu" parent="." instance=ExtResource("7_20uw2")]
 visible = false
 
+[node name="EndMusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_8r8ce")
+bus = &"Music"
+
+[node name="DeadMusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_nqasx")
+bus = &"Music"
+
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_ilsv2")
+stream = ExtResource("12_4f2fw")
 autoplay = true
+bus = &"Music"
 
 [connection signal="input_event" from="CanvasLayer/Background" to="." method="_on_background_input_event"]
 
