@@ -1,16 +1,20 @@
 extends Control
 
-@onready var resume_button: Button = $Main/VBoxContainer/ResumeButton
-@onready var settings_button: Button = $Main/VBoxContainer/SettingsButton
-@onready var main_panel: MarginContainer = $Main
-@onready var settings_panel: MarginContainer = $Settings
-@onready var settings_panel_back: Button = $Settings/VBoxContainer/BackButton
-@onready var shader_material: ShaderMaterial = $ColorRect.material as ShaderMaterial
+@onready var resume_button = $Main/VBoxContainer/ResumeButton
+@onready var settings_button = $Main/VBoxContainer/SettingsButton
+@onready var main_panel = $Main
+@onready var settings_panel = $Settings
+@onready var shader_material = $ColorRect.material as ShaderMaterial
+@onready var tutorial_button = $Main/VBoxContainer/TutorialButton
+@onready var tutorial_panel = $Tutorial
+
 
 func _ready():
 	resume_button.pressed.connect(_on_resume_pressed)
 	settings_button.pressed.connect(_on_settings_pressed)
-	settings_panel_back.pressed.connect(_on_settings_back_pressed)
+	tutorial_button.pressed.connect(_on_tutorial_pressed)
+	settings_panel.back_pressed.connect(_on_settings_back_pressed)
+	tutorial_panel.continue_pressed.connect(_on_tutorial_continue_pressed)
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
@@ -43,6 +47,14 @@ func _on_settings_pressed():
 func _on_settings_back_pressed():
 	main_panel.visible = true
 	settings_panel.visible = false
+
+func _on_tutorial_pressed():
+	main_panel.visible = false
+	tutorial_panel.visible = true
+
+func _on_tutorial_continue_pressed():
+	main_panel.visible = true
+	tutorial_panel.visible = false
 
 # === SHADER ANIMATION ===
 

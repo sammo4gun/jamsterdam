@@ -1,12 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://di2p66442rfuh"]
+[gd_scene load_steps=11 format=3 uid="uid://di2p66442rfuh"]
 
 [ext_resource type="Script" uid="uid://4n6ha25b4b2d" path="res://Scripts/pause_menu.gd" id="1_emv3i"]
 [ext_resource type="FontFile" uid="uid://datde377oev7l" path="res://Assets/Fonts/Peaberry/PeaberryBase.ttf" id="2_k0w1u"]
 [ext_resource type="Material" uid="uid://d1ybvy4yqxhke" path="res://Assets/Shaders/pause_menu.tres" id="3_1och7"]
-[ext_resource type="Script" uid="uid://cij83h43g32m3" path="res://Scripts/volume_slider.gd" id="4_sjs17"]
-[ext_resource type="StyleBox" uid="uid://udx8w8gj8jd4" path="res://Assets/Styles/menu_button_hover.tres" id="5_u8tnp"]
-[ext_resource type="StyleBox" uid="uid://c7gdts27yeh0l" path="res://Assets/Styles/menu_button_pressed.tres" id="6_stj27"]
-[ext_resource type="StyleBox" uid="uid://c4561pc5s4yn3" path="res://Assets/Styles/menu_button.tres" id="7_ix48p"]
+[ext_resource type="PackedScene" uid="uid://dvor3tnbimskh" path="res://Scenes/settings_menu.tscn" id="5_vmyb1"]
+[ext_resource type="PackedScene" uid="uid://bn2rde0a3fsvk" path="res://Scenes/tutorial_screen.tscn" id="8_u8tnp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1och7"]
 font = ExtResource("2_k0w1u")
@@ -40,8 +38,6 @@ corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 shadow_size = 3
 shadow_offset = Vector2(0, 3.41)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_524vl"]
 
 [node name="PauseMenu" type="Control"]
 process_mode = 3
@@ -114,102 +110,33 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_k0w1u")
 text = "Settings
 "
 
-[node name="Settings" type="MarginContainer" parent="."]
-visible = false
-z_index = 1
-layout_mode = 0
-offset_right = 1280.0
-offset_bottom = 720.0
-theme_override_constants/margin_top = 32
-theme_override_constants/margin_bottom = 32
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Settings"]
-layout_mode = 2
-theme_override_constants/separation = 30
-
-[node name="Title" type="Label" parent="Settings/VBoxContainer"]
-custom_minimum_size = Vector2(0, 200)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_k0w1u")
-theme_override_font_sizes/font_size = 60
-text = "Settings"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="MasterVolumeContainer" type="HBoxContainer" parent="Settings/VBoxContainer"]
+[node name="TutorialButton" type="Button" parent="Main/VBoxContainer"]
+custom_minimum_size = Vector2(250, 60)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_constants/separation = 30
-
-[node name="Label" type="Label" parent="Settings/VBoxContainer/MasterVolumeContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_k0w1u")
-theme_override_font_sizes/font_size = 24
-text = "Master Volume"
-
-[node name="HSlider" type="HSlider" parent="Settings/VBoxContainer/MasterVolumeContainer"]
-custom_minimum_size = Vector2(200, 24)
-layout_mode = 2
-max_value = 1.0
-step = 0.001
-value = 1.0
-script = ExtResource("4_sjs17")
-bus_name = "Master"
-
-[node name="SFXVolumeContainer" type="HBoxContainer" parent="Settings/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_constants/separation = 30
-
-[node name="Label" type="Label" parent="Settings/VBoxContainer/SFXVolumeContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_k0w1u")
-theme_override_font_sizes/font_size = 24
-text = "SFX Volume"
-
-[node name="HSlider" type="HSlider" parent="Settings/VBoxContainer/SFXVolumeContainer"]
-custom_minimum_size = Vector2(200, 24)
-layout_mode = 2
-max_value = 1.0
-step = 0.001
-value = 1.0
-script = ExtResource("4_sjs17")
-bus_name = "SFX"
-
-[node name="MusicVolumeContainer" type="HBoxContainer" parent="Settings/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_constants/separation = 30
-
-[node name="Label" type="Label" parent="Settings/VBoxContainer/MusicVolumeContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_k0w1u")
-theme_override_font_sizes/font_size = 24
-text = "Music Volume"
-
-[node name="HSlider" type="HSlider" parent="Settings/VBoxContainer/MusicVolumeContainer"]
-custom_minimum_size = Vector2(200, 24)
-layout_mode = 2
-max_value = 1.0
-step = 0.001
-value = 1.0
-script = ExtResource("4_sjs17")
-bus_name = "Music"
-
-[node name="BackButton" type="Button" parent="Settings/VBoxContainer"]
-custom_minimum_size = Vector2(120, 40)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 10
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_styles/focus = SubResource("StyleBoxEmpty_524vl")
-theme_override_styles/hover = ExtResource("5_u8tnp")
-theme_override_styles/pressed = ExtResource("6_stj27")
-theme_override_styles/normal = ExtResource("7_ix48p")
-text = "Back"
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1och7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1och7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bpi0q")
+theme_override_styles/normal = SubResource("StyleBoxFlat_k0w1u")
+text = "Tutorial
+"
+
+[node name="Tutorial" parent="." instance=ExtResource("8_u8tnp")]
+visible = false
+layout_mode = 1
+
+[node name="Settings" parent="." instance=ExtResource("5_vmyb1")]
+visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 1280.0
+offset_bottom = 720.0
+grow_horizontal = 1
+grow_vertical = 1
