@@ -295,11 +295,11 @@ scale = Vector2(0.277485, 0.277485)
 [node name="Leftbuilding" type="Node2D" parent="."]
 
 [node name="Building1" parent="Leftbuilding" instance=ExtResource("2_didp7")]
-position = Vector2(242, 688)
+position = Vector2(247, 688)
 scale = Vector2(1.51736, 3.20624)
 
 [node name="Building4" parent="Leftbuilding" instance=ExtResource("2_didp7")]
-position = Vector2(-67, 284)
+position = Vector2(-64, 284)
 scale = Vector2(1.44003, 3.2122)
 
 [node name="Layer0" type="TileMapLayer" parent="Leftbuilding"]
@@ -359,7 +359,7 @@ position = Vector2(1231, 511)
 position = Vector2(610, 126)
 
 [node name="Guy" parent="." instance=ExtResource("5_jgkgd")]
-position = Vector2(203, 350)
+position = Vector2(203, 349)
 
 [node name="PauseMenu" parent="." instance=ExtResource("7_20uw2")]
 visible = false

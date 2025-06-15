@@ -212,7 +212,7 @@ texture_region_size = Vector2i(8, 8)
 tile_size = Vector2i(8, 8)
 sources/0 = SubResource("TileSetAtlasSource_d15yg")
 
-[node name="Level3" type="Node2D"]
+[node name="Level2" type="Node2D"]
 script = ExtResource("1_5j5u1")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

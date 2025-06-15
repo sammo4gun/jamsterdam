@@ -191,7 +191,7 @@ input_pickable = true
 script = ExtResource("1_tj2cq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-3, -9)
+position = Vector2(-3, -7)
 scale = Vector2(1.25773, 1.17388)
 sprite_frames = SubResource("SpriteFrames_5adle")
 animation = &"FindHope"
