@@ -258,7 +258,7 @@ color = Color(0.537255, 0.678431, 0.666667, 1)
 position = Vector2(1242, 314)
 
 [node name="Pillar1" parent="." instance=ExtResource("4_i6bqf")]
-position = Vector2(107, 408)
+position = Vector2(107, 412)
 physics_material_override = SubResource("PhysicsMaterial_i6bqf")
 
 [node name="Shape" parent="Pillar1" index="0"]
@@ -430,7 +430,7 @@ tile_set = SubResource("TileSet_bxvyr")
 position = Vector2(400, 63)
 
 [node name="Guy" parent="." instance=ExtResource("6_q21to")]
-position = Vector2(61, 323)
+position = Vector2(61, 331)
 
 [node name="PauseMenu" parent="." instance=ExtResource("7_nqbrd")]
 visible = false

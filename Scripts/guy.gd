@@ -27,10 +27,10 @@ func _ready() -> void:
 func _physics_process(delta):
 	if not has_hope:
 		for b in $"LeftSideCollision".get_overlapping_bodies():
-			if is_on_floor():
+			if velocity.y < delta * gravity:
 				check_collision(b, -1)
 		for b in $"RightSideCollision".get_overlapping_bodies():
-			if is_on_floor():
+			if velocity.y < delta * gravity:
 				check_collision(b, 1)
 		
 		if position.y > out_of_bounds_y:
@@ -89,7 +89,7 @@ func die_and_reset():
 	world.guy_died()
 
 func frighten():
-	if is_on_floor() and not has_hope:
+	if (is_on_floor() or on_floor) and not has_hope:
 		scared_time = 1.4
 		animator.play("Frighten")
 		velocity.y = -jump_strength
