@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://d4imrgt4gaekp" path="res://Scripts/tutorial_screen.gd" id="1_b7hhi"]
 [ext_resource type="Texture2D" uid="uid://bod1toiwijy0x" path="res://Assets/Spritesheets/ghostgirl-idle.png" id="3_cd03v"]
-[ext_resource type="Texture2D" uid="uid://bo5u4ycq1ett" path="res://Assets/pillar.png" id="4_elo14"]
+[ext_resource type="Texture2D" uid="uid://bo5u4ycq1ett" path="res://Assets/Images/pillar.png" id="4_elo14"]
 [ext_resource type="FontFile" uid="uid://datde377oev7l" path="res://Assets/Fonts/Peaberry/PeaberryBase.ttf" id="5_vscmb"]
 [ext_resource type="Texture2D" uid="uid://ddtaolmdio5sa" path="res://Assets/Spritesheets/lilorph-rose.png" id="6_nqd15"]
-[ext_resource type="Texture2D" uid="uid://hdordk6amk0e" path="res://Assets/rose-1.png" id="7_s0jvn"]
+[ext_resource type="Texture2D" uid="uid://hdordk6amk0e" path="res://Assets/Images/rose-1.png" id="7_s0jvn"]
 [ext_resource type="Texture2D" uid="uid://cpkayupkwuow5" path="res://Assets/Spritesheets/lilorph-froight.png" id="8_knip7"]
 [ext_resource type="Texture2D" uid="uid://cae83oeipt2tl" path="res://Assets/Spritesheets/ghostgirl-idle-2.png" id="9_mcwbk"]
 

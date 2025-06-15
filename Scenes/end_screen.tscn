@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bocsieelc72xf"]
 
-[ext_resource type="Texture2D" uid="uid://povxtku8nxul" path="res://Assets/backgroundpotential.png" id="1_1gwaw"]
+[ext_resource type="Texture2D" uid="uid://povxtku8nxul" path="res://Assets/Images/backgroundpotential.png" id="1_1gwaw"]
 [ext_resource type="Script" uid="uid://cnaqdgie2d8r4" path="res://Scripts/end_screen.gd" id="1_gdxnu"]
 [ext_resource type="FontFile" uid="uid://datde377oev7l" path="res://Assets/Fonts/Peaberry/PeaberryBase.ttf" id="2_bhpww"]
 [ext_resource type="AudioStream" uid="uid://j803gngp4m7a" path="res://Assets/Music/You saved them.mp3" id="3_bhpww"]

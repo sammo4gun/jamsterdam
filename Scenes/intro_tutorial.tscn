@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dsh82rgw73v4j"]
 
 [ext_resource type="Script" uid="uid://cpoyc8kpp2lna" path="res://Scripts/intro_tutorial.gd" id="1_s2cda"]
-[ext_resource type="Texture2D" uid="uid://povxtku8nxul" path="res://Assets/backgroundpotential.png" id="2_1ndoa"]
+[ext_resource type="Texture2D" uid="uid://povxtku8nxul" path="res://Assets/Images/backgroundpotential.png" id="2_1ndoa"]
 [ext_resource type="PackedScene" uid="uid://bn2rde0a3fsvk" path="res://Scenes/tutorial_screen.tscn" id="3_qgdnl"]
 [ext_resource type="AudioStream" uid="uid://bqye7nkil4qjd" path="res://Assets/Music/Backstory read.mp3" id="4_1ndoa"]
 

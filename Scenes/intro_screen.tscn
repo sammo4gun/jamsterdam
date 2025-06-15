@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://chkgbe07vhdxl"]
 
 [ext_resource type="Script" uid="uid://bg6xinxyhade0" path="res://Scripts/intro_screen.gd" id="1_5xttp"]
-[ext_resource type="Texture2D" uid="uid://povxtku8nxul" path="res://Assets/backgroundpotential.png" id="2_mhfmv"]
+[ext_resource type="Texture2D" uid="uid://povxtku8nxul" path="res://Assets/Images/backgroundpotential.png" id="2_mhfmv"]
 [ext_resource type="FontFile" uid="uid://datde377oev7l" path="res://Assets/Fonts/Peaberry/PeaberryBase.ttf" id="3_bsvr0"]
 [ext_resource type="AudioStream" uid="uid://bqye7nkil4qjd" path="res://Assets/Music/Backstory read.mp3" id="4_5xttp"]
 

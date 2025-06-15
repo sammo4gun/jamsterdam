@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cp4yl285vvv8t" path="res://Scripts/main_menu.gd" id="1_1ehe0"]
 [ext_resource type="FontFile" uid="uid://datde377oev7l" path="res://Assets/Fonts/Peaberry/PeaberryBase.ttf" id="2_ce3w2"]
-[ext_resource type="Texture2D" uid="uid://povxtku8nxul" path="res://Assets/backgroundpotential.png" id="2_trj04"]
+[ext_resource type="Texture2D" uid="uid://povxtku8nxul" path="res://Assets/Images/backgroundpotential.png" id="2_trj04"]
 [ext_resource type="PackedScene" uid="uid://dvor3tnbimskh" path="res://Scenes/settings_menu.tscn" id="5_n45e2"]
 [ext_resource type="AudioStream" uid="uid://cwcu2gsi2r3co" path="res://Assets/Music/Opening Track.mp3" id="9_trj04"]
 
