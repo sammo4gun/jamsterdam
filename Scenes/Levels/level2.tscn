@@ -219,7 +219,7 @@ script = ExtResource("1_5j5u1")
 layer = -1
 
 [node name="BackgroundImage" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(620, 369)
+position = Vector2(620, 393)
 scale = Vector2(1.06827, 0.785489)
 texture = ExtResource("3_eqosv")
 
@@ -255,7 +255,7 @@ label_settings = SubResource("LabelSettings_hpjhc")
 color = Color(0.537255, 0.678431, 0.666667, 1)
 
 [node name="Pillar3" parent="." instance=ExtResource("3_d15yg")]
-position = Vector2(1056, 245)
+position = Vector2(1056, 249)
 physics_material_override = SubResource("PhysicsMaterial_o7bax")
 
 [node name="Shape" parent="Pillar3" index="0"]
@@ -343,7 +343,7 @@ scale = Vector2(0.277485, 0.277485)
 [node name="Behindbuilding" type="Node2D" parent="."]
 
 [node name="Building4" parent="Behindbuilding" instance=ExtResource("2_tnuy3")]
-position = Vector2(-185, 254)
+position = Vector2(-186, 254)
 scale = Vector2(1.44003, 3.2122)
 
 [node name="Layer0" type="TileMapLayer" parent="Behindbuilding"]
@@ -356,15 +356,15 @@ tile_set = SubResource("TileSet_hrj3c")
 [node name="Middlebuilding" type="Node2D" parent="."]
 
 [node name="Building2" parent="Middlebuilding" instance=ExtResource("2_tnuy3")]
-position = Vector2(662, 895)
+position = Vector2(666, 894)
 scale = Vector2(0.730038, 2.64006)
 
 [node name="Building8" parent="Middlebuilding" instance=ExtResource("2_tnuy3")]
-position = Vector2(658, 305)
-scale = Vector2(0.730038, 1.32006)
+position = Vector2(659, 299)
+scale = Vector2(0.770038, 1.36006)
 
 [node name="Building9" parent="Middlebuilding" instance=ExtResource("2_tnuy3")]
-position = Vector2(580, 653)
+position = Vector2(579, 652)
 scale = Vector2(0.250038, 1.72006)
 
 [node name="Layer1" type="TileMapLayer" parent="Middlebuilding"]
@@ -400,7 +400,7 @@ tile_set = SubResource("TileSet_bxvyr")
 position = Vector2(25, 0)
 
 [node name="Building7" parent="Fartower" instance=ExtResource("2_tnuy3")]
-position = Vector2(1026, 922)
+position = Vector2(1028, 922)
 scale = Vector2(0.522046, 7.23944)
 
 [node name="Layer0" type="TileMapLayer" parent="Fartower"]

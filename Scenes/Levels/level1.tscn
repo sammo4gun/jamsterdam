@@ -213,7 +213,7 @@ script = ExtResource("1_y4dr7")
 layer = -1
 
 [node name="BackgroundImage" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(620, 369)
+position = Vector2(620, 396)
 scale = Vector2(1.06827, 0.785489)
 texture = ExtResource("2_nqasx")
 
