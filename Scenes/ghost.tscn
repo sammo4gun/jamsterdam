@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bfs6tjpci1vjl" path="res://Assets/Images/ghost.png" id="1_3mxmt"]
 [ext_resource type="Script" uid="uid://bjkfewgrp47cm" path="res://Scripts/ghost.gd" id="1_e3r4w"]
-[ext_resource type="Shader" uid="uid://e5m7qxxajq88" path="res://Scenes/moveable.gdshader" id="3_3btnm"]
+[ext_resource type="Shader" uid="uid://e5m7qxxajq88" path="res://Assets/Shaders/moveable.gdshader" id="3_3btnm"]
 [ext_resource type="Texture2D" uid="uid://bxnrpcs0m7syi" path="res://Assets/Shaders/whitecircle.png" id="4_taxxh"]
 [ext_resource type="Texture2D" uid="uid://cae83oeipt2tl" path="res://Assets/Spritesheets/ghostgirl-idle-2.png" id="4_thbej"]
 
