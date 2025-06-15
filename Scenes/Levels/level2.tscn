@@ -427,7 +427,7 @@ tile_map_data = PackedByteArray("AAAFAAUAAAAHAAMAAAAAAAUAAAAHAAMAABAEAAUAAAAGAAM
 tile_set = SubResource("TileSet_bxvyr")
 
 [node name="Ghost" parent="." instance=ExtResource("4_hrj3c")]
-position = Vector2(400, 63)
+position = Vector2(382, 201)
 
 [node name="Guy" parent="." instance=ExtResource("5_16px4")]
 position = Vector2(61, 331)

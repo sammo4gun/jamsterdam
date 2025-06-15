@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bocsieelc72xf"]
+[gd_scene load_steps=6 format=3 uid="uid://bocsieelc72xf"]
 
 [ext_resource type="Texture2D" uid="uid://povxtku8nxul" path="res://Assets/backgroundpotential.png" id="1_1gwaw"]
 [ext_resource type="Script" uid="uid://cnaqdgie2d8r4" path="res://Scripts/end_screen.gd" id="1_gdxnu"]
@@ -9,35 +9,6 @@
 font = ExtResource("2_bhpww")
 font_size = 60
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8yanq"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fi2y0"]
-bg_color = Color(0.823529, 0.823529, 0.823529, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-shadow_size = 3
-shadow_offset = Vector2(0, 3.41)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_em7vc"]
-bg_color = Color(0.635294, 0.635294, 0.635294, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-shadow_size = 3
-shadow_offset = Vector2(0, 3.41)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4suit"]
-bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-shadow_size = 3
-shadow_offset = Vector2(0, 3.41)
-
 [node name="EndScreen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -47,64 +18,106 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gdxnu")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect2" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 1)
 z_index = -1
 offset_right = 1280.0
 offset_bottom = 720.0
 texture = ExtResource("1_1gwaw")
 expand_mode = 3
 
-[node name="Label" type="Label" parent="."]
+[node name="Label0" type="Label" parent="."]
+modulate = Color(0.701961, 1, 1, 1)
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -250.0
-offset_right = 250.0
-offset_bottom = 200.0
+offset_left = -606.0
+offset_top = 77.0
+offset_right = 1483.0
+offset_bottom = 277.0
 grow_horizontal = 2
+scale = Vector2(0.448728, 0.448728)
 theme_override_font_sizes/font_size = 64
-text = "Well Done..."
+text = "\"I see them now, those specks of light beyond the dark..."
 label_settings = SubResource("LabelSettings_gdxnu")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="Label1" type="Label" parent="."]
+modulate = Color(0.701961, 1, 1, 1)
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -320.0
-offset_top = -160.0
-offset_right = 320.0
-offset_bottom = 320.0
+offset_left = -550.0
+offset_top = 185.0
+offset_right = 1839.0
+offset_bottom = 385.0
 grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_top = 32
-theme_override_constants/margin_bottom = 32
+scale = Vector2(0.448728, 0.448728)
+theme_override_font_sizes/font_size = 64
+text = "The memories of those cherished moments we shared..."
+label_settings = SubResource("LabelSettings_gdxnu")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 30
+[node name="Label2" type="Label" parent="."]
+modulate = Color(0.701961, 1, 1, 1)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -493.0
+offset_top = 316.0
+offset_right = 1896.0
+offset_bottom = 516.0
+grow_horizontal = 2
+scale = Vector2(0.448728, 0.448728)
+theme_override_font_sizes/font_size = 64
+text = "Give me the strength to go on."
+label_settings = SubResource("LabelSettings_gdxnu")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="ReturnButton" type="Button" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(250, 60)
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-theme_override_styles/focus = SubResource("StyleBoxEmpty_8yanq")
-theme_override_styles/hover = SubResource("StyleBoxFlat_fi2y0")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_em7vc")
-theme_override_styles/normal = SubResource("StyleBoxFlat_4suit")
-text = "Return"
+[node name="Label3" type="Label" parent="."]
+modulate = Color(0.701961, 1, 1, 1)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -426.0
+offset_top = 457.0
+offset_right = 1963.0
+offset_bottom = 657.0
+grow_horizontal = 2
+scale = Vector2(0.448728, 0.448728)
+theme_override_font_sizes/font_size = 64
+text = "Goodbye, my love.\" 
+"
+label_settings = SubResource("LabelSettings_gdxnu")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Tooltip" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0.686275)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -616.0
+offset_top = 615.0
+offset_right = 277.0
+offset_bottom = 815.0
+grow_horizontal = 2
+scale = Vector2(0.581745, 0.581745)
+theme_override_font_sizes/font_size = 64
+text = "Press any key to continue..."
+label_settings = SubResource("LabelSettings_gdxnu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MusicPlayer2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_bhpww")
 autoplay = true
 bus = &"Music"

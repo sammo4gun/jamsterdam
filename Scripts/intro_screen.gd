@@ -3,12 +3,14 @@ extends Control
 @onready var label0 = $Label0
 @onready var label1 = $Label1
 @onready var label2 = $Label2
+@onready var label3 = $Label3
 @onready var labels = {
 	0: label0,
 	1: label1,
-	2: label2
+	2: label2,
+	3: label3
 }
-var max_label = 2
+var max_label = 3
 
 @onready var tooltip = $Tooltip
 
