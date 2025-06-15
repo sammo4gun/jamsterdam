@@ -14,27 +14,34 @@ var direction = 1
 var is_sad = false
 var first_ponder = true
 var scared_time = 1
+var has_hope = false
 
 func _ready() -> void:
 	ponder_sadly()
 	animator.flip_h = false
 
 func _physics_process(delta):
-	if position.y > out_of_bounds_y:
-		die_and_reset()
-		return
-	
-	if not is_on_floor():
-		velocity.y += gravity * delta
-	if not is_sad:
-		velocity.x = speed * direction
-	if is_sad and is_on_floor(): 
-		velocity.x = 0
-	if is_sad and not is_on_floor():
-		velocity.x = speed * direction / 3.0
-	if scared_time > 0:
-		scared_time -= delta
-		velocity.x /= 2
+	if not has_hope:
+		for b in $"LeftSideCollision".get_overlapping_bodies():
+			check_collision(b, -1)
+		for b in $"RightSideCollision".get_overlapping_bodies():
+			check_collision(b, 1)
+		
+		if position.y > out_of_bounds_y:
+			die_and_reset()
+			return
+		
+		if not is_on_floor():
+			velocity.y += gravity * delta
+		if not is_sad:
+			velocity.x = speed * direction
+		if is_sad and is_on_floor(): 
+			velocity.x = 0
+		if is_sad and not is_on_floor():
+			velocity.x = speed * direction / 3.0
+		if scared_time > 0:
+			scared_time -= delta
+			velocity.x /= 2
 	move_and_slide()
 
 func ponder_sadly():
@@ -75,19 +82,30 @@ func frighten():
 	else:
 		return false
 
-func _on_left_side_collision_body_entered(body: Node2D) -> void:
+func find_hope():
+	print('yo')
+	velocity.x = 0
+	animator.play('FindHope')
+	has_hope = true
+
+func check_collision(body, d):
 	if body.is_in_group("Walls"):
-		if direction > 0:
+		if direction != d and not is_sad:
 			ponder_sadly()
 			direction = -direction
 
+func _on_left_side_collision_body_entered(body: Node2D) -> void:
+	check_collision(body, -1)
+
 func _on_right_side_collision_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Walls"):
-		if direction < 0:
-			ponder_sadly()
-			direction = -direction
+	check_collision(body, 1)
 
 func _on_input_event(viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	viewport.set_input_as_handled()
 	if event is InputEventMouseButton and event.pressed:
 		world.go_scare(self)
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if has_hope:
+		print('ueooo')
+		get_parent().next_level()

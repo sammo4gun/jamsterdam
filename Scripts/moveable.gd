@@ -1,4 +1,4 @@
-class_name Moveable extends CharacterBody2D
+class_name Moveable extends RigidBody2D
 
 @onready var world = get_parent()
 @onready var shape = $"Shape"
@@ -6,7 +6,7 @@ class_name Moveable extends CharacterBody2D
 @onready var guyfinder = $"GuyFinder"
 @onready var aura = $"Whitecircle"
 
-@export var speed = 2000
+@export var speed = 3000
 @export var baseweight = 8
 @export var changeweight = 7
 
@@ -26,9 +26,9 @@ func get_input(delta):
 	var target_velocity = input_direction * speed / weight
 	if connected_guy:
 		target_velocity = target_velocity / 4
-	velocity = velocity.move_toward(target_velocity, 1000 * delta)
-	if connected_guy and velocity.y < 0:
-		guy.get_parent().velocity.y = velocity.y
+	linear_velocity = linear_velocity.move_toward(target_velocity, 1000 * delta)
+	if connected_guy and linear_velocity.y < 0:
+		guy.get_parent().velocity.y = linear_velocity.y
 
 func _physics_process(delta):
 	if possessed:
@@ -47,7 +47,6 @@ func _physics_process(delta):
 			connected_guy = false
 			guy = null
 		get_input(delta)
-		move_and_slide()
 	else:
 		if aura.scale.x > 0.01:
 			aura.scale *= 0.97
@@ -58,8 +57,14 @@ func _on_input_event(viewport: Node, event: InputEvent, _shape_idx: int) -> void
 		world.attempt_possession(self)
 
 func become_possessed(vel: Vector2):
-	velocity = vel
+	linear_velocity = vel
+	physics_material_override.friction = 0.0
+	angular_damp = 70.0
+	gravity_scale = 0
 	possessed = true
 
 func become_unpossessed():
+	physics_material_override.friction = 1.0
+	angular_damp = 4.0
+	gravity_scale = 1
 	possessed = false

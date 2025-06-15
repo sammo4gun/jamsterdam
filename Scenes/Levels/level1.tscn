@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://xr273hyfg6kr"]
+[gd_scene load_steps=20 format=4 uid="uid://xr273hyfg6kr"]
 
 [ext_resource type="Script" uid="uid://vp4ly8u07miy" path="res://Scripts/world.gd" id="1_y4dr7"]
 [ext_resource type="PackedScene" uid="uid://cnfrxpljq8b8q" path="res://Scenes/nonmoveable.tscn" id="2_didp7"]
@@ -15,6 +15,12 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5a7ea"]
 size = Vector2(20.9922, 30.5048)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4f2fw"]
+resource_local_to_scene = true
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8r8ce"]
+resource_local_to_scene = true
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ir7pk"]
 texture = ExtResource("6_m0h5h")
@@ -212,23 +218,58 @@ position = Vector2(19.5137, 20.6852)
 scale = Vector2(2.29468, 1.46367)
 shape = SubResource("RectangleShape2D_5a7ea")
 
+[node name="RestartLabel" type="Label" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 174.0
+offset_top = 14.0
+offset_right = 284.0
+offset_bottom = 49.0
+scale = Vector2(1.71487, 1.71487)
+text = "RESTARTING..."
+
 [node name="Pillar1" parent="." instance=ExtResource("3_2a60c")]
-position = Vector2(728, 466)
-scale = Vector2(0.279999, 0.240001)
+position = Vector2(741, 469)
+physics_material_override = SubResource("PhysicsMaterial_4f2fw")
+
+[node name="Shape" parent="Pillar1" index="0"]
+position = Vector2(0.363163, -0.0403709)
+scale = Vector2(0.277485, 0.277485)
+
+[node name="Whitecircle" parent="Pillar1" index="1"]
+position = Vector2(-4.50876, -0.784088)
+scale = Vector2(1.10994, 0.481437)
 
 [node name="Sprite" parent="Pillar1" index="2"]
+position = Vector2(1.36316, -0.0403748)
 rotation = 1.5708
-scale = Vector2(2.01004, 2.22395)
+scale = Vector2(0.653118, 0.601581)
 texture = ExtResource("4_4f2fw")
+
+[node name="GuyFinder" parent="Pillar1" index="3"]
+position = Vector2(0.363163, 0.959629)
+scale = Vector2(0.277485, 0.277485)
 
 [node name="Pillar2" parent="." instance=ExtResource("3_2a60c")]
-position = Vector2(1103, 674)
-scale = Vector2(0.199996, 0.280001)
+position = Vector2(1126, 667)
+physics_material_override = SubResource("PhysicsMaterial_8r8ce")
+
+[node name="Shape" parent="Pillar2" index="0"]
+position = Vector2(1.36316, -1.0404)
+scale = Vector2(0.277485, 0.277485)
+
+[node name="Whitecircle" parent="Pillar2" index="1"]
+position = Vector2(-3.50876, -1.78412)
+scale = Vector2(1.10994, 0.481437)
 
 [node name="Sprite" parent="Pillar2" index="2"]
+position = Vector2(2.36316, -1.04041)
 rotation = -1.5708
-scale = Vector2(1.81117, 2.13949)
+scale = Vector2(0.641998, 0.6)
 texture = ExtResource("4_4f2fw")
+
+[node name="GuyFinder" parent="Pillar2" index="3"]
+position = Vector2(1.36316, -0.0404015)
+scale = Vector2(0.277485, 0.277485)
 
 [node name="Leftbuilding" type="Node2D" parent="."]
 
@@ -261,7 +302,7 @@ scale = Vector2(0.77004, 2.64006)
 
 [node name="Layer0" type="TileMapLayer" parent="Middlebuilding"]
 use_parent_material = true
-position = Vector2(796, 736)
+position = Vector2(800, 737)
 scale = Vector2(10, 10)
 tile_map_data = PackedByteArray("AAAAAP//AAAHAAgAAAAAAAAAAAAHAAgAAAAAAAEAAAAHAAYAAAAAAP3/AAAHAAMAAAD+//3/AAAHAAMAABD///3/AAAGAAMAAAAAAP7/AAAHAAgAAAAAAAIAAAABAAYAADD+/wIAAAAHAAkAABD//wIAAAABAAUAAAD+/wEAAAAHAAgAABD+/wAAAAAHAAgAABD+////AAAHAAgAABD+//7/AAAHAAgAABD//wEAAAABAAUAAAD//wAAAAADAAYAAAD/////AAAEAAEAAAD///7/AAADAAcAAAA=")
 tile_set = SubResource("TileSet_i36j2")
@@ -283,11 +324,11 @@ scale = Vector2(0.153298, 0.185988)
 
 [node name="Building7" parent="RightBuilding" instance=ExtResource("2_didp7")]
 position = Vector2(127.027, 58.3654)
-scale = Vector2(0.153298, 0.0545163)
+scale = Vector2(0.153298, 0.0425643)
 
 [node name="TileMapLayer" parent="RightBuilding" instance=ExtResource("4_i36j2")]
-position = Vector2(-24.9677, -1.59359)
-scale = Vector2(0.994728, 0.995996)
+position = Vector2(-24.1719, -2.19119)
+scale = Vector2(0.994728, 1.01398)
 tile_map_data = PackedByteArray("AAARAAkAAAAFAAMAAFARAAoAAAAFAAMAAFARAAsAAAAFAAMAAFARAAwAAAAFAAMAAFAQAAcAAAAHAAMAABARAAcAAAAEAAMAAAASAAcAAAAEAAEAAAATAAcAAAAEAAEAAAASAAkAAAABAAMAAAATAAgAAAABAAMAAAATAAkAAAAEAAEAAAASAAoAAAAEAAEAAAATAAoAAAABAAMAAAAUAAoAAAAEAAEAAAATAAYAAAAHAAgAABATAAUAAAAHAAgAABATAAQAAAAHAAgAABATAAMAAAAHAAgAABATAAIAAAAHAAgAABATAAEAAAAHAAgAABATAAAAAAAHAAgAABASAAsAAAAEAAEAAAASAAwAAAAEAAEAAAATAAwAAAAEAAEAAAAUAAwAAAAEAAEAAAAVAAwAAAAEAAEAAAAWAAwAAAAEAAEAAAAWAAsAAAAEAAEAAAAVAAsAAAAEAAEAAAAUAAsAAAAEAAEAAAATAAsAAAAEAAEAAAAVAAoAAAAEAAEAAAAWAAoAAAAEAAEAAAAXAAoAAAAEAAEAAAAYAAoAAAAEAAEAAAAYAAkAAAAEAAEAAAAXAAkAAAAEAAEAAAAXAAgAAAAEAAEAAAAXAAcAAAAEAAEAAAAYAAcAAAAEAAEAAAAYAAgAAAAEAAEAAAAWAAgAAAAEAAEAAAAWAAkAAAAEAAEAAAAVAAkAAAAEAAEAAAAUAAkAAAAEAAEAAAAUAAgAAAABAAMAAAAUAAcAAAAEAAEAAAAVAAcAAAAEAAEAAAAWAAcAAAAEAAEAAAAVAAgAAAAEAAEAAAAUAAYAAAAEAAEAAAAVAAYAAAAEAAEAAAAWAAYAAAAEAAEAAAAXAAYAAAAEAAEAAAAYAAYAAAAEAAEAAAAYAAUAAAAEAAEAAAAXAAUAAAAEAAEAAAAXAAQAAAAEAAEAAAAXAAMAAAAEAAEAAAAXAAIAAAAEAAEAAAAXAAEAAAAEAAEAAAAXAAAAAAAEAAEAAAAWAAAAAAAEAAEAAAAVAAAAAAAEAAEAAAAUAAAAAAAEAAEAAAAUAAEAAAAEAAEAAAAUAAIAAAAEAAEAAAAUAAMAAAAEAAEAAAAUAAQAAAAEAAEAAAAUAAUAAAAEAAEAAAAVAAUAAAAEAAEAAAAWAAUAAAAEAAEAAAAWAAQAAAAEAAEAAAAWAAMAAAAEAAEAAAAWAAIAAAAEAAEAAAAVAAIAAAAEAAEAAAAVAAEAAAAEAAEAAAAVAAMAAAAEAAEAAAAVAAQAAAAEAAEAAAAWAAEAAAAEAAEAAAAYAAAAAAAEAAEAAAAYAAEAAAAEAAEAAAAYAAIAAAAEAAEAAAAYAAMAAAAEAAEAAAAYAAQAAAAEAAEAAAAbAAUAAAAEAAEAAAAbAAQAAAAEAAEAAAAaAAQAAAAEAAEAAAAZAAQAAAAEAAEAAAAZAAMAAAAEAAEAAAARAAgAAAAGAAMAAFASAAgAAAABAAMAAAA=")
 
 [node name="Rose2" parent="." instance=ExtResource("6_ir7pk")]
@@ -297,7 +338,7 @@ position = Vector2(1231, 511)
 position = Vector2(610, 126)
 
 [node name="Guy" parent="." instance=ExtResource("5_jgkgd")]
-position = Vector2(231, 369)
+position = Vector2(203, 350)
 
 [node name="PauseMenu" parent="." instance=ExtResource("7_20uw2")]
 visible = false

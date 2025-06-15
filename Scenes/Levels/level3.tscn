@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://bunnlptwvw8pr"]
+[gd_scene load_steps=20 format=4 uid="uid://bunnlptwvw8pr"]
 
 [ext_resource type="Script" uid="uid://vp4ly8u07miy" path="res://Scripts/world.gd" id="1_x0tam"]
 [ext_resource type="PackedScene" uid="uid://cnfrxpljq8b8q" path="res://Scenes/nonmoveable.tscn" id="2_vfl4p"]
@@ -13,6 +13,18 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5a7ea"]
 size = Vector2(20.9922, 30.5048)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_i6bqf"]
+resource_local_to_scene = true
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_n80jh"]
+resource_local_to_scene = true
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_q21to"]
+resource_local_to_scene = true
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nqbrd"]
+resource_local_to_scene = true
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_16px4"]
 texture = ExtResource("3_wlbe4")
@@ -205,42 +217,102 @@ position = Vector2(19.5137, 20.6852)
 scale = Vector2(2.29468, 1.46367)
 shape = SubResource("RectangleShape2D_5a7ea")
 
+[node name="RestartLabel" type="Label" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 30.0
+offset_top = 18.0
+offset_right = 140.0
+offset_bottom = 53.0
+scale = Vector2(1.71487, 1.71487)
+text = "RESTARTING..."
+
 [node name="Rose2" parent="." instance=ExtResource("4_vfl4p")]
 position = Vector2(1179, 314)
 
-[node name="Pillar" parent="." instance=ExtResource("4_i6bqf")]
-position = Vector2(114, 403)
-scale = Vector2(0.279218, 0.240001)
+[node name="Pillar1" parent="." instance=ExtResource("4_i6bqf")]
+position = Vector2(107, 408)
+physics_material_override = SubResource("PhysicsMaterial_i6bqf")
 
-[node name="Sprite" parent="Pillar" index="2"]
-position = Vector2(3.58142, 4.1666)
+[node name="Shape" parent="Pillar1" index="0"]
+position = Vector2(-1.63685, -4.04037)
+scale = Vector2(0.277485, 0.277485)
+
+[node name="Whitecircle" parent="Pillar1" index="1"]
+position = Vector2(-6.50877, -4.78409)
+scale = Vector2(1.10994, 0.481437)
+
+[node name="Sprite" parent="Pillar1" index="2"]
+position = Vector2(-0.63686, -4.04037)
 rotation = 1.5708
-scale = Vector2(1.79932, 2.22394)
+scale = Vector2(0.653118, 0.601581)
 texture = ExtResource("6_i6bqf")
 
-[node name="Jug" parent="." instance=ExtResource("4_i6bqf")]
-position = Vector2(685, 306)
-scale = Vector2(0.165789, 0.511141)
+[node name="GuyFinder" parent="Pillar1" index="3"]
+position = Vector2(-1.63685, -3.04037)
+scale = Vector2(0.277485, 0.277485)
 
-[node name="Sprite" parent="Jug" index="2"]
-scale = Vector2(2.15742, 0.616403)
+[node name="Jug4" parent="." instance=ExtResource("4_i6bqf")]
+position = Vector2(702, 309)
+physics_material_override = SubResource("PhysicsMaterial_n80jh")
+
+[node name="Shape" parent="Jug4" index="0"]
+position = Vector2(3.84216, 2.37149)
+scale = Vector2(0.143283, 0.471191)
+
+[node name="Whitecircle" parent="Jug4" index="1"]
+position = Vector2(-1.02985, 1.62776)
+scale = Vector2(0.573132, 0.817517)
+
+[node name="Sprite" parent="Jug4" index="2"]
+position = Vector2(4.8421, 2.37151)
+scale = Vector2(0.305021, 0.284993)
 texture = ExtResource("6_wlbe4")
 
-[node name="Jug2" parent="." instance=ExtResource("4_i6bqf")]
-position = Vector2(685, 215)
-scale = Vector2(0.165789, 0.511141)
+[node name="GuyFinder" parent="Jug4" index="3"]
+position = Vector2(3.84216, 3.37149)
+scale = Vector2(0.143283, 0.471191)
 
-[node name="Sprite" parent="Jug2" index="2"]
-scale = Vector2(2.15448, 0.615563)
+[node name="Jug6" parent="." instance=ExtResource("4_i6bqf")]
+position = Vector2(1180, 300)
+physics_material_override = SubResource("PhysicsMaterial_q21to")
+
+[node name="Shape" parent="Jug6" index="0"]
+position = Vector2(-5.61957, -42.9112)
+scale = Vector2(0.292513, 0.961939)
+
+[node name="Whitecircle" parent="Jug6" index="1"]
+position = Vector2(-10.4916, -43.6549)
+scale = Vector2(1.17005, 1.66896)
+
+[node name="Sprite" parent="Jug6" index="2"]
+position = Vector2(-4.61963, -42.9111)
+scale = Vector2(0.622702, 0.581813)
 texture = ExtResource("6_wlbe4")
 
-[node name="Jug1" parent="." instance=ExtResource("4_i6bqf")]
-position = Vector2(1178, 264)
-scale = Vector2(0.29695, 0.906461)
+[node name="GuyFinder" parent="Jug6" index="3"]
+position = Vector2(-5.61957, -41.9112)
+scale = Vector2(0.292513, 0.961939)
 
-[node name="Sprite" parent="Jug1" index="2"]
-scale = Vector2(2.13206, 0.609158)
+[node name="Jug5" parent="." instance=ExtResource("4_i6bqf")]
+position = Vector2(702, 225)
+physics_material_override = SubResource("PhysicsMaterial_nqbrd")
+
+[node name="Shape" parent="Jug5" index="0"]
+position = Vector2(3.84216, 2.37149)
+scale = Vector2(0.143283, 0.471191)
+
+[node name="Whitecircle" parent="Jug5" index="1"]
+position = Vector2(-1.02985, 1.62776)
+scale = Vector2(0.573132, 0.817517)
+
+[node name="Sprite" parent="Jug5" index="2"]
+position = Vector2(4.8421, 2.37151)
+scale = Vector2(0.305021, 0.284993)
 texture = ExtResource("6_wlbe4")
+
+[node name="GuyFinder" parent="Jug5" index="3"]
+position = Vector2(3.84216, 3.37149)
+scale = Vector2(0.143283, 0.471191)
 
 [node name="Begfinbuilding" type="Node2D" parent="."]
 position = Vector2(-329, -206)
@@ -369,7 +441,7 @@ visible = false
 
 [connection signal="input_event" from="CanvasLayer/Background" to="." method="_on_background_input_event"]
 
-[editable path="Pillar"]
-[editable path="Jug"]
-[editable path="Jug2"]
-[editable path="Jug1"]
+[editable path="Pillar1"]
+[editable path="Jug4"]
+[editable path="Jug6"]
+[editable path="Jug5"]

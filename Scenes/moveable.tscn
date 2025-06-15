@@ -1,9 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://dpfjytluhwwx7"]
+[gd_scene load_steps=11 format=3 uid="uid://dpfjytluhwwx7"]
 
 [ext_resource type="Script" uid="uid://2cg00vl8kyi8" path="res://Scripts/moveable.gd" id="1_h70h1"]
 [ext_resource type="Texture2D" uid="uid://dsi1uv8d5lug0" path="res://Assets/icon.svg" id="1_ikdxc"]
 [ext_resource type="Shader" uid="uid://e5m7qxxajq88" path="res://Scenes/moveable.gdshader" id="2_byerq"]
 [ext_resource type="Texture2D" uid="uid://bxnrpcs0m7syi" path="res://Assets/Shaders/whitecircle.png" id="3_4mhc5"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_byerq"]
+resource_local_to_scene = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0w77i"]
 size = Vector2(621.5, 177)
@@ -25,10 +28,12 @@ shader_parameter/speed = 0.2
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_byerq"]
 size = Vector2(650, 214)
 
-[node name="Moveable" type="CharacterBody2D" groups=["Walls"]]
+[node name="Moveable" type="RigidBody2D" groups=["Walls"]]
 collision_layer = 5
 collision_mask = 5
 input_pickable = true
+physics_material_override = SubResource("PhysicsMaterial_byerq")
+angular_damp = 100.0
 script = ExtResource("1_h70h1")
 
 [node name="Shape" type="CollisionShape2D" parent="."]

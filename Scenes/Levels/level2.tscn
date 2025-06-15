@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://stre87ywwjqa"]
+[gd_scene load_steps=22 format=4 uid="uid://stre87ywwjqa"]
 
 [ext_resource type="Script" uid="uid://vp4ly8u07miy" path="res://Scripts/world.gd" id="1_5j5u1"]
 [ext_resource type="Texture2D" uid="uid://povxtku8nxul" path="res://Assets/backgroundpotential.png" id="2_bxvyr"]
@@ -15,6 +15,18 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5a7ea"]
 size = Vector2(20.9922, 30.5048)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_o7bax"]
+resource_local_to_scene = true
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_flysx"]
+resource_local_to_scene = true
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0jhw5"]
+resource_local_to_scene = true
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_eqosv"]
+resource_local_to_scene = true
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d15yg"]
 texture = ExtResource("3_hrj3c")
@@ -213,39 +225,100 @@ position = Vector2(19.5137, 20.6852)
 scale = Vector2(2.29468, 1.46367)
 shape = SubResource("RectangleShape2D_5a7ea")
 
-[node name="Pillar1" parent="." instance=ExtResource("3_d15yg")]
-position = Vector2(1045, 252)
-scale = Vector2(0.319218, 0.240001)
+[node name="RestartLabel" type="Label" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 66.0
+offset_top = 23.0
+offset_right = 176.0
+offset_bottom = 58.0
+scale = Vector2(1.71487, 1.71487)
+text = "RESTARTING..."
 
-[node name="Sprite" parent="Pillar1" index="2"]
-rotation = 1.56358
-scale = Vector2(1.92427, 2.14126)
+[node name="Pillar3" parent="." instance=ExtResource("3_d15yg")]
+position = Vector2(1056, 245)
+physics_material_override = SubResource("PhysicsMaterial_o7bax")
+
+[node name="Shape" parent="Pillar3" index="0"]
+position = Vector2(0.363892, -0.0401611)
+scale = Vector2(0.387486, 0.277485)
+
+[node name="Whitecircle" parent="Pillar3" index="1"]
+position = Vector2(-4.50803, -0.783875)
+scale = Vector2(1.54995, 0.481437)
+
+[node name="Sprite" parent="Pillar3" index="2"]
+position = Vector2(1.36389, -0.0401611)
+rotation = 1.5708
+scale = Vector2(0.653118, 0.841581)
 texture = ExtResource("6_pyd1a")
 
-[node name="Jug1" parent="." instance=ExtResource("3_d15yg")]
-position = Vector2(302, 150)
-scale = Vector2(0.135354, 0.413178)
-
-[node name="Sprite" parent="Jug1" index="2"]
-scale = Vector2(2.20392, 0.629689)
-texture = ExtResource("7_o7bax")
+[node name="GuyFinder" parent="Pillar3" index="3"]
+position = Vector2(0.363892, 0.959839)
+scale = Vector2(0.387486, 0.277485)
 
 [node name="Jug2" parent="." instance=ExtResource("3_d15yg")]
-position = Vector2(753, 145)
-scale = Vector2(0.116345, 0.435152)
+position = Vector2(728, 133)
+physics_material_override = SubResource("PhysicsMaterial_flysx")
+
+[node name="Shape" parent="Jug2" index="0"]
+position = Vector2(3.84216, 2.37149)
+scale = Vector2(0.143283, 0.471191)
+
+[node name="Whitecircle" parent="Jug2" index="1"]
+position = Vector2(-1.02985, 1.62776)
+scale = Vector2(0.573132, 0.817517)
 
 [node name="Sprite" parent="Jug2" index="2"]
-scale = Vector2(2.15561, 0.615885)
+position = Vector2(4.8421, 2.37151)
+scale = Vector2(0.305021, 0.284993)
 texture = ExtResource("7_o7bax")
 
-[node name="Pillar2" parent="." instance=ExtResource("3_d15yg")]
-position = Vector2(337, 425)
-scale = Vector2(0.240001, 0.240001)
+[node name="GuyFinder" parent="Jug2" index="3"]
+position = Vector2(3.84216, 3.37149)
+scale = Vector2(0.143283, 0.471191)
 
-[node name="Sprite" parent="Pillar2" index="2"]
-rotation = -1.5708
-scale = Vector2(1.7005, 2.22395)
+[node name="Jug4" parent="." instance=ExtResource("3_d15yg")]
+position = Vector2(294, 143)
+physics_material_override = SubResource("PhysicsMaterial_0jhw5")
+
+[node name="Shape" parent="Jug4" index="0"]
+position = Vector2(3.84216, 2.37149)
+scale = Vector2(0.143283, 0.471191)
+
+[node name="Whitecircle" parent="Jug4" index="1"]
+position = Vector2(-1.02985, 1.62776)
+scale = Vector2(0.573132, 0.817517)
+
+[node name="Sprite" parent="Jug4" index="2"]
+position = Vector2(4.8421, 2.37151)
+scale = Vector2(0.305021, 0.284993)
+texture = ExtResource("7_o7bax")
+
+[node name="GuyFinder" parent="Jug4" index="3"]
+position = Vector2(3.84216, 3.37149)
+scale = Vector2(0.143283, 0.471191)
+
+[node name="Pillar1" parent="." instance=ExtResource("3_d15yg")]
+position = Vector2(324, 424)
+physics_material_override = SubResource("PhysicsMaterial_eqosv")
+
+[node name="Shape" parent="Pillar1" index="0"]
+position = Vector2(-2.63685, 1.95963)
+scale = Vector2(0.277485, 0.277485)
+
+[node name="Whitecircle" parent="Pillar1" index="1"]
+position = Vector2(-7.50877, 1.21591)
+scale = Vector2(1.10994, 0.481437)
+
+[node name="Sprite" parent="Pillar1" index="2"]
+position = Vector2(-1.63686, 1.95963)
+rotation = 1.5708
+scale = Vector2(0.653118, 0.601581)
 texture = ExtResource("6_pyd1a")
+
+[node name="GuyFinder" parent="Pillar1" index="3"]
+position = Vector2(-2.63685, 2.95963)
+scale = Vector2(0.277485, 0.277485)
 
 [node name="Behindbuilding" type="Node2D" parent="."]
 
@@ -263,15 +336,15 @@ tile_set = SubResource("TileSet_hrj3c")
 [node name="Middlebuilding" type="Node2D" parent="."]
 
 [node name="Building2" parent="Middlebuilding" instance=ExtResource("2_tnuy3")]
-position = Vector2(658, 888)
-scale = Vector2(0.810038, 2.64006)
+position = Vector2(662, 895)
+scale = Vector2(0.730038, 2.64006)
 
 [node name="Building8" parent="Middlebuilding" instance=ExtResource("2_tnuy3")]
 position = Vector2(658, 305)
-scale = Vector2(0.810038, 1.28006)
+scale = Vector2(0.730038, 1.32006)
 
 [node name="Building9" parent="Middlebuilding" instance=ExtResource("2_tnuy3")]
-position = Vector2(575, 644)
+position = Vector2(580, 653)
 scale = Vector2(0.250038, 1.72006)
 
 [node name="Layer1" type="TileMapLayer" parent="Middlebuilding"]
@@ -289,7 +362,7 @@ position = Vector2(113, 293)
 scale = Vector2(1.49662, 1.15081)
 
 [node name="Building5" parent="Firstbuilding" instance=ExtResource("2_tnuy3")]
-position = Vector2(22, 422)
+position = Vector2(-7, 422)
 scale = Vector2(1.49662, 1.15081)
 
 [node name="Building3" parent="Firstbuilding" instance=ExtResource("2_tnuy3")]
@@ -308,7 +381,7 @@ position = Vector2(25, 0)
 
 [node name="Building7" parent="Fartower" instance=ExtResource("2_tnuy3")]
 position = Vector2(1026, 922)
-scale = Vector2(0.548919, 7.2548)
+scale = Vector2(0.522046, 7.23944)
 
 [node name="Layer0" type="TileMapLayer" parent="Fartower"]
 use_parent_material = true
@@ -335,7 +408,7 @@ autoplay = true
 
 [connection signal="input_event" from="CanvasLayer/Background" to="." method="_on_background_input_event"]
 
-[editable path="Pillar1"]
-[editable path="Jug1"]
+[editable path="Pillar3"]
 [editable path="Jug2"]
-[editable path="Pillar2"]
+[editable path="Jug4"]
+[editable path="Pillar1"]

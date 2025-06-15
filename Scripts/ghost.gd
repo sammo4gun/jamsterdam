@@ -14,12 +14,14 @@ var target_possess: Moveable = null;
 var going_to_scare = false;
 var possessing: Moveable = null
 var present = true
-var aura_level = 3.5
+var aura_scale: Vector2
+var aura_color
 
 func _ready() -> void:
 	target_pos = global_position
 	guy = get_parent().get_guy()
-	aura.material.shader
+	aura_scale = aura.scale
+	aura_color = aura.modulate
 	
 func _physics_process(delta: float) -> void:
 	if guy == null:
@@ -44,6 +46,10 @@ func _physics_process(delta: float) -> void:
 				sprite.flip_h = 0
 		var dist_from_guy = global_position.distance_to(guy.global_position)
 		modulate[3] = min(1, dist_from_guy/280)
+		aura.scale = aura.scale.lerp(aura_scale * min(1, dist_from_guy/180), 0.1)
+		if aura.modulate != aura_color:
+			for i in range(4):
+				aura.modulate[i] = lerpf(aura.modulate[i], aura_color[i], 0.1)
 		move_and_slide()
 	else:
 		global_position = possessing.global_position
@@ -84,6 +90,8 @@ func set_target_scare(body):
 func scare(body):
 	if body.frighten():
 		going_to_scare = false
+		aura.scale = 2 * aura_scale
+		aura.modulate = Color("Red")
 	target_pos = global_position
 	velocity = Vector2.ZERO
 
