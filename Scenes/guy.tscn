@@ -1,10 +1,9 @@
-[gd_scene load_steps=29 format=3 uid="uid://cctthl1q1bekw"]
+[gd_scene load_steps=28 format=3 uid="uid://cctthl1q1bekw"]
 
 [ext_resource type="Script" uid="uid://byxufi14rff50" path="res://Scripts/guy.gd" id="1_tj2cq"]
 [ext_resource type="Texture2D" uid="uid://ddtaolmdio5sa" path="res://Assets/Spritesheets/lilorph-rose.png" id="3_bh7l2"]
 [ext_resource type="Texture2D" uid="uid://b72atp81ca7vm" path="res://Assets/Spritesheets/lilorph-1.png" id="3_y2mbu"]
 [ext_resource type="Texture2D" uid="uid://cpkayupkwuow5" path="res://Assets/Spritesheets/lilorph-froight.png" id="4_bh7l2"]
-[ext_resource type="AudioStream" uid="uid://c7xem236jtcc" path="res://Assets/SFX/death.mp3" id="4_y2mbu"]
 [ext_resource type="Texture2D" uid="uid://cl0jwqk1qwsix" path="res://Assets/Spritesheets/lilorph-fall-1.png" id="5_7b8b7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qi3w2"]
@@ -185,7 +184,7 @@ size = Vector2(39, 112.5)
 size = Vector2(59, 84.8438)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y2mbu"]
-size = Vector2(8.02098, 4.91534)
+size = Vector2(5.18656, 4.12254)
 
 [node name="Guy" type="CharacterBody2D" groups=["Guy"]]
 input_pickable = true
@@ -221,16 +220,12 @@ shape = SubResource("RectangleShape2D_y8ag8")
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
-[node name="DeathSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_y2mbu")
-volume_db = -5.0
-
 [node name="Feet" type="Area2D" parent="." groups=["Guy"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Feet"]
-position = Vector2(6.42339e-06, 52)
+position = Vector2(-4.76837e-07, 51.5238)
 rotation = 3.14159
-scale = Vector2(5.48561, -1.22068)
+scale = Vector2(5.39857, -1.20131)
 shape = SubResource("RectangleShape2D_y2mbu")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

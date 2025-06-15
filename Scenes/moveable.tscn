@@ -1,7 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://dpfjytluhwwx7"]
 
 [ext_resource type="Script" uid="uid://2cg00vl8kyi8" path="res://Scripts/moveable.gd" id="1_h70h1"]
-[ext_resource type="Texture2D" uid="uid://dsi1uv8d5lug0" path="res://Assets/icon.svg" id="1_ikdxc"]
 [ext_resource type="Shader" uid="uid://e5m7qxxajq88" path="res://Scenes/moveable.gdshader" id="2_byerq"]
 [ext_resource type="Texture2D" uid="uid://bxnrpcs0m7syi" path="res://Assets/Shaders/whitecircle.png" id="3_4mhc5"]
 
@@ -24,6 +23,9 @@ shader = ExtResource("2_byerq")
 shader_parameter/n = SubResource("NoiseTexture2D_byerq")
 shader_parameter/intensity = 3.0
 shader_parameter/speed = 0.2
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8fyv2"]
+load_path = "res://.godot/imported/icon.svg-8193eb3d66a1b5143b8bb4c28c1dc139.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_byerq"]
 size = Vector2(650, 214)
@@ -56,7 +58,7 @@ texture = ExtResource("3_4mhc5")
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(1, -1)
 scale = Vector2(4.86719, 1.39062)
-texture = ExtResource("1_ikdxc")
+texture = SubResource("CompressedTexture2D_8fyv2")
 
 [node name="GuyFinder" type="Area2D" parent="."]
 

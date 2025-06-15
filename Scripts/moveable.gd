@@ -26,9 +26,10 @@ func get_input(delta):
 	var target_velocity = input_direction * speed / weight
 	if connected_guy:
 		target_velocity = target_velocity / 4
-	linear_velocity = linear_velocity.move_toward(target_velocity, 1000 * delta)
+	var new_linear_velocity = linear_velocity.move_toward(target_velocity, 1000 * delta)
 	if connected_guy and linear_velocity.y < 0:
-		guy.get_parent().velocity.y = linear_velocity.y
+		guy.get_parent().velocity.y += new_linear_velocity.y - linear_velocity.y
+	linear_velocity = new_linear_velocity
 
 func _physics_process(delta):
 	if possessed:

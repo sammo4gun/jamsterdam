@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 @onready var animator: AnimatedSprite2D = $AnimatedSprite2D
 @onready var timer: Timer = $Timer
-@onready var death_sound: AudioStreamPlayer = $DeathSound
 @onready var world = get_parent()
 @onready var feet = $"Feet"
 
