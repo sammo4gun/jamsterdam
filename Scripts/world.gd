@@ -14,7 +14,7 @@ var restart = 0.0
 var guy_dead = false
 
 var time = 0
-var final_level = 3
+var final_level = 5
 @onready var basepos = AdviceLabel.position
 
 func _process(delta: float) -> void:
