@@ -29,7 +29,7 @@ func _process(delta: float) -> void:
 			labels[i].modulate[3] = min(1, labels[i].modulate[3]+delta)
 
 func start_game():
-	var new_scene = load("res://Scenes/Levels/level1.tscn")  # Replace with your scene path
+	var new_scene = load("res://Scenes/intro_tutorial.tscn")  # Replace with your scene path
 	get_tree().change_scene_to_packed(new_scene)
 
 func _input(event):
