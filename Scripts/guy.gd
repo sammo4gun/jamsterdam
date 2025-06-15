@@ -27,9 +27,11 @@ func _ready() -> void:
 func _physics_process(delta):
 	if not has_hope:
 		for b in $"LeftSideCollision".get_overlapping_bodies():
-			check_collision(b, -1)
+			if is_on_floor():
+				check_collision(b, -1)
 		for b in $"RightSideCollision".get_overlapping_bodies():
-			check_collision(b, 1)
+			if is_on_floor():
+				check_collision(b, 1)
 		
 		if position.y > out_of_bounds_y:
 			die_and_reset()
@@ -40,14 +42,12 @@ func _physics_process(delta):
 				on_floor = true
 				break
 			on_floor = false
-		
 		if is_on_floor() or on_floor:
 			if is_sad:
 				velocity.x = 0
 			else:
 				velocity.x = speed * direction
-				if airtime > 0.3:
-					animator.play("Walking")
+				animator.play("Walking")
 				airtime = 0.0
 		else:
 			velocity.y += gravity * delta
@@ -87,18 +87,6 @@ func die_and_reset():
 	# Prevent re-entering if already dying
 	set_physics_process(false)
 	world.guy_died()
-	
-	# Stop movement
-	#velocity = Vector2.ZERO
-#
-	## Play death sound
-	#death_sound.play()
-	#
-	## Wait a bit (e.g. 1 second), then reset the scene
-	#await get_tree().create_timer(1.0).timeout
-	#
-	## Reset Scene
-	#get_tree().reload_current_scene()
 
 func frighten():
 	if is_on_floor() and not has_hope:

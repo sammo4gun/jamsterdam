@@ -185,7 +185,7 @@ size = Vector2(39, 112.5)
 size = Vector2(59, 84.8438)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y2mbu"]
-size = Vector2(6.92721, 2.05647)
+size = Vector2(8.02098, 4.91534)
 
 [node name="Guy" type="CharacterBody2D" groups=["Guy"]]
 input_pickable = true
@@ -228,7 +228,7 @@ volume_db = -5.0
 [node name="Feet" type="Area2D" parent="." groups=["Guy"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Feet"]
-position = Vector2(-7.7486e-07, 51.7449)
+position = Vector2(6.42339e-06, 52)
 rotation = 3.14159
 scale = Vector2(5.48561, -1.22068)
 shape = SubResource("RectangleShape2D_y2mbu")

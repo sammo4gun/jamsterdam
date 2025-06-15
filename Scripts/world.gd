@@ -14,6 +14,7 @@ var restart = 0.0
 var guy_dead = false
 
 var time = 0
+var final_level = 3
 @onready var basepos = AdviceLabel.position
 
 func _process(delta: float) -> void:
@@ -40,11 +41,18 @@ func next_level():
 
 	if result:
 		var number = int(result.get_string())
-		var next_number = number + 1
-		var next_scene_path = "res://Scenes/Levels/level%d.tscn" % next_number
-		get_tree().change_scene_to_file(next_scene_path)
+		if number == final_level:
+			end_game()
+		else:
+			var next_number = number + 1
+			var next_scene_path = "res://Scenes/Levels/level%d.tscn" % next_number
+			get_tree().change_scene_to_file(next_scene_path)
 	else:
 		print("No number found in scene name")
+
+func end_game():
+	var end_screen = load("res://Scenes/end_screen.tscn")
+	get_tree().change_scene_to_packed(end_screen)
 
 func attempt_possession(body: Moveable):
 	Ghost.set_target_possess(body)

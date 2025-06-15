@@ -79,6 +79,10 @@ rotation = 3.14159
 scale = Vector2(0.431583, 0.327625)
 texture = ExtResource("4_taxxh")
 
+[node name="PointLight2D" type="PointLight2D" parent="Whitecircle"]
+energy = 0.3
+texture = ExtResource("4_taxxh")
+
 [node name="GhostGirl" type="AnimatedSprite2D" parent="."]
 position = Vector2(8, -11)
 scale = Vector2(0.78352, 0.78352)

@@ -1,9 +1,10 @@
-[gd_scene load_steps=22 format=4 uid="uid://xr273hyfg6kr"]
+[gd_scene load_steps=24 format=4 uid="uid://xr273hyfg6kr"]
 
 [ext_resource type="Script" uid="uid://vp4ly8u07miy" path="res://Scripts/world.gd" id="1_y4dr7"]
 [ext_resource type="PackedScene" uid="uid://cnfrxpljq8b8q" path="res://Scenes/nonmoveable.tscn" id="2_didp7"]
 [ext_resource type="Texture2D" uid="uid://t6nggttwbrl5" path="res://Assets/backgroundoption.png" id="2_nqasx"]
 [ext_resource type="PackedScene" uid="uid://dpfjytluhwwx7" path="res://Scenes/moveable.tscn" id="3_2a60c"]
+[ext_resource type="FontFile" uid="uid://datde377oev7l" path="res://Assets/Fonts/Peaberry/PeaberryBase.ttf" id="3_ryjqc"]
 [ext_resource type="Texture2D" uid="uid://bo5u4ycq1ett" path="res://Assets/pillar.png" id="4_4f2fw"]
 [ext_resource type="PackedScene" uid="uid://6pic503w7xpl" path="res://Scenes/ghost.tscn" id="4_4iphx"]
 [ext_resource type="PackedScene" uid="uid://buqy7w73rwv13" path="res://Scenes/buildings_tile_map_layer.tscn" id="4_i36j2"]
@@ -17,6 +18,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5a7ea"]
 size = Vector2(20.9922, 30.5048)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xe7un"]
+font = ExtResource("3_ryjqc")
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4f2fw"]
 resource_local_to_scene = true
@@ -229,6 +233,7 @@ offset_right = 284.0
 offset_bottom = 49.0
 scale = Vector2(1.71487, 1.71487)
 text = "RESTARTING..."
+label_settings = SubResource("LabelSettings_xe7un")
 
 [node name="YouShouldRestartLabel" type="Label" parent="CanvasLayer"]
 visible = false
@@ -238,6 +243,7 @@ offset_right = 735.0
 offset_bottom = 209.0
 scale = Vector2(1.71487, 1.71487)
 text = "Press R to restart..."
+label_settings = SubResource("LabelSettings_xe7un")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.537255, 0.678431, 0.666667, 1)

@@ -66,25 +66,18 @@ func set_target_pos(pos: Vector2):
 
 func set_target_possess(body: Moveable):
 	if possessing != null and body != possessing:
-		unpossess()
-		going_to_scare = false
+		set_target_pos(body.global_position)
 		target_possess = body
-		target_pos = body.global_position
-		velocity = velocity.slide(global_position.direction_to(target_pos).normalized().rotated(-PI/2))
 	elif possessing == null:
-		going_to_scare = false
+		set_target_pos(body.global_position)
 		target_possess = body
-		target_pos = body.global_position
-		velocity = velocity.slide(global_position.direction_to(target_pos).normalized().rotated(-PI/2))
 	
 	for b in possessionzone.get_overlapping_bodies():
 		if target_possess == b:
 			possess(b)
 
 func set_target_scare(body):
-	if possessing != null:
-		unpossess()
-	target_pos = body.global_position
+	set_target_pos(body.global_position)
 	going_to_scare = true
 
 func scare(body):

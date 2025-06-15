@@ -32,6 +32,7 @@ func get_input(delta):
 
 func _physics_process(delta):
 	if possessed:
+		$"Whitecircle/PointLight2D".visible = true
 		if aura.scale.x < corr_aura_scale.x/2:
 			aura.scale = corr_aura_scale/2
 		if aura.scale.x < corr_aura_scale.x:
@@ -50,6 +51,7 @@ func _physics_process(delta):
 	else:
 		if aura.scale.x > 0.01:
 			aura.scale *= 0.97
+		$"Whitecircle/PointLight2D".visible = false
 
 func _on_input_event(viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	viewport.set_input_as_handled()

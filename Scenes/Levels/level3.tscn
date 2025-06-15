@@ -1,8 +1,9 @@
-[gd_scene load_steps=24 format=4 uid="uid://bunnlptwvw8pr"]
+[gd_scene load_steps=26 format=4 uid="uid://bunnlptwvw8pr"]
 
 [ext_resource type="Script" uid="uid://vp4ly8u07miy" path="res://Scripts/world.gd" id="1_x0tam"]
 [ext_resource type="Texture2D" uid="uid://t6nggttwbrl5" path="res://Assets/backgroundoption.png" id="2_l8qla"]
 [ext_resource type="PackedScene" uid="uid://cnfrxpljq8b8q" path="res://Scenes/nonmoveable.tscn" id="2_vfl4p"]
+[ext_resource type="FontFile" uid="uid://datde377oev7l" path="res://Assets/Fonts/Peaberry/PeaberryBase.ttf" id="3_du1gc"]
 [ext_resource type="Texture2D" uid="uid://du8yvhhd3cgnu" path="res://Assets/Tilesets/tiles.png" id="3_wlbe4"]
 [ext_resource type="PackedScene" uid="uid://dpfjytluhwwx7" path="res://Scenes/moveable.tscn" id="4_i6bqf"]
 [ext_resource type="PackedScene" uid="uid://k2kwvg3avs8t" path="res://Scenes/rose.tscn" id="4_vfl4p"]
@@ -17,6 +18,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5a7ea"]
 size = Vector2(20.9922, 30.5048)
+
+[sub_resource type="LabelSettings" id="LabelSettings_uwisk"]
+font = ExtResource("3_du1gc")
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_i6bqf"]
 resource_local_to_scene = true
@@ -215,7 +219,7 @@ script = ExtResource("1_x0tam")
 layer = -1
 
 [node name="BackgroundImage" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(620, 369)
+position = Vector2(620, 395)
 scale = Vector2(1.06827, 0.785489)
 texture = ExtResource("2_l8qla")
 
@@ -235,6 +239,7 @@ offset_right = 140.0
 offset_bottom = 53.0
 scale = Vector2(1.71487, 1.71487)
 text = "RESTARTING..."
+label_settings = SubResource("LabelSettings_uwisk")
 
 [node name="YouShouldRestartLabel" type="Label" parent="CanvasLayer"]
 visible = false
@@ -244,6 +249,7 @@ offset_right = 421.0
 offset_bottom = 138.0
 scale = Vector2(1.71487, 1.71487)
 text = "Press R to restart..."
+label_settings = SubResource("LabelSettings_uwisk")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.537255, 0.678431, 0.666667, 1)
