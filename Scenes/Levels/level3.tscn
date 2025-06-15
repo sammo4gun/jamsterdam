@@ -280,7 +280,7 @@ position = Vector2(-1.63685, -3.04037)
 scale = Vector2(0.277485, 0.277485)
 
 [node name="Jug4" parent="." instance=ExtResource("4_i6bqf")]
-position = Vector2(702, 309)
+position = Vector2(702, 306)
 physics_material_override = SubResource("PhysicsMaterial_n80jh")
 
 [node name="Shape" parent="Jug4" index="0"]
@@ -301,7 +301,7 @@ position = Vector2(3.84216, 3.37149)
 scale = Vector2(0.143283, 0.471191)
 
 [node name="Jug6" parent="." instance=ExtResource("4_i6bqf")]
-position = Vector2(1143, 300)
+position = Vector2(1143, 297)
 physics_material_override = SubResource("PhysicsMaterial_q21to")
 
 [node name="Shape" parent="Jug6" index="0"]
@@ -322,7 +322,7 @@ position = Vector2(-5.61957, -41.9112)
 scale = Vector2(0.292513, 0.961939)
 
 [node name="Jug5" parent="." instance=ExtResource("4_i6bqf")]
-position = Vector2(702, 225)
+position = Vector2(702, 222)
 physics_material_override = SubResource("PhysicsMaterial_nqbrd")
 
 [node name="Shape" parent="Jug5" index="0"]
@@ -345,17 +345,9 @@ scale = Vector2(0.143283, 0.471191)
 [node name="Begfinbuilding" type="Node2D" parent="."]
 position = Vector2(-329, -206)
 
-[node name="Building1" parent="Begfinbuilding" instance=ExtResource("2_vfl4p")]
-position = Vector2(113, 293)
-scale = Vector2(1.49662, 1.15081)
-
-[node name="Building5" parent="Begfinbuilding" instance=ExtResource("2_vfl4p")]
-position = Vector2(108, 422)
-scale = Vector2(1.49662, 1.15081)
-
 [node name="Building3" parent="Begfinbuilding" instance=ExtResource("2_vfl4p")]
-position = Vector2(113, 642)
-scale = Vector2(1.49662, 2.0708)
+position = Vector2(113, 585)
+scale = Vector2(1.49662, 4.7908)
 
 [node name="Layer1" type="TileMapLayer" parent="Begfinbuilding"]
 use_parent_material = true
@@ -367,16 +359,8 @@ tile_set = SubResource("TileSet_bxvyr")
 [node name="Firstbuilding" type="Node2D" parent="."]
 position = Vector2(43, 245)
 
-[node name="Building1" parent="Firstbuilding" instance=ExtResource("2_vfl4p")]
-position = Vector2(113, 293)
-scale = Vector2(1.49662, 1.15081)
-
-[node name="Building5" parent="Firstbuilding" instance=ExtResource("2_vfl4p")]
-position = Vector2(108, 422)
-scale = Vector2(1.49662, 1.15081)
-
 [node name="Building3" parent="Firstbuilding" instance=ExtResource("2_vfl4p")]
-position = Vector2(113, 642)
+position = Vector2(114, 373)
 scale = Vector2(1.49662, 2.0708)
 
 [node name="Layer1" type="TileMapLayer" parent="Firstbuilding"]
@@ -387,11 +371,11 @@ tile_map_data = PackedByteArray("AAAFAAUAAAAHAAMAAAAAAAUAAAAHAAMAABAEAAUAAAAGAAM
 tile_set = SubResource("TileSet_bxvyr")
 
 [node name="Abovetower" type="Node2D" parent="."]
-position = Vector2(66, 30)
+position = Vector2(60, 30)
 
 [node name="Building4" parent="Abovetower" instance=ExtResource("2_vfl4p")]
-position = Vector2(938, -129)
-scale = Vector2(0.200035, 3.2122)
+position = Vector2(938, -117)
+scale = Vector2(0.240035, 3.2122)
 
 [node name="Layer1" type="TileMapLayer" parent="Abovetower"]
 use_parent_material = true
@@ -403,30 +387,22 @@ tile_set = SubResource("TileSet_bxvyr")
 [node name="Middlebuilding" type="Node2D" parent="."]
 position = Vector2(35, 174)
 
-[node name="Building2" parent="Middlebuilding" instance=ExtResource("2_vfl4p")]
-position = Vector2(658, 888)
-scale = Vector2(0.801047, 6.12763)
-
 [node name="Building8" parent="Middlebuilding" instance=ExtResource("2_vfl4p")]
-position = Vector2(658, 305)
-scale = Vector2(0.810038, 1.28006)
-
-[node name="Building9" parent="Middlebuilding" instance=ExtResource("2_vfl4p")]
-position = Vector2(575, 644)
-scale = Vector2(0.250038, 1.72006)
+position = Vector2(660, 531)
+scale = Vector2(0.770038, 3.96006)
 
 [node name="Layer1" type="TileMapLayer" parent="Middlebuilding"]
 use_parent_material = true
 position = Vector2(539, -225)
 scale = Vector2(10.053, 10.0402)
-tile_map_data = PackedByteArray("AAAAAAUAAAAHAAMAABAAAAsAAAAHAAkAABAAAAoAAAAHAAgAABAAAAkAAAAHAAgAABAAAAcAAAAHAAgAABAAAAYAAAAHAAgAABABAAYAAAAEAAEAAAACAAYAAAABAAMAAAACAAUAAAAGAAMAAAABAAUAAAAGAAMAAAACAAsAAAADAAkAAAABAAsAAAADAAkAAAACAAcAAAABAAMAAAABAAcAAAABAAMAAAA=")
+tile_map_data = PackedByteArray("AAAAAAUAAAAHAAMAABAAAAsAAAAHAAkAABAAAAoAAAAHAAgAABAAAAkAAAAHAAgAABAAAAcAAAAHAAgAABAAAAYAAAAHAAgAABABAAYAAAAEAAEAAAACAAYAAAABAAMAAAACAAUAAAAGAAMAAAABAAUAAAAGAAMAAAACAAsAAAADAAkAAAABAAsAAAADAAkAAAACAAcAAAABAAMAAAABAAcAAAABAAMAAAABAAgAAAAEAAEAAAABAAkAAAAEAAEAAAABAAoAAAAEAAEAAAA=")
 tile_set = SubResource("TileSet_bxvyr")
 
 [node name="Finalbuilding" type="Node2D" parent="."]
 position = Vector2(1275, 373)
 
 [node name="Building4" parent="Finalbuilding" instance=ExtResource("2_vfl4p")]
-position = Vector2(-185, 254)
+position = Vector2(-187, 255)
 scale = Vector2(1.44003, 3.2122)
 
 [node name="Layer0" type="TileMapLayer" parent="Finalbuilding"]
@@ -439,21 +415,13 @@ tile_set = SubResource("TileSet_hrj3c")
 [node name="Endbuilding" type="Node2D" parent="."]
 position = Vector2(1408, -293)
 
-[node name="Building1" parent="Endbuilding" instance=ExtResource("2_vfl4p")]
-position = Vector2(113, 293)
-scale = Vector2(1.49662, 1.15081)
-
-[node name="Building5" parent="Endbuilding" instance=ExtResource("2_vfl4p")]
-position = Vector2(108, 422)
-scale = Vector2(1.49662, 1.15081)
-
 [node name="Building3" parent="Endbuilding" instance=ExtResource("2_vfl4p")]
-position = Vector2(113, 642)
+position = Vector2(100, 464)
 scale = Vector2(1.49662, 2.0708)
 
 [node name="Layer1" type="TileMapLayer" parent="Endbuilding"]
 use_parent_material = true
-position = Vector2(-136, -214)
+position = Vector2(-132, -215)
 scale = Vector2(10.053, 10.0402)
 tile_map_data = PackedByteArray("AAAFAAUAAAAHAAMAAAAAAAUAAAAHAAMAABAEAAUAAAAGAAMAAAADAAUAAAAGAAMAAAACAAUAAAAGAAMAAAABAAUAAAAGAAMAAAAFAAYAAAAHAAgAAAAFAAcAAAAHAAYAAAAFAAgAAAABAAYAADAFAAkAAAABAAcAAAAFAAoAAAAHAAgAAAAFAAsAAAAHAAkAAAAAAAsAAAAHAAkAABABAAsAAAADAAkAAAACAAsAAAADAAkAAAADAAsAAAADAAkAAAAEAAsAAAADAAkAAAAAAAoAAAAHAAgAABAAAAkAAAAHAAgAABAAAAgAAAAHAAgAABAAAAcAAAAHAAgAABAAAAYAAAAHAAgAABABAAYAAAAEAAEAAAABAAcAAAABAAMAAAACAAcAAAABAAMAAAACAAgAAAADAAYAAAACAAkAAAABAAUAAAADAAkAAAABAAUAAAAEAAkAAAABAAUAAAAEAAoAAAAEAAEAAAAEAAgAAAABAAUAAAAEAAcAAAADAAYAAAADAAcAAAABAAMAAAADAAYAAAAEAAEAAAACAAYAAAABAAMAAAAEAAYAAAAEAAEAAAADAAgAAAABAAQAAAACAAoAAAAEAAEAAAADAAoAAAAEAAEAAAABAAoAAAAEAAEAAAABAAkAAAAEAAEAAAABAAgAAAAEAAEAAAA=")
 tile_set = SubResource("TileSet_bxvyr")
