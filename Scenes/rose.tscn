@@ -1,10 +1,47 @@
-[gd_scene load_steps=4 format=3 uid="uid://k2kwvg3avs8t"]
+[gd_scene load_steps=10 format=3 uid="uid://k2kwvg3avs8t"]
 
 [ext_resource type="Script" uid="uid://8jikytf8eyjt" path="res://Scripts/rose.gd" id="1_o2c0a"]
 [ext_resource type="Texture2D" uid="uid://csr56pl0qlxrp" path="res://Assets/Images/rose.png" id="2_v1vrc"]
+[ext_resource type="Texture2D" uid="uid://hdordk6amk0e" path="res://Assets/rose-1.png" id="3_1oyv0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v1vrc"]
 size = Vector2(34, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1tqnp"]
+atlas = ExtResource("3_1oyv0")
+region = Rect2(0, 0, 261, 293)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36pvy"]
+atlas = ExtResource("3_1oyv0")
+region = Rect2(261, 0, 261, 293)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4tj5"]
+atlas = ExtResource("3_1oyv0")
+region = Rect2(0, 293, 261, 293)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4kmm"]
+atlas = ExtResource("3_1oyv0")
+region = Rect2(261, 293, 261, 293)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wx2i5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1tqnp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36pvy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u4tj5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e4kmm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
 
 [node name="Rose" type="Area2D"]
 script = ExtResource("1_o2c0a")
@@ -14,5 +51,12 @@ position = Vector2(-3, 1)
 shape = SubResource("RectangleShape2D_v1vrc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_v1vrc")
+
+[node name="Rose" type="AnimatedSprite2D" parent="."]
+position = Vector2(3, -6.77626e-21)
+scale = Vector2(0.154864, 0.154864)
+sprite_frames = SubResource("SpriteFrames_wx2i5")
+autoplay = "default"

@@ -13,8 +13,10 @@ extends CharacterBody2D
 var direction = 1
 var is_sad = false
 var first_ponder = true
-var scared_time = 1
 var has_hope = false
+
+var scared_time = 0;
+var airtime = 0.0;
 
 func _ready() -> void:
 	ponder_sadly()
@@ -31,17 +33,30 @@ func _physics_process(delta):
 			die_and_reset()
 			return
 		
-		if not is_on_floor():
+		if is_on_floor():
+			if is_sad:
+				velocity.x = 0
+			else:
+				velocity.x = speed * direction
+				if airtime > 0.3:
+					animator.play("Walking")
+				airtime = 0.0
+		else:
+			airtime += delta
 			velocity.y += gravity * delta
-		if not is_sad:
-			velocity.x = speed * direction
-		if is_sad and is_on_floor(): 
-			velocity.x = 0
-		if is_sad and not is_on_floor():
-			velocity.x = speed * direction / 3.0
-		if scared_time > 0:
+			if not is_sad:
+				velocity.x = speed * direction / 2.0
+			if scared_time > 0.0:
+				velocity.x *= 1.8
+			elif airtime > 0.6 and airtime <= 1.0:
+				animator.play('Startfall')
+			elif airtime > 1.0:
+				animator.play("Fall")
+			
+		if scared_time > 0.0:
 			scared_time -= delta
-			velocity.x /= 2
+			if scared_time <= 0.0:
+				animator.play("Walking")
 	move_and_slide()
 
 func ponder_sadly():
@@ -75,15 +90,15 @@ func die_and_reset():
 	get_tree().reload_current_scene()
 
 func frighten():
-	if is_on_floor():
-		velocity.y = -jump_strength
+	if is_on_floor() and not has_hope:
 		scared_time = 1.5
+		animator.play("Frighten")
+		velocity.y = -jump_strength
 		return true
 	else:
 		return false
 
 func find_hope():
-	print('yo')
 	velocity.x = 0
 	animator.play('FindHope')
 	has_hope = true
@@ -107,5 +122,4 @@ func _on_input_event(viewport: Node, event: InputEvent, _shape_idx: int) -> void
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if has_hope:
-		print('ueooo')
 		get_parent().next_level()
