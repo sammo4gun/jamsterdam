@@ -1,7 +1,6 @@
-[gd_scene load_steps=42 format=3 uid="uid://da0v2dmivg0yb"]
+[gd_scene load_steps=41 format=3 uid="uid://bn2rde0a3fsvk"]
 
 [ext_resource type="Script" uid="uid://d4imrgt4gaekp" path="res://Scripts/tutorial_screen.gd" id="1_b7hhi"]
-[ext_resource type="Texture2D" uid="uid://povxtku8nxul" path="res://Assets/backgroundpotential.png" id="2_cd03v"]
 [ext_resource type="Texture2D" uid="uid://bod1toiwijy0x" path="res://Assets/Spritesheets/ghostgirl-idle.png" id="3_cd03v"]
 [ext_resource type="Texture2D" uid="uid://bo5u4ycq1ett" path="res://Assets/pillar.png" id="4_elo14"]
 [ext_resource type="FontFile" uid="uid://datde377oev7l" path="res://Assets/Fonts/Peaberry/PeaberryBase.ttf" id="5_vscmb"]
@@ -240,13 +239,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_b7hhi")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 1280.0
-offset_bottom = 720.0
-texture = ExtResource("2_cd03v")
-expand_mode = 3
-
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 708.0
@@ -322,18 +314,11 @@ label_settings = SubResource("LabelSettings_hw43b")
 
 [node name="ContinueButton" type="Button" parent="."]
 custom_minimum_size = Vector2(250, 60)
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -125.0
-offset_top = -110.0
-offset_right = 125.0
-offset_bottom = -50.0
-grow_horizontal = 2
-grow_vertical = 0
+layout_mode = 0
+offset_left = 515.0
+offset_top = 625.0
+offset_right = 765.0
+offset_bottom = 685.0
 size_flags_horizontal = 4
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)

@@ -1,9 +1,12 @@
 extends Control
 
-@onready var settings_button: Button = $VBoxContainer/BackButton
+signal back_pressed
 
-func _ready():
-	settings_button.pressed.connect(_on_back_pressed)
+@onready var back_button = $VBoxContainer/BackButton
 
-func _on_back_pressed() -> void:
-	visible = false
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	back_button.pressed.connect(_on_button_pressed)
+
+func _on_button_pressed():
+	emit_signal("back_pressed")

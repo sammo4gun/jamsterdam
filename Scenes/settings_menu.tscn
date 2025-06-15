@@ -1,0 +1,111 @@
+[gd_scene load_steps=8 format=3 uid="uid://dvor3tnbimskh"]
+
+[ext_resource type="FontFile" uid="uid://datde377oev7l" path="res://Assets/Fonts/Peaberry/PeaberryBase.ttf" id="1_3etfd"]
+[ext_resource type="Script" uid="uid://d2xhx3j7ujbsu" path="res://Scripts/settings_menu.gd" id="1_rahb6"]
+[ext_resource type="Script" uid="uid://cij83h43g32m3" path="res://Scripts/volume_slider.gd" id="2_rahb6"]
+[ext_resource type="StyleBox" uid="uid://udx8w8gj8jd4" path="res://Assets/Styles/menu_button_hover.tres" id="3_fe37x"]
+[ext_resource type="StyleBox" uid="uid://c7gdts27yeh0l" path="res://Assets/Styles/menu_button_pressed.tres" id="4_jjs6x"]
+[ext_resource type="StyleBox" uid="uid://c4561pc5s4yn3" path="res://Assets/Styles/menu_button.tres" id="5_fsgis"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vv31b"]
+
+[node name="SettingsMenu" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_bottom = 32
+script = ExtResource("1_rahb6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_3etfd")
+theme_override_font_sizes/font_size = 60
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MasterVolumeContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/separation = 30
+
+[node name="Label" type="Label" parent="VBoxContainer/MasterVolumeContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_3etfd")
+theme_override_font_sizes/font_size = 24
+text = "Master Volume"
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/MasterVolumeContainer"]
+custom_minimum_size = Vector2(200, 24)
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 1.0
+script = ExtResource("2_rahb6")
+bus_name = "Master"
+
+[node name="SFXVolumeContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/separation = 30
+
+[node name="Label" type="Label" parent="VBoxContainer/SFXVolumeContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_3etfd")
+theme_override_font_sizes/font_size = 24
+text = "SFX Volume"
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/SFXVolumeContainer"]
+custom_minimum_size = Vector2(200, 24)
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 1.0
+script = ExtResource("2_rahb6")
+bus_name = "SFX"
+
+[node name="MusicVolumeContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/separation = 30
+
+[node name="Label" type="Label" parent="VBoxContainer/MusicVolumeContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_3etfd")
+theme_override_font_sizes/font_size = 24
+text = "Music Volume"
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/MusicVolumeContainer"]
+custom_minimum_size = Vector2(200, 24)
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 1.0
+script = ExtResource("2_rahb6")
+bus_name = "Music"
+
+[node name="BackButton" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vv31b")
+theme_override_styles/hover = ExtResource("3_fe37x")
+theme_override_styles/pressed = ExtResource("4_jjs6x")
+theme_override_styles/normal = ExtResource("5_fsgis")
+text = "Back"
